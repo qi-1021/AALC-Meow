@@ -3,7 +3,7 @@
         "doc": "战斗主循环入口：优先点击胜率连线（P键）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/battle/win_rate.png",
+            "template": "battle/win_rate.png",
             "threshold": 0.72
         },
         "action": "Click",
@@ -21,7 +21,7 @@
         "doc": "连线后点击右侧齿轮（Enter键）开始回合战斗",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/battle/gear_right.png",
+            "template": "battle/gear_right.png",
             "threshold": 0.72
         },
         "action": "Click",
@@ -38,7 +38,7 @@
         "doc": "回合战斗进行中检测：出现 turn 或战斗中待机时继续下回合",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/battle/turn.png",
+            "template": "battle/turn.png",
             "threshold": 0.70
         },
         "next": [
@@ -54,7 +54,7 @@
         "doc": "战斗中途如果出现异常事件选项，点击第一个选项继续",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/event/select_first_option_assets.png",
+            "template": "event/select_first_option_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -69,7 +69,7 @@
         "doc": "全军覆没或战斗失败时弹出认输确认，自动点击放弃退出重试",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/battle/give_up_assets.png",
+            "template": "battle/give_up_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -80,7 +80,7 @@
         "doc": "战斗结算确认（打完后点击结算弹窗）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/battle/battle_finish_confirm.png",
+            "template": "battle/battle_finish_confirm.png",
             "threshold": 0.72
         },
         "action": "Click",

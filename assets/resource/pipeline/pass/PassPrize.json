@@ -1,7 +1,7 @@
 {
     "PassPrizeStart": {
         "recognition": "TemplateMatch",
-        "template": "image/home/season.png",
+        "template": "home/season.png",
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
@@ -11,7 +11,7 @@
     },
     "PassEnterMissions": {
         "recognition": "TemplateMatch",
-        "template": "image/pass/missions.png",
+        "template": "pass/missions.png",
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
@@ -21,7 +21,7 @@
     },
     "PassClaimDailyCoin": {
         "recognition": "TemplateMatch",
-        "template": "image/pass/coin.png",
+        "template": "pass/coin.png",
         "action": "Click",
         "post_wait_freezes": 400,
         "next": [
@@ -31,7 +31,7 @@
     },
     "PassSwitchWeekly": {
         "recognition": "TemplateMatch",
-        "template": "image/pass/weekly.png",
+        "template": "pass/weekly.png",
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
@@ -41,7 +41,7 @@
     },
     "PassClaimWeeklyCoin": {
         "recognition": "TemplateMatch",
-        "template": "image/pass/coin.png",
+        "template": "pass/coin.png",
         "action": "Click",
         "post_wait_freezes": 400,
         "next": [
@@ -51,7 +51,7 @@
     },
     "PassReturnHome": {
         "recognition": "TemplateMatch",
-        "template": "image/home/back.png",
+        "template": "home/back.png",
         "action": "Click",
         "post_wait_freezes": 800,
         "next": [
@@ -60,6 +60,6 @@
     },
     "PassFinishCheck": {
         "recognition": "TemplateMatch",
-        "template": "image/home/drive.png"
+        "template": "home/drive.png"
     }
 }

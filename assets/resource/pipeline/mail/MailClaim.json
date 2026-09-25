@@ -1,7 +1,7 @@
 {
     "MailStart": {
         "recognition": "TemplateMatch",
-        "template": "image/home/mail.png",
+        "template": "home/mail.png",
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
@@ -11,7 +11,7 @@
     },
     "MailClaimAll": {
         "recognition": "TemplateMatch",
-        "template": "image/mail/claim_all.png",
+        "template": "mail/claim_all.png",
         "action": "Click",
         "post_wait_freezes": 800,
         "next": [
@@ -21,7 +21,7 @@
     },
     "MailConfirmPrize": {
         "recognition": "TemplateMatch",
-        "template": "image/mail/confirm.png",
+        "template": "mail/confirm.png",
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
@@ -30,7 +30,7 @@
     },
     "MailClose": {
         "recognition": "TemplateMatch",
-        "template": "image/mail/close.png",
+        "template": "mail/close.png",
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
@@ -39,6 +39,6 @@
     },
     "MailFinishCheck": {
         "recognition": "TemplateMatch",
-        "template": "image/home/mail.png"
+        "template": "home/mail.png"
     }
 }

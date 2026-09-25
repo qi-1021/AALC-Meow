@@ -3,7 +3,7 @@
         "doc": "从大厅点击进入镜牢（Drive 按钮）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/home/drive.png",
+            "template": "home/drive.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -20,7 +20,7 @@
         "doc": "识别到「进入镜牢」按钮后点击",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/enter_mirror_assets.png",
+            "template": "mirror/road_to_mir/enter_mirror_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -37,7 +37,7 @@
         "doc": "点击快速开始",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/quick_start_assets.png",
+            "template": "mirror/road_to_mir/quick_start_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -53,7 +53,7 @@
         "doc": "检测到镜牢队伍选择界面（select_team_stars_assets）后，进入编队选择流程",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/select_team_stars_assets.png",
+            "template": "mirror/road_to_mir/select_team_stars_assets.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
@@ -67,7 +67,7 @@
         "doc": "点击「编队」按钮打开队伍列表面板",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/battle/teams.png",
+            "template": "battle/teams.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -96,7 +96,7 @@
         "doc": "点击队伍确认按钮（select_team_confirm_assets）完成队伍选定",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/select_team_confirm_assets.png",
+            "template": "mirror/road_to_mir/select_team_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -112,7 +112,7 @@
         "doc": "检测到开局星光选择界面（dreaming_star/coins_assets.png）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/dreaming_star/coins_assets.png",
+            "template": "mirror/road_to_mir/dreaming_star/coins_assets.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
@@ -126,7 +126,7 @@
         "doc": "点击确认选定星光增益",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/dreaming_star/select_star_confirm_assets.png",
+            "template": "mirror/road_to_mir/dreaming_star/select_star_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -140,7 +140,7 @@
         "doc": "点击进入梦境星光确定按钮",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/dreaming_star/dreaming_star_enter_assets.png",
+            "template": "mirror/road_to_mir/dreaming_star/dreaming_star_enter_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -155,7 +155,7 @@
         "doc": "检测到开局自选3饰品界面（activate_gift_search_on/off）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/activate_gift_search_on_assets.png",
+            "template": "mirror/road_to_mir/activate_gift_search_on_assets.png",
             "threshold": 0.72
         },
         "action": "DoNothing",
@@ -182,7 +182,7 @@
         "doc": "点击初始藏品选定确认按钮（select_init_ego_gifts_confirm_assets）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/select_init_ego_gifts_confirm_assets.png",
+            "template": "mirror/road_to_mir/select_init_ego_gifts_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -197,7 +197,7 @@
         "doc": "检测到编队界面（identify_assets 锚点）后，先清空当前编队，然后按顺序点击罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/identify_assets.png",
+            "template": "teams/identify_assets.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
@@ -210,7 +210,7 @@
         "doc": "点击「清空编队」按钮",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/clear_selection_confirm.png",
+            "template": "teams/clear_selection_confirm.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -224,7 +224,7 @@
         "doc": "依次点击罪人出战",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/YiSang_assets.png",
+            "template": "teams/YiSang_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -236,7 +236,7 @@
     "SelectSinnerFaust": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Faust_assets.png",
+            "template": "teams/Faust_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -248,7 +248,7 @@
     "SelectSinnerDonQuixote": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/DonQuixote_assets.png",
+            "template": "teams/DonQuixote_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -260,7 +260,7 @@
     "SelectSinnerRyoshu": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Ryoshu_assets.png",
+            "template": "teams/Ryoshu_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -272,7 +272,7 @@
     "SelectSinnerMeursault": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Meursault_assets.png",
+            "template": "teams/Meursault_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -284,7 +284,7 @@
     "SelectSinnerHongLu": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/HongLu_assets.png",
+            "template": "teams/HongLu_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -296,7 +296,7 @@
     "SelectSinnerHeathcliff": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Heathcliff_assets.png",
+            "template": "teams/Heathcliff_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -308,7 +308,7 @@
     "SelectSinnerIshmael": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Ishmael_assets.png",
+            "template": "teams/Ishmael_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -320,7 +320,7 @@
     "SelectSinnerRodion": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Rodion_assets.png",
+            "template": "teams/Rodion_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -332,7 +332,7 @@
     "SelectSinnerSinclair": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Sinclair_assets.png",
+            "template": "teams/Sinclair_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -344,7 +344,7 @@
     "SelectSinnerOutis": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Outis_assets.png",
+            "template": "teams/Outis_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -356,7 +356,7 @@
     "SelectSinnerGregor": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Gregor_assets.png",
+            "template": "teams/Gregor_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -369,7 +369,7 @@
         "doc": "编队完成，点击「进入战斗」或等待进入镜牢地图",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/battle/chaim_to_battle.png",
+            "template": "battle/chaim_to_battle.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -383,7 +383,7 @@
         "doc": "确认难度选择（快速开始难度确认弹窗）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/level_confirm_assets.png",
+            "template": "mirror/road_to_mir/level_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -397,7 +397,7 @@
         "doc": "镜牢内主循环入口：识别地图（legend_assets），进入探索状态机",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/legend_assets.png",
+            "template": "mirror/road_in_mir/legend_assets.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
@@ -414,7 +414,7 @@
         "doc": "点击「进入」按钮前进到下一节点",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/enter_assets.png",
+            "template": "mirror/road_in_mir/enter_assets.png",
             "threshold": 0.72
         },
         "action": "Click",
@@ -427,7 +427,7 @@
         "doc": "确认获取 EGO 饰品",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/ego_gift_get_confirm_assets.png",
+            "template": "mirror/road_in_mir/ego_gift_get_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -440,7 +440,7 @@
         "doc": "遇到饰品卡选择界面：按 MirrorTheme option 选对应体系饰品，默认选第一个（最左）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift_card.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift_card.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
@@ -453,7 +453,7 @@
         "doc": "选择流血体系饰品（被 MirrorTheme=bleed 时通过 pipeline_override 激活）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift/bleed.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift/bleed.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -480,7 +480,7 @@
         "doc": "弹出拒绝/接受饰品确认时，点击接受",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift_box_assets.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift_box_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -493,7 +493,7 @@
         "doc": "识别到镜牢奖励领取界面，点击领取",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/claim_reward/claim_rewards_assets.png",
+            "template": "mirror/claim_reward/claim_rewards_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -507,7 +507,7 @@
         "doc": "如果出现「使用脑啡肽」弹窗，点击确认（续命）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/use_enkephalin.png",
+            "template": "mirror/use_enkephalin.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -520,7 +520,7 @@
         "doc": "镜牢奖励已全部领取，任务完成",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/claim_reward/rewards_acquired_assets.png",
+            "template": "mirror/claim_reward/rewards_acquired_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -530,7 +530,7 @@
         "doc": "点击顺位第 1 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/YiSang_assets.png",
+            "template": "teams/YiSang_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -543,7 +543,7 @@
         "doc": "点击顺位第 2 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Faust_assets.png",
+            "template": "teams/Faust_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -556,7 +556,7 @@
         "doc": "点击顺位第 3 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/DonQuixote_assets.png",
+            "template": "teams/DonQuixote_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -569,7 +569,7 @@
         "doc": "点击顺位第 4 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Ryoshu_assets.png",
+            "template": "teams/Ryoshu_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -582,7 +582,7 @@
         "doc": "点击顺位第 5 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Meursault_assets.png",
+            "template": "teams/Meursault_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -595,7 +595,7 @@
         "doc": "点击顺位第 6 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/HongLu_assets.png",
+            "template": "teams/HongLu_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -608,7 +608,7 @@
         "doc": "点击顺位第 7 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Heathcliff_assets.png",
+            "template": "teams/Heathcliff_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -621,7 +621,7 @@
         "doc": "点击顺位第 8 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Ishmael_assets.png",
+            "template": "teams/Ishmael_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -634,7 +634,7 @@
         "doc": "点击顺位第 9 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Rodion_assets.png",
+            "template": "teams/Rodion_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -647,7 +647,7 @@
         "doc": "点击顺位第 10 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Sinclair_assets.png",
+            "template": "teams/Sinclair_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -660,7 +660,7 @@
         "doc": "点击顺位第 11 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Outis_assets.png",
+            "template": "teams/Outis_assets.png",
             "threshold": 0.8
         },
         "action": "Click",
@@ -673,7 +673,7 @@
         "doc": "点击顺位第 12 位罪人",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/teams/Gregor_assets.png",
+            "template": "teams/Gregor_assets.png",
             "threshold": 0.8
         },
         "action": "Click",

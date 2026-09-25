@@ -1,7 +1,7 @@
 {
     "EventHandling": {
         "recognition": "TemplateMatch",
-        "template": "image/event/choices_assets.png",
+        "template": "event/choices_assets.png",
         "threshold": 0.7,
         "action": "DoNothing",
         "next": [
@@ -19,7 +19,7 @@
     },
     "EventVeryHigh": {
         "recognition": "TemplateMatch",
-        "template": "image/event/very_high.png",
+        "template": "event/very_high.png",
         "threshold": 0.72,
         "action": "Click",
         "post_delay": 800,
@@ -31,7 +31,7 @@
     },
     "EventHigh": {
         "recognition": "TemplateMatch",
-        "template": "image/event/high.png",
+        "template": "event/high.png",
         "threshold": 0.72,
         "action": "Click",
         "post_delay": 800,
@@ -43,7 +43,7 @@
     },
     "EventNormal": {
         "recognition": "TemplateMatch",
-        "template": "image/event/normal.png",
+        "template": "event/normal.png",
         "threshold": 0.72,
         "action": "Click",
         "post_delay": 800,
@@ -55,7 +55,7 @@
     },
     "EventLow": {
         "recognition": "TemplateMatch",
-        "template": "image/event/low.png",
+        "template": "event/low.png",
         "threshold": 0.72,
         "action": "Click",
         "post_delay": 800,
@@ -67,7 +67,7 @@
     },
     "EventVeryLow": {
         "recognition": "TemplateMatch",
-        "template": "image/event/very_low.png",
+        "template": "event/very_low.png",
         "threshold": 0.72,
         "action": "Click",
         "post_delay": 800,
@@ -79,7 +79,7 @@
     },
     "EventCommence": {
         "recognition": "TemplateMatch",
-        "template": "image/event/commence_assets.png",
+        "template": "event/commence_assets.png",
         "threshold": 0.7,
         "action": "Click",
         "post_delay": 1000,
@@ -90,14 +90,14 @@
     },
     "EventCommenceBattle": {
         "recognition": "TemplateMatch",
-        "template": "image/event/commence_battle_assets.png",
+        "template": "event/commence_battle_assets.png",
         "threshold": 0.7,
         "action": "Click",
         "post_delay": 1500
     },
     "EventProceed": {
         "recognition": "TemplateMatch",
-        "template": "image/event/proceed_assets.png",
+        "template": "event/proceed_assets.png",
         "threshold": 0.7,
         "action": "Click",
         "post_delay": 800,
@@ -107,7 +107,7 @@
     },
     "EventContinue": {
         "recognition": "TemplateMatch",
-        "template": "image/event/continue_assets.png",
+        "template": "event/continue_assets.png",
         "threshold": 0.7,
         "action": "Click",
         "post_delay": 800

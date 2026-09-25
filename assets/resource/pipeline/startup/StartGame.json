@@ -15,7 +15,7 @@
         "doc": "等待游戏主界面出现。识别大厅的体力槽图标，最多等待 120 秒。",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/home/enkephalin_box.png",
+            "template": "home/enkephalin_box.png",
             "threshold": 0.7
         },
         "timeout": 120000,

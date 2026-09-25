@@ -3,7 +3,7 @@
         "doc": "镜牢探索主循环：循环检测当前状态并分发到对应处理节点",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/legend_assets.png",
+            "template": "mirror/road_in_mir/legend_assets.png",
             "threshold": 0.70
         },
         "action": "DoNothing",
@@ -26,7 +26,7 @@
         "doc": "只打三层速刷退出逻辑：由 Floor3Exit option 激活后，在地图界面点击右上角设置图标",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/setting_assets.png",
+            "template": "mirror/road_in_mir/setting_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -40,7 +40,7 @@
         "doc": "在设置菜单中点击「放弃/认输」按钮",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/forfeit_assets.png",
+            "template": "mirror/road_in_mir/forfeit_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -54,7 +54,7 @@
         "doc": "二次确认放弃，直接进入奖励结算页",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/towindow&forfeit_confirm_assets.png",
+            "template": "mirror/road_in_mir/towindow&forfeit_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -68,7 +68,7 @@
         "doc": "在地图上点击「进入」按钮前往下一节点",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/enter_assets.png",
+            "template": "mirror/road_in_mir/enter_assets.png",
             "threshold": 0.72
         },
         "action": "Click",
@@ -83,7 +83,7 @@
         "doc": "检测到楼层主题包选择页面（feature_theme_pack_assets）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/theme_pack/feature_theme_pack_assets.png",
+            "template": "mirror/theme_pack/feature_theme_pack_assets.png",
             "threshold": 0.72
         },
         "action": "DoNothing",
@@ -107,7 +107,7 @@
         "doc": "若卡包不理想，点击刷新主题包按钮",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/theme_pack/refresh_assets.png",
+            "template": "mirror/theme_pack/refresh_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -119,7 +119,7 @@
         "doc": "检测到奖励卡选择界面（encounter reward card）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/get_reward_card/get_reward_card_confirm_assets.png",
+            "template": "mirror/get_reward_card/get_reward_card_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
@@ -137,7 +137,7 @@
         "doc": "优先选择星光奖励卡",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/get_reward_card/gain_starlight.png",
+            "template": "mirror/get_reward_card/gain_starlight.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -149,7 +149,7 @@
         "doc": "选择含 EGO 饰品的奖励卡",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/get_reward_card/gain_ego.png",
+            "template": "mirror/get_reward_card/gain_ego.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -161,7 +161,7 @@
         "doc": "选择含经费（Cost）的奖励卡",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/get_reward_card/gain_cost.png",
+            "template": "mirror/get_reward_card/gain_cost.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -173,7 +173,7 @@
         "doc": "选择经费与 EGO 复合奖励卡",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/get_reward_card/gain_cost_and_ego.png",
+            "template": "mirror/get_reward_card/gain_cost_and_ego.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -185,7 +185,7 @@
         "doc": "选择自我资源奖励卡",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/get_reward_card/gain_ego_resource.png",
+            "template": "mirror/get_reward_card/gain_ego_resource.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -207,7 +207,7 @@
         "doc": "点击奖励卡确认按钮",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/get_reward_card/get_reward_card_confirm_assets.png",
+            "template": "mirror/get_reward_card/get_reward_card_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -222,7 +222,7 @@
         "doc": "如果弹出「继续选择」按钮，点击继续",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/get_reward_card/continue_choosing_assets.png",
+            "template": "mirror/get_reward_card/continue_choosing_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -234,7 +234,7 @@
         "doc": "检测到 EGO 饰品卡选择界面，按体系挑选或默认第一个",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift_card.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift_card.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
@@ -253,7 +253,7 @@
     "MirrorEgoGiftPickBleed": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift/bleed.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift/bleed.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -263,7 +263,7 @@
     "MirrorEgoGiftPickTremor": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift/tremor.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift/tremor.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -273,7 +273,7 @@
     "MirrorEgoGiftPickRupture": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift/rupture.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift/rupture.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -283,7 +283,7 @@
     "MirrorEgoGiftPickSinking": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift/sinking.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift/sinking.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -293,7 +293,7 @@
     "MirrorEgoGiftPickCharge": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift/charge.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift/charge.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -303,7 +303,7 @@
     "MirrorEgoGiftPickPoise": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift/poise.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift/poise.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -313,7 +313,7 @@
     "MirrorEgoGiftPickBurn": {
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift/burn.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift/burn.png",
             "threshold": 0.78
         },
         "action": "Click",
@@ -335,7 +335,7 @@
         "doc": "饰品选择后出现「接受/拒绝」弹窗，默认接受",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/acquire_ego_gift_box_assets.png",
+            "template": "mirror/road_in_mir/acquire_ego_gift_box_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -347,7 +347,7 @@
         "doc": "确认获得 EGO 饰品弹窗",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/ego_gift_get_confirm_assets.png",
+            "template": "mirror/road_in_mir/ego_gift_get_confirm_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -359,7 +359,7 @@
         "doc": "检测到商店界面",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/shop.png",
+            "template": "mirror/road_in_mir/shop.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
@@ -373,7 +373,7 @@
         "doc": "进店自动点击全员治疗（由 MirrorShopStrategy option 决定是否启用）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/shop/heal_sinner/heal_all_sinner_assets.png",
+            "template": "mirror/shop/heal_sinner/heal_all_sinner_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -388,7 +388,7 @@
         "doc": "治疗后点击返回商店主界面",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/shop/heal_sinner/heal_sinner_return_assets.png",
+            "template": "mirror/shop/heal_sinner/heal_sinner_return_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -400,7 +400,7 @@
         "doc": "点击离开商店按钮",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/leave_shop_confirm.png",
+            "template": "mirror/leave_shop_confirm.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -412,7 +412,7 @@
         "doc": "检测到镜牢事件界面，转交 EventHandling 处理",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/event.png",
+            "template": "mirror/road_in_mir/event.png",
             "threshold": 0.72
         },
         "action": "DoNothing",
@@ -426,7 +426,7 @@
         "doc": "镜牢结束，点击领取奖励",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/claim_reward/claim_rewards_assets.png",
+            "template": "mirror/claim_reward/claim_rewards_assets.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -442,7 +442,7 @@
         "doc": "处理每周加成选项（weekly_bonuses）",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/claim_reward/weekly_bonuses.png",
+            "template": "mirror/claim_reward/weekly_bonuses.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -457,7 +457,7 @@
         "doc": "使用脑啡肽续命确认",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/use_enkephalin.png",
+            "template": "mirror/use_enkephalin.png",
             "threshold": 0.75
         },
         "action": "Click",
@@ -469,7 +469,7 @@
         "doc": "奖励已领取确认按钮，任务完成",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/claim_reward/rewards_acquired_assets.png",
+            "template": "mirror/claim_reward/rewards_acquired_assets.png",
             "threshold": 0.75
         },
         "action": "Click",

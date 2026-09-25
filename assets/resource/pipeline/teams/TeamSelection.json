@@ -1,7 +1,7 @@
 {
     "ClearTeam": {
         "recognition": "TemplateMatch",
-        "template": "image/teams/clear_selection_confirm.png",
+        "template": "teams/clear_selection_confirm.png",
         "threshold": 0.75,
         "action": "Click",
         "post_delay": 500

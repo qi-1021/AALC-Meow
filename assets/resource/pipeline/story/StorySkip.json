@@ -1,7 +1,7 @@
 {
     "StoryAutoSkip": {
         "recognition": "TemplateMatch",
-        "template": "image/story/skip.png",
+        "template": "story/skip.png",
         "action": "Click",
         "post_wait_freezes": 400,
         "next": [
@@ -11,7 +11,7 @@
     },
     "StorySkipConfirm": {
         "recognition": "TemplateMatch",
-        "template": "image/story/skip_confirm.png",
+        "template": "story/skip_confirm.png",
         "action": "Click",
         "post_wait_freezes": 1000
     }
