@@ -31,7 +31,8 @@
             "description": "从大厅进入采光副本，自动选中最新等级经验本，自动拼刀战斗直至通关",
             "option": [
                 "LuxcavationCombatCount",
-                "BattleSkillStrategy"
+                "BattleSkillStrategy",
+                "TeamPresetNumber"
             ]
         },
         {
@@ -41,15 +42,18 @@
             "description": "从大厅进入采光副本，自动选中纽扣采光本最高等级并自动胜率拼刀战斗",
             "option": [
                 "LuxcavationCombatCount",
-                "BattleSkillStrategy"
+                "BattleSkillStrategy",
+                "TeamPresetNumber"
             ]
         },
         {
             "name": "MirrorDungeonQuick",
             "label": "镜牢快速开始挂机",
             "entry": "MirrorDungeonEntry",
-            "description": "从大厅进入镜牢，点击快速开始、难度确认并衔接自动拼刀战斗",
+            "description": "从大厅进入镜牢，自动选择编队、选择罪人、确认难度并全程挂机战斗与探索",
             "option": [
+                "MirrorTeamPreset",
+                "SinnerSelection",
                 "MirrorDifficulty",
                 "MirrorTheme",
                 "BattleSkillStrategy"
@@ -283,6 +287,98 @@
                 {
                     "name": "any",
                     "label": "不偏好，自动取最左项"
+                }
+            ]
+        },
+        "MirrorTeamPreset": {
+            "type": "select",
+            "label": "镜牢使用的编队预设",
+            "description": "选择进入镜牢时使用的编队编号（需在游戏内提前保存对应编队）",
+            "default_case": "1",
+            "cases": [
+                {
+                    "name": "1",
+                    "label": "编队 #1",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": { "type": "OCR", "text": ["编队#1"], "roi": [0, 0, 500, 1080] },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "2",
+                    "label": "编队 #2",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": { "type": "OCR", "text": ["编队#2"], "roi": [0, 0, 500, 1080] },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "3",
+                    "label": "编队 #3",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": { "type": "OCR", "text": ["编队#3"], "roi": [0, 0, 500, 1080] },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "4",
+                    "label": "编队 #4",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": { "type": "OCR", "text": ["编队#4"], "roi": [0, 0, 500, 1080] },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "5",
+                    "label": "编队 #5",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": { "type": "OCR", "text": ["编队#5"], "roi": [0, 0, 500, 1080] },
+                            "action": "Click"
+                        }
+                    }
+                }
+            ]
+        },
+        "TeamPresetNumber": {
+            "type": "select",
+            "label": "战斗使用的编队预设",
+            "description": "采光本等战斗任务中使用的编队编号",
+            "default_case": "1",
+            "cases": [
+                { "name": "1", "label": "编队 #1" },
+                { "name": "2", "label": "编队 #2" },
+                { "name": "3", "label": "编队 #3" },
+                { "name": "4", "label": "编队 #4" },
+                { "name": "5", "label": "编队 #5" }
+            ]
+        },
+        "SinnerSelection": {
+            "type": "select",
+            "label": "罪人出战阵容",
+            "description": "指定镜牢内战斗时自动选择哪些罪人上阵。选「全12人」会依次点击所有罪人头像。选「仅使用已保存编队」则跳过罪人逐个点击，直接沿用编队预设。",
+            "default_case": "preset_only",
+            "cases": [
+                {
+                    "name": "preset_only",
+                    "label": "仅使用已保存编队预设（推荐）",
+                    "pipeline_override": {
+                        "TeamFormationStart": {
+                            "next": ["TeamFormationConfirm"]
+                        }
+                    }
+                },
+                {
+                    "name": "all12",
+                    "label": "自动选全12名罪人（按模板匹配）"
                 }
             ]
         }

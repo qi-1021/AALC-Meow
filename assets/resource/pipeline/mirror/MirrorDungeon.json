@@ -1,44 +1,418 @@
 {
     "MirrorDungeonEntry": {
-        "recognition": "TemplateMatch",
-        "template": "home/drive.png",
-        "roi": [900, 580, 160, 110],
+        "doc": "从大厅点击进入镜牢（Drive 按钮）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/home/drive.png",
+            "roi": [900, 580, 160, 110],
+            "threshold": 0.75
+        },
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
             "MirrorClickEnter",
+            "MirrorSelectTeamScreen",
             "MirrorDungeonEntry"
         ]
     },
+
     "MirrorClickEnter": {
-        "recognition": "TemplateMatch",
-        "template": "mirror/enter_mirror.png",
-        "roi": [650, 420, 180, 130],
+        "doc": "识别到「进入镜牢」按钮后点击",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/enter_mirror_assets.png",
+            "threshold": 0.75
+        },
         "action": "Click",
         "post_wait_freezes": 800,
         "next": [
             "MirrorQuickStart",
+            "MirrorSelectTeamScreen",
             "MirrorLevelConfirm"
         ]
     },
+
     "MirrorQuickStart": {
-        "recognition": "TemplateMatch",
-        "template": "mirror/quick_start.png",
-        "roi": [850, 380, 380, 140],
+        "doc": "点击快速开始",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/quick_start_assets.png",
+            "roi": [850, 380, 380, 140],
+            "threshold": 0.75
+        },
         "action": "Click",
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": 1200,
         "next": [
+            "MirrorSelectTeamScreen",
             "MirrorLevelConfirm"
         ]
     },
-    "MirrorLevelConfirm": {
-        "recognition": "TemplateMatch",
-        "template": "mirror/level_confirm.png",
-        "roi": [680, 440, 150, 120],
+
+    "MirrorSelectTeamScreen": {
+        "doc": "检测到镜牢队伍选择界面（select_team_stars_assets）后，进入编队选择流程",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/select_team_stars_assets.png",
+            "threshold": 0.75
+        },
+        "action": "DoNothing",
+        "post_delay": 500,
+        "next": [
+            "MirrorOpenTeamPanel"
+        ]
+    },
+
+    "MirrorOpenTeamPanel": {
+        "doc": "点击「编队」按钮打开队伍列表面板",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/battle/teams.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 800,
+        "next": [
+            "MirrorSelectTeamByOCR",
+            "MirrorOpenTeamPanel"
+        ]
+    },
+
+    "MirrorSelectTeamByOCR": {
+        "doc": "用 OCR 找到对应编队名称（如「编队#1」）并点击。编队号由 MirrorTeamPreset option 的 pipeline_override 注入。",
+        "recognition": {
+            "type": "OCR",
+            "text": ["编队#1"],
+            "roi": [0, 0, 500, 1080]
+        },
+        "action": "Click",
+        "post_wait_freezes": 600,
+        "next": [
+            "MirrorConfirmTeamSelect",
+            "MirrorSelectTeamByOCR"
+        ]
+    },
+
+    "MirrorConfirmTeamSelect": {
+        "doc": "点击「确认队伍」按钮完成镜牢队伍选择，进入编队界面配置罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/select_team_stars_assets.png",
+            "threshold": 0.75
+        },
+        "action": "DoNothing",
+        "next": [
+            "TeamFormationStart",
+            "MirrorLevelConfirm"
+        ]
+    },
+
+    "TeamFormationStart": {
+        "doc": "检测到编队界面（identify_assets 锚点）后，先清空当前编队，然后按顺序点击罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/identify_assets.png",
+            "threshold": 0.75
+        },
+        "action": "DoNothing",
+        "post_delay": 300,
+        "next": [
+            "ClearCurrentTeam"
+        ]
+    },
+
+    "ClearCurrentTeam": {
+        "doc": "点击「清空编队」按钮",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/clear_selection_confirm.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "SelectSinnerYiSang",
+            "ClearCurrentTeam"
+        ]
+    },
+
+    "SelectSinnerYiSang": {
+        "doc": "在编队格子中点击李想（Yi Sang）。通过 SinnerOrder option 的 pipeline_override 控制哪些罪人被选择。",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/YiSang_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerFaust"]
+    },
+    "SelectSinnerFaust": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Faust_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerDonQuixote"]
+    },
+    "SelectSinnerDonQuixote": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/DonQuixote_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerRyoshu"]
+    },
+    "SelectSinnerRyoshu": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Ryoshu_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerMeursault"]
+    },
+    "SelectSinnerMeursault": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Meursault_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerHongLu"]
+    },
+    "SelectSinnerHongLu": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/HongLu_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerHeathcliff"]
+    },
+    "SelectSinnerHeathcliff": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Heathcliff_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerIshmael"]
+    },
+    "SelectSinnerIshmael": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Ishmael_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerRodion"]
+    },
+    "SelectSinnerRodion": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Rodion_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerSinclair"]
+    },
+    "SelectSinnerSinclair": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Sinclair_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerOutis"]
+    },
+    "SelectSinnerOutis": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Outis_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["SelectSinnerGregor"]
+    },
+    "SelectSinnerGregor": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Gregor_assets.png",
+            "threshold": 0.80
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": ["TeamFormationConfirm"]
+    },
+
+    "TeamFormationConfirm": {
+        "doc": "编队完成，点击「进入战斗」或等待进入镜牢地图",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/battle/chaim_to_battle.png",
+            "threshold": 0.75
+        },
         "action": "Click",
         "post_wait_freezes": 1000,
         "next": [
+            "MirrorLevelConfirm",
             "BattleAutoCombat"
         ]
+    },
+
+    "MirrorLevelConfirm": {
+        "doc": "确认难度选择（快速开始难度确认弹窗）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/level_confirm_assets.png",
+            "roi": [680, 440, 150, 120],
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "MirrorInDungeon",
+            "BattleAutoCombat"
+        ]
+    },
+
+    "MirrorInDungeon": {
+        "doc": "镜牢内主循环入口：识别地图（legend_assets），进入探索状态机",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/legend_assets.png",
+            "threshold": 0.75
+        },
+        "action": "DoNothing",
+        "next": [
+            "MirrorClickNode",
+            "MirrorEgoGiftGetConfirm",
+            "MirrorAcquireEgoGiftCard",
+            "MirrorClaimReward",
+            "BattleAutoCombat",
+            "MirrorInDungeon"
+        ]
+    },
+
+    "MirrorClickNode": {
+        "doc": "点击「进入」按钮前进到下一节点",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/enter_assets.png",
+            "threshold": 0.72
+        },
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["MirrorInDungeon"]
+    },
+
+    "MirrorEgoGiftGetConfirm": {
+        "doc": "确认获取 EGO 饰品",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/ego_gift_get_confirm_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 800,
+        "next": ["MirrorInDungeon"]
+    },
+
+    "MirrorAcquireEgoGiftCard": {
+        "doc": "遇到饰品卡选择界面：按 MirrorTheme option 选对应体系饰品，默认选第一个（最左）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/acquire_ego_gift_card.png",
+            "threshold": 0.75
+        },
+        "action": "DoNothing",
+        "next": [
+            "MirrorPickEgoGiftBleed",
+            "MirrorPickEgoGiftFirst"
+        ]
+    },
+
+    "MirrorPickEgoGiftBleed": {
+        "doc": "选择流血体系饰品（被 MirrorTheme=bleed 时通过 pipeline_override 激活）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/acquire_ego_gift/bleed.png",
+            "threshold": 0.78
+        },
+        "action": "Click",
+        "post_delay": 800,
+        "next": ["MirrorRefuseOrConfirmGift"]
+    },
+
+    "MirrorPickEgoGiftFirst": {
+        "doc": "无匹配体系时，直接点击第一个饰品（屏幕固定坐标，通用 fallback）",
+        "action": {
+            "type": "Click",
+            "target": [650, 540]
+        },
+        "post_delay": 800,
+        "next": ["MirrorRefuseOrConfirmGift"]
+    },
+
+    "MirrorRefuseOrConfirmGift": {
+        "doc": "弹出拒绝/接受饰品确认时，点击接受",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/acquire_ego_gift_box_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 600,
+        "next": ["MirrorInDungeon"]
+    },
+
+    "MirrorClaimReward": {
+        "doc": "识别到镜牢奖励领取界面，点击领取",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/claim_reward/claim_rewards_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "MirrorUseEnkephalinConfirm",
+            "MirrorRewardAcquiredDone"
+        ]
+    },
+
+    "MirrorUseEnkephalinConfirm": {
+        "doc": "如果出现「使用脑啡肽」弹窗，点击确认（续命）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/use_enkephalin.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["MirrorInDungeon"]
+    },
+
+    "MirrorRewardAcquiredDone": {
+        "doc": "镜牢奖励已全部领取，任务完成",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/claim_reward/rewards_acquired_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 1000
     }
 }
