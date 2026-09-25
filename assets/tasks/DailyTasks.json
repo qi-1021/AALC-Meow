@@ -4,72 +4,82 @@
             "name": "StartGame",
             "label": "启动边狱公司",
             "entry": "StartLimbusCompany",
-            "description": "在手机上自动启动边狱公司游戏，支持 Google Play 官服和 OurPlay 容器等不同包名",
+            "description": "在手机上自动启动边狱公司游戏，支持 Google Play 官服与各类容器包名",
             "option": [
-                "GamePackageName"
+                "game_package_name"
             ]
         },
         {
-            "name": "EnkephalinModule",
-            "label": "体力全换脑啡肽模块",
-            "entry": "EnkephalinModuleStart",
-            "description": "自动在主界面点击体力槽，选择全部兑换并将体力转换为脑啡肽模块",
-            "option": [
-                "UseLunacyToEnkephalin"
-            ]
-        },
-        {
-            "name": "PassPrize",
-            "label": "通行证日常与周常奖励",
-            "entry": "PassPrizeStart",
-            "description": "自动从大厅进入赛季通行证，自动领取日常及周常任务的所有经验金币"
-        },
-        {
-            "name": "LuxcavationEXP",
-            "label": "经验采光本自动刷取",
+            "name": "daily_task",
+            "label": "日常本",
             "entry": "LuxcavationEntry",
-            "description": "从大厅进入采光副本，自动选中最新等级经验本，自动拼刀战斗直至通关",
+            "description": "进行经验采光本与纽扣采光本的自动化刷取",
             "option": [
-                "LuxcavationCombatCount",
-                "BattleSkillStrategy",
-                "TeamPresetNumber"
-            ]
-        },
-        {
-            "name": "LuxcavationThread",
-            "label": "纽扣采光本自动刷取",
-            "entry": "LuxcavationEntry",
-            "description": "从大厅进入采光副本，自动选中纽扣采光本最高等级并自动胜率拼刀战斗",
-            "option": [
-                "LuxcavationCombatCount",
-                "BattleSkillStrategy",
-                "TeamPresetNumber"
-            ]
-        },
-        {
-            "name": "MirrorDungeonQuick",
-            "label": "镜牢快速开始挂机",
-            "entry": "MirrorDungeonEntry",
-            "description": "从大厅进入镜牢，自动选择编队、选择罪人、确认难度并全程挂机战斗与探索",
-            "option": [
-                "MirrorTeamPreset",
-                "SinnerSelection",
-                "ChooseOpeningBonus",
-                "ChooseOpeningItems",
-                "Floor3Exit",
-                "MirrorShopStrategy",
-                "MirrorRewardCardPreference",
-                "MirrorWeeklyBonus",
-                "MirrorDifficulty",
-                "MirrorTheme",
+                "set_EXP_count",
+                "set_thread_count",
+                "daily_teams",
+                "use_continuous_combat",
+                "use_continuous_combat_select",
                 "BattleSkillStrategy"
             ]
         },
         {
-            "name": "MailClaim",
-            "label": "一键领取邮箱奖励",
-            "entry": "MailStart",
-            "description": "自动从大厅进入邮箱，点击全部领取并确认关闭"
+            "name": "mirror",
+            "label": "自动镜牢",
+            "entry": "MirrorDungeonEntry",
+            "description": "进行自动镜牢探索、战斗、开局选星光与饰品、楼层卡包以及奖励结算",
+            "option": [
+                "set_mirror_count",
+                "hard_mirror",
+                "no_weekly_bonuses",
+                "hard_mirror_single_bonuses",
+                "save_rewards",
+                "floor_3_exit",
+                "infinite_dungeons",
+                "select_event_pack",
+                "skip_event_pack",
+                "re_claim_rewards",
+                "not_skip_whitegossypium",
+                "fight_to_last_man",
+                "daily_teams",
+                "team_system",
+                "shop_strategy",
+                "reward_cards",
+                "choose_opening_bonus",
+                "opening_items",
+                "avoid_skill_3",
+                "defense_first_round",
+                "sinner_selection"
+            ]
+        },
+        {
+            "name": "buy_enkephalin",
+            "label": "自动购买体力",
+            "entry": "EnkephalinModuleStart",
+            "description": "狂气换体与脑啡肽模块转换",
+            "option": [
+                "set_lunacy_to_enkephalin",
+                "Dr_Grandet_mode",
+                "skip_enkephalin"
+            ]
+        },
+        {
+            "name": "get_reward",
+            "label": "自动获取奖励",
+            "entry": "PassPrizeStart",
+            "description": "领取邮件和通行证日常与周常奖励",
+            "option": [
+                "set_get_prize"
+            ]
+        },
+        {
+            "name": "infinite_battle",
+            "label": "无限战斗",
+            "entry": "BattleAutoCombat",
+            "description": "折射轨道与主线关卡无限胜率连线挂机战斗",
+            "option": [
+                "BattleSkillStrategy"
+            ]
         },
         {
             "name": "StoryAutoSkip",
@@ -78,48 +88,14 @@
             "description": "在剧情播放过程中自动检测并点击右上角跳过按钮与二次确认"
         },
         {
-            "name": "BattleAutoCombat",
-            "label": "战斗自动胜率连线",
-            "entry": "BattleAutoCombat",
-            "description": "在战斗界面自动点击P（胜率拼刀）并转动齿轮开始回合，直至战斗结算确认",
-            "option": [
-                "BattleSkillStrategy"
-            ]
-        },
-        {
             "name": "BackInitMenu",
-            "label": "异常救援·一键返回大厅",
+            "label": "异常救援·返回大厅",
             "entry": "BackInitMenu",
             "description": "全局救援与状态回退：自动跳过剧情、投降逃离异常战斗、关闭公告弹窗并返回主界面大厅"
-        },
-        {
-            "name": "EventHandling",
-            "label": "事件高成功率自动判定",
-            "entry": "EventHandling",
-            "description": "遇到镜牢/主线事件时，自动检测成功率最高的罪人进行判定与推进"
-        },
-        {
-            "name": "MirrorExploration",
-            "label": "镜牢推进与奖励结算",
-            "entry": "MirrorDungeonExploration",
-            "description": "镜牢内自动点击进入前进节点、确认获取奖励卡包、饰品箱判定与离开商店",
-            "option": [
-                "Floor3Exit",
-                "MirrorShopStrategy",
-                "MirrorRewardCardPreference",
-                "MirrorRewardPreference",
-                "MirrorWeeklyBonus"
-            ]
-        },
-        {
-            "name": "ClearTeamSelection",
-            "label": "罪人编队快速清空",
-            "entry": "ClearTeam",
-            "description": "在编队界面一键清空当前出战的罪人席位"
         }
     ],
     "option": {
-        "GamePackageName": {
+        "game_package_name": {
             "type": "select",
             "label": "游戏包名/启动方式",
             "description": "选择边狱公司的安装来源或容器类型。若游戏已在后台运行则选最后一项",
@@ -127,188 +103,71 @@
             "cases": [
                 {
                     "name": "official",
-                    "label": "Google Play 官服 (com.ProjectMoon.LimbusCompany)",
+                    "label": "Google Play 官方包 (com.ProjectMoon.LimbusCompany)",
                     "pipeline_override": {
                         "StartLimbusCompany": {
-                            "action": {
-                                "type": "StartApp",
-                                "param": {
-                                    "package": "com.ProjectMoon.LimbusCompany"
-                                }
-                            }
+                            "action": { "type": "StartApp", "package": "com.ProjectMoon.LimbusCompany" }
                         }
                     }
                 },
                 {
                     "name": "ourplay",
-                    "label": "OurPlay 容器 (com.ourplay.limbuscompany)",
+                    "label": "OurPlay 容器版 (com.ourplay.limbuscompany)",
                     "pipeline_override": {
                         "StartLimbusCompany": {
-                            "action": {
-                                "type": "StartApp",
-                                "param": {
-                                    "package": "com.ourplay.limbuscompany"
-                                }
-                            }
+                            "action": { "type": "StartApp", "package": "com.ourplay.limbuscompany" }
                         }
                     }
                 },
                 {
-                    "name": "already_running",
-                    "label": "游戏已在后台运行，跳过启动",
+                    "name": "skip",
+                    "label": "跳过启动（游戏已在前台或手动开启）",
                     "pipeline_override": {
                         "StartLimbusCompany": {
-                            "next": []
+                            "action": "DoNothing",
+                            "next": ["WaitLimbusHomeScreen", "StartGameSuccess"]
                         }
                     }
                 }
             ]
         },
-        "LuxcavationCombatCount": {
+        "set_EXP_count": {
             "type": "select",
-            "label": "连续战斗刷取次数",
-            "description": "设置采光副本自动执行的连续战斗次数",
+            "label": "经验本次数",
+            "description": "设置日常刷取经验采光副本的连续战斗次数",
+            "default_case": "1",
+            "cases": [
+                { "name": "0", "label": "0 次（不刷）" },
+                { "name": "1", "label": "1 次" },
+                { "name": "2", "label": "2 次" },
+                { "name": "3", "label": "3 次" },
+                { "name": "5", "label": "5 次" },
+                { "name": "10", "label": "10 次" }
+            ]
+        },
+        "set_thread_count": {
+            "type": "select",
+            "label": "纽本次数",
+            "description": "设置日常刷取纽扣采光副本的连续战斗次数",
+            "default_case": "3",
+            "cases": [
+                { "name": "0", "label": "0 次（不刷）" },
+                { "name": "1", "label": "1 次" },
+                { "name": "2", "label": "2 次" },
+                { "name": "3", "label": "3 次（推荐每日打满）" },
+                { "name": "5", "label": "5 次" },
+                { "name": "10", "label": "10 次" }
+            ]
+        },
+        "daily_teams": {
+            "type": "select",
+            "label": "使用编队",
+            "description": "选择战斗与镜牢使用的队伍序号（需在游戏内提前预设保存）",
             "default_case": "1",
             "cases": [
                 {
                     "name": "1",
-                    "label": "单次作战 (1次)"
-                },
-                {
-                    "name": "2",
-                    "label": "连续作战 (2次)"
-                },
-                {
-                    "name": "3",
-                    "label": "连续作战 (3次)"
-                },
-                {
-                    "name": "5",
-                    "label": "连续作战 (5次)"
-                }
-            ]
-        },
-        "UseLunacyToEnkephalin": {
-            "type": "switch",
-            "label": "是否消耗狂气购买体力",
-            "description": "开启后，若自然体力不足或设为狂气模式，将自动点击狂气补充",
-            "default_case": "No",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "label": "是"
-                },
-                {
-                    "name": "No",
-                    "label": "否"
-                }
-            ]
-        },
-        "BattleSkillStrategy": {
-            "type": "select",
-            "label": "战斗技能策略",
-            "description": "选择自动战斗时的技能使用策略，影响拼刀时的技能档位选择",
-            "default_case": "win_rate",
-            "cases": [
-                {
-                    "name": "win_rate",
-                    "label": "胜率全选（自动选最高胜率档）"
-                },
-                {
-                    "name": "avoid_3skill",
-                    "label": "避免3技能（节省技能槽）"
-                },
-                {
-                    "name": "first_round_def",
-                    "label": "首回合全防御（降低首轮损耗）"
-                }
-            ]
-        },
-        "MirrorDifficulty": {
-            "type": "select",
-            "label": "镜牢难度",
-            "description": "快速开始时选择镜牢的挑战难度",
-            "default_case": "normal",
-            "cases": [
-                {
-                    "name": "normal",
-                    "label": "普通难度"
-                },
-                {
-                    "name": "hard",
-                    "label": "困难难度"
-                }
-            ]
-        },
-        "MirrorTheme": {
-            "type": "select",
-            "label": "镜牢主题/体系偏好",
-            "description": "快速开始时选择镜牢的体系流派，无偏好则随机",
-            "default_case": "none",
-            "cases": [
-                {
-                    "name": "none",
-                    "label": "无偏好（随机）"
-                },
-                {
-                    "name": "bleed",
-                    "label": "流血体系"
-                },
-                {
-                    "name": "tremor",
-                    "label": "震颤体系"
-                },
-                {
-                    "name": "rupture",
-                    "label": "破裂体系"
-                },
-                {
-                    "name": "sinking",
-                    "label": "沉沦体系"
-                },
-                {
-                    "name": "charge",
-                    "label": "充能体系"
-                },
-                {
-                    "name": "poise",
-                    "label": "呼吸体系"
-                },
-                {
-                    "name": "burn",
-                    "label": "燃烧体系"
-                }
-            ]
-        },
-        "MirrorRewardPreference": {
-            "type": "select",
-            "label": "镜牢奖励偏好",
-            "description": "在镜牢探索结算时优先选取哪类奖励",
-            "default_case": "ego_gift",
-            "cases": [
-                {
-                    "name": "ego_gift",
-                    "label": "优先取饰品（EGO礼物）"
-                },
-                {
-                    "name": "ego_resource",
-                    "label": "优先取自我资源"
-                },
-                {
-                    "name": "any",
-                    "label": "不偏好，自动取最左项"
-                }
-            ]
-        },
-        "MirrorTeamPreset": {
-            "type": "select",
-            "label": "镜牢使用的编队预设",
-            "description": "选择进入镜牢时使用的编队编号（需在游戏内提前保存对应编队）",
-            "default_case": "1",
-            "cases": [
-                {
-                    "name": "1",
-                    "label": "编队 #1",
+                    "label": "Team1 (编队#1)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
                             "recognition": { "type": "OCR", "text": ["编队#1"], "roi": [0, 0, 500, 1080] },
@@ -318,7 +177,7 @@
                 },
                 {
                     "name": "2",
-                    "label": "编队 #2",
+                    "label": "Team2 (编队#2)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
                             "recognition": { "type": "OCR", "text": ["编队#2"], "roi": [0, 0, 500, 1080] },
@@ -328,7 +187,7 @@
                 },
                 {
                     "name": "3",
-                    "label": "编队 #3",
+                    "label": "Team3 (编队#3)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
                             "recognition": { "type": "OCR", "text": ["编队#3"], "roi": [0, 0, 500, 1080] },
@@ -338,7 +197,7 @@
                 },
                 {
                     "name": "4",
-                    "label": "编队 #4",
+                    "label": "Team4 (编队#4)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
                             "recognition": { "type": "OCR", "text": ["编队#4"], "roi": [0, 0, 500, 1080] },
@@ -348,7 +207,7 @@
                 },
                 {
                     "name": "5",
-                    "label": "编队 #5",
+                    "label": "Team5 (编队#5)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
                             "recognition": { "type": "OCR", "text": ["编队#5"], "roi": [0, 0, 500, 1080] },
@@ -358,91 +217,99 @@
                 }
             ]
         },
-        "TeamPresetNumber": {
+        "use_continuous_combat": {
+            "type": "switch",
+            "label": "是否使用连续作战",
+            "description": "开启后将在采光本结算时自动点击连续作战继续下一场",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "use_continuous_combat_select": {
             "type": "select",
-            "label": "战斗使用的编队预设",
-            "description": "采光本等战斗任务中使用的编队编号",
+            "label": "一场连续作战的最大次数",
+            "description": "连续作战设定的单轮上限次数",
+            "default_case": "3",
+            "cases": [
+                { "name": "1", "label": "1 Times" },
+                { "name": "2", "label": "2 Times" },
+                { "name": "3", "label": "3 Times" },
+                { "name": "5", "label": "5 Times" },
+                { "name": "10", "label": "10 Times" }
+            ]
+        },
+        "set_mirror_count": {
+            "type": "select",
+            "label": "坐牢次数",
+            "description": "设置执行镜牢副本的轮次数量",
             "default_case": "1",
             "cases": [
-                { "name": "1", "label": "编队 #1" },
-                { "name": "2", "label": "编队 #2" },
-                { "name": "3", "label": "编队 #3" },
-                { "name": "4", "label": "编队 #4" },
-                { "name": "5", "label": "编队 #5" }
+                { "name": "1", "label": "1 次" },
+                { "name": "2", "label": "2 次" },
+                { "name": "3", "label": "3 次" },
+                { "name": "5", "label": "5 次" },
+                { "name": "10", "label": "10 次" }
             ]
         },
-        "SinnerSelection": {
+        "hard_mirror": {
             "type": "select",
-            "label": "罪人出战阵容",
-            "description": "指定镜牢内战斗时自动选择哪些罪人上阵。选「全12人」会依次点击所有罪人头像。选「仅使用已保存编队」则跳过罪人逐个点击，直接沿用编队预设。",
-            "default_case": "preset_only",
+            "label": "使用困难镜牢",
+            "description": "选择镜牢难度级别（普通难度 / 困难难度）",
+            "default_case": "normal",
             "cases": [
-                {
-                    "name": "preset_only",
-                    "label": "仅使用已保存编队预设（推荐）",
-                    "pipeline_override": {
-                        "TeamFormationStart": {
-                            "next": ["TeamFormationConfirm"]
-                        }
-                    }
-                },
-                {
-                    "name": "all12",
-                    "label": "自动选全12名罪人（按模板匹配）"
-                }
+                { "name": "normal", "label": "普通镜牢" },
+                { "name": "hard", "label": "使用困难镜牢" }
             ]
         },
-        "ChooseOpeningBonus": {
+        "no_weekly_bonuses": {
             "type": "switch",
-            "label": "自选开局星光增益",
-            "description": "进入镜牢时是否自动点选星光加成buff并确定",
-            "default_case": "Yes",
+            "label": "不使用每周加成",
+            "description": "结算时不消耗每周 3 次的狂气高倍加成，留存次数",
+            "default_case": "No",
             "cases": [
                 {
                     "name": "Yes",
-                    "label": "是（自动确认星光）"
-                },
-                {
-                    "name": "No",
-                    "label": "否（跳过星光选择）",
+                    "label": "不使用每周加成",
                     "pipeline_override": {
-                        "MirrorCheckDreamingStar": {
-                            "next": ["MirrorCheckInitEgoGift", "TeamFormationStart", "MirrorLevelConfirm"]
+                        "MirrorCheckWeeklyBonuses": {
+                            "next": ["MirrorRewardsAcquiredConfirm"]
                         }
                     }
-                }
+                },
+                { "name": "No", "label": "使用每周加成" }
             ]
         },
-        "ChooseOpeningItems": {
+        "hard_mirror_single_bonuses": {
             "type": "switch",
-            "label": "自选开局初始3饰品",
-            "description": "开局藏品搜索界面是否自动根据所选体系选定前3件饰品并确认",
-            "default_case": "Yes",
+            "label": "困牢单次加成",
+            "description": "困难镜牢结算时仅使用单次加成，保留剩余次数给周常",
+            "default_case": "No",
             "cases": [
-                {
-                    "name": "Yes",
-                    "label": "是（自动选定初始3饰品）"
-                },
-                {
-                    "name": "No",
-                    "label": "否（跳过初始饰品自选）",
-                    "pipeline_override": {
-                        "MirrorCheckInitEgoGift": {
-                            "next": ["TeamFormationStart", "MirrorLevelConfirm", "MirrorInDungeon"]
-                        }
-                    }
-                }
+                { "name": "Yes", "label": "开启单次加成" },
+                { "name": "No", "label": "关闭" }
             ]
         },
-        "Floor3Exit": {
+        "save_rewards": {
             "type": "switch",
-            "label": "只打三层速刷退出",
+            "label": "保存困牢奖励",
+            "description": "仅在困难镜牢时生效，打完通关后暂不领取奖励，保存在结算页",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "保存奖励" },
+                { "name": "No", "label": "直接领取" }
+            ]
+        },
+        "floor_3_exit": {
+            "type": "switch",
+            "label": "只打三层",
             "description": "开启后，镜牢进入第4层时自动点击设置->放弃并领取前3层奖励（通行证狂气最高性价比刷法）",
             "default_case": "No",
             "cases": [
                 {
                     "name": "Yes",
-                    "label": "开启（3层速刷退牢）",
+                    "label": "开启（只打三层退牢）",
                     "pipeline_override": {
                         "MirrorDungeonExploration": {
                             "next": [
@@ -456,7 +323,7 @@
                 },
                 {
                     "name": "No",
-                    "label": "关闭（通关全部楼层）",
+                    "label": "关闭（打满全层）",
                     "pipeline_override": {
                         "MirrorFloor3ExitAction": {
                             "next": ["ClickEnterNode"]
@@ -465,15 +332,149 @@
                 }
             ]
         },
-        "MirrorShopStrategy": {
+        "infinite_dungeons": {
+            "type": "switch",
+            "label": "无限坐牢",
+            "description": "循环不断刷镜牢，不限次数，直至体力或脑啡肽耗尽",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "无限坐牢" },
+                { "name": "No", "label": "按次数执行" }
+            ]
+        },
+        "select_event_pack": {
+            "type": "switch",
+            "label": "第五层选择（最左边）活动卡包",
+            "description": "在第五层楼层卡包选择时，强制优先选中最左侧的活动限定卡包",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "skip_event_pack": {
+            "type": "switch",
+            "label": "第五层跳过（最左边）活动卡包",
+            "description": "在第五层楼层卡包选择时，避开最左侧活动卡包，选择常规体系卡包",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "re_claim_rewards": {
+            "type": "switch",
+            "label": "再次领取奖励",
+            "description": "如果镜牢结算界面未完全领完，再次执行领取奖励动作",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "not_skip_whitegossypium": {
+            "type": "switch",
+            "label": "不跳过白棉花",
+            "description": "遇到带有白棉花负面效果的事件或饰品时不主动跳过，按需收取",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "fight_to_last_man": {
+            "type": "switch",
+            "label": "战斗直到全灭",
+            "description": "战斗中即使劣势或死人也不认输逃跑，战斗直至全员阵亡",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "team_system": {
             "type": "select",
-            "label": "镜牢商店进店策略",
-            "description": "遇到商店节点时的自动化行为",
-            "default_case": "heal_then_leave",
+            "label": "选择队伍体系",
+            "description": "选择队伍的核心词条体系，影响镜牢道中饰品与卡包推荐",
+            "default_case": "bleed",
             "cases": [
                 {
-                    "name": "heal_then_leave",
-                    "label": "全员治疗后离开（推荐）",
+                    "name": "burn",
+                    "label": "烧伤",
+                    "pipeline_override": {
+                        "MirrorAcquireEgoGiftCard": {
+                            "next": ["MirrorEgoGiftPickBurn", "MirrorEgoGiftPickFirst"]
+                        }
+                    }
+                },
+                {
+                    "name": "bleed",
+                    "label": "流血",
+                    "pipeline_override": {
+                        "MirrorAcquireEgoGiftCard": {
+                            "next": ["MirrorEgoGiftPickBleed", "MirrorEgoGiftPickFirst"]
+                        }
+                    }
+                },
+                {
+                    "name": "tremor",
+                    "label": "震颤",
+                    "pipeline_override": {
+                        "MirrorAcquireEgoGiftCard": {
+                            "next": ["MirrorEgoGiftPickTremor", "MirrorEgoGiftPickFirst"]
+                        }
+                    }
+                },
+                {
+                    "name": "rupture",
+                    "label": "破裂",
+                    "pipeline_override": {
+                        "MirrorAcquireEgoGiftCard": {
+                            "next": ["MirrorEgoGiftPickRupture", "MirrorEgoGiftPickFirst"]
+                        }
+                    }
+                },
+                {
+                    "name": "poise",
+                    "label": "呼吸",
+                    "pipeline_override": {
+                        "MirrorAcquireEgoGiftCard": {
+                            "next": ["MirrorEgoGiftPickPoise", "MirrorEgoGiftPickFirst"]
+                        }
+                    }
+                },
+                {
+                    "name": "sinking",
+                    "label": "沉沦",
+                    "pipeline_override": {
+                        "MirrorAcquireEgoGiftCard": {
+                            "next": ["MirrorEgoGiftPickSinking", "MirrorEgoGiftPickFirst"]
+                        }
+                    }
+                },
+                {
+                    "name": "charge",
+                    "label": "充能",
+                    "pipeline_override": {
+                        "MirrorAcquireEgoGiftCard": {
+                            "next": ["MirrorEgoGiftPickCharge", "MirrorEgoGiftPickFirst"]
+                        }
+                    }
+                },
+                { "name": "slash", "label": "斩击" },
+                { "name": "pierce", "label": "突刺" },
+                { "name": "blunt", "label": "打击" }
+            ]
+        },
+        "shop_strategy": {
+            "type": "select",
+            "label": "选择商店策略",
+            "description": "镜牢道中遇到商店时的策略",
+            "default_case": "heal",
+            "cases": [
+                {
+                    "name": "heal",
+                    "label": "优先全员治疗后离开（推荐）",
                     "pipeline_override": {
                         "MirrorHandleShop": {
                             "next": ["MirrorShopHealAll", "MirrorLeaveShop"]
@@ -481,8 +482,8 @@
                     }
                 },
                 {
-                    "name": "leave_directly",
-                    "label": "不治疗，直接离开",
+                    "name": "leave",
+                    "label": "直接离开（不消耗金币）",
                     "pipeline_override": {
                         "MirrorHandleShop": {
                             "next": ["MirrorLeaveShop"]
@@ -491,45 +492,51 @@
                 }
             ]
         },
-        "MirrorRewardCardPreference": {
+        "reward_cards": {
             "type": "select",
-            "label": "战后奖励卡优先类型",
-            "description": "镜牢战斗获胜后出现奖励卡牌时的优选顺序",
-            "default_case": "ego",
+            "label": "奖励卡优先度",
+            "description": "镜牢战后获得奖励卡牌时的选卡偏好顺序",
+            "default_case": "ego_first",
             "cases": [
                 {
-                    "name": "starlight",
-                    "label": "优先星光加成卡（gain_starlight）",
+                    "name": "starlight_first",
+                    "label": "星光→饰品→钱→饰品/钱→罪孽",
                     "pipeline_override": {
                         "MirrorHandleRewardCard": {
                             "next": [
                                 "MirrorRewardCardSelectStarlight",
                                 "MirrorRewardCardSelectEGO",
+                                "MirrorRewardCardSelectCost",
+                                "MirrorRewardCardSelectCostAndEGO",
+                                "MirrorRewardCardSelectEGOResource",
                                 "MirrorRewardCardSelectFirst"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "ego",
-                    "label": "优先饰品卡（gain_ego）",
+                    "name": "ego_first",
+                    "label": "饰品→钱→饰品/钱→罪孽→星光",
                     "pipeline_override": {
                         "MirrorHandleRewardCard": {
                             "next": [
                                 "MirrorRewardCardSelectEGO",
+                                "MirrorRewardCardSelectCost",
                                 "MirrorRewardCardSelectCostAndEGO",
+                                "MirrorRewardCardSelectEGOResource",
                                 "MirrorRewardCardSelectFirst"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "cost",
-                    "label": "优先经费卡（gain_cost）",
+                    "name": "cost_first",
+                    "label": "钱→饰品→饰品/钱→罪孽→星光",
                     "pipeline_override": {
                         "MirrorHandleRewardCard": {
                             "next": [
                                 "MirrorRewardCardSelectCost",
+                                "MirrorRewardCardSelectEGO",
                                 "MirrorRewardCardSelectCostAndEGO",
                                 "MirrorRewardCardSelectFirst"
                             ]
@@ -538,27 +545,164 @@
                 }
             ]
         },
-        "MirrorWeeklyBonus": {
-            "type": "select",
-            "label": "每周狂气/通行证加成领取策略",
-            "description": "镜牢通关结算时对每周 3 次高倍奖励的处理",
-            "default_case": "use_all",
+        "choose_opening_bonus": {
+            "type": "switch",
+            "label": "自选开局加成",
+            "description": "进入镜牢时是否自动点选星光加成buff并确定",
+            "default_case": "Yes",
             "cases": [
+                { "name": "Yes", "label": "是" },
                 {
-                    "name": "use_all",
-                    "label": "自动使用每周加成"
-                },
-                {
-                    "name": "save_bonus",
-                    "label": "留存加成（不勾选加成直接确认）",
+                    "name": "No",
+                    "label": "否",
                     "pipeline_override": {
-                        "MirrorCheckWeeklyBonuses": {
-                            "next": ["MirrorRewardsAcquiredConfirm"]
+                        "MirrorCheckDreamingStar": {
+                            "next": ["MirrorCheckInitEgoGift", "TeamFormationStart", "MirrorLevelConfirm"]
                         }
                     }
+                }
+            ]
+        },
+        "opening_items": {
+            "type": "switch",
+            "label": "自选开局饰品",
+            "description": "开局藏品搜索界面是否自动根据所选体系选定前3件饰品并确认",
+            "default_case": "Yes",
+            "cases": [
+                { "name": "Yes", "label": "是" },
+                {
+                    "name": "No",
+                    "label": "否",
+                    "pipeline_override": {
+                        "MirrorCheckInitEgoGift": {
+                            "next": ["TeamFormationStart", "MirrorLevelConfirm", "MirrorInDungeon"]
+                        }
+                    }
+                }
+            ]
+        },
+        "avoid_skill_3": {
+            "type": "switch",
+            "label": "链接战避免使用三技能",
+            "description": "战斗中留存三技能，防止强力技能被非必要消耗",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "defense_first_round": {
+            "type": "switch",
+            "label": "链接战第一回合全员防御",
+            "description": "开战第1回合全员点击防御格，调整状态并积累行动点",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "sinner_selection": {
+            "type": "select",
+            "label": "罪人编队模式",
+            "description": "仅使用已保存编队预设（推荐），或通过模板逐个点击12名罪人出战",
+            "default_case": "preset_only",
+            "cases": [
+                {
+                    "name": "preset_only",
+                    "label": "仅使用已保存编队预设（推荐）",
+                    "pipeline_override": {
+                        "TeamFormationStart": {
+                            "next": ["TeamFormationConfirm"]
+                        }
+                    }
+                },
+                {
+                    "name": "all12",
+                    "label": "逐个匹配全12名罪人出战"
+                }
+            ]
+        },
+        "set_lunacy_to_enkephalin": {
+            "type": "select",
+            "label": "狂气换体",
+            "description": "使用狂气购买体力的次数",
+            "default_case": "0",
+            "cases": [
+                { "name": "0", "label": "不换" },
+                { "name": "1", "label": "换第一次" },
+                { "name": "2", "label": "换第二次" },
+                { "name": "3", "label": "换第三次" }
+            ]
+        },
+        "Dr_Grandet_mode": {
+            "type": "switch",
+            "label": "葛朗台模式",
+            "description": "仅在自然体力达到满额溢出阈值时才兑换脑啡肽模块，精打细算模式",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "skip_enkephalin": {
+            "type": "switch",
+            "label": "不自动兑换脑啡肽 (?)",
+            "description": "勾选后除狂气换体以外不执行兑换脑啡肽的操作",
+            "default_case": "No",
+            "cases": [
+                { "name": "Yes", "label": "开启（跳过换模块）" },
+                { "name": "No", "label": "关闭" }
+            ]
+        },
+        "set_get_prize": {
+            "type": "select",
+            "label": "领取奖励",
+            "description": "选择领取的奖励范围",
+            "default_case": "0",
+            "cases": [
+                {
+                    "name": "0",
+                    "label": "邮件+日/周常"
+                },
+                {
+                    "name": "1",
+                    "label": "日/周常",
+                    "pipeline_override": {
+                        "PassPrizeStart": {
+                            "next": ["PassCoinClaim"]
+                        }
+                    }
+                },
+                {
+                    "name": "2",
+                    "label": "邮件",
+                    "pipeline_override": {
+                        "PassPrizeStart": {
+                            "next": ["MailStart"]
+                        }
+                    }
+                }
+            ]
+        },
+        "BattleSkillStrategy": {
+            "type": "select",
+            "label": "战斗操作策略",
+            "description": "回合开始时的连线逻辑",
+            "default_case": "win_rate_all",
+            "cases": [
+                {
+                    "name": "win_rate_all",
+                    "label": "胜率全选（P键自动连线，默认推荐）"
+                },
+                {
+                    "name": "defense_first",
+                    "label": "第一回合全员防御后拼胜率"
+                },
+                {
+                    "name": "avoid_s3",
+                    "label": "避让三技能"
                 }
             ]
         }
     }
 }
-
