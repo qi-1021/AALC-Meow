@@ -2,12 +2,6 @@
     "EnkephalinModuleStart": {
         "recognition": "TemplateMatch",
         "template": "image/home/enkephalin_box.png",
-        "roi": [
-            260,
-            580,
-            120,
-            120
-        ],
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
@@ -18,12 +12,6 @@
     "EnkephalinClickAllIn": {
         "recognition": "TemplateMatch",
         "template": "image/enkephalin/all_in.png",
-        "roi": [
-            750,
-            280,
-            120,
-            100
-        ],
         "action": "Click",
         "post_wait_freezes": 300,
         "next": [
@@ -34,12 +22,6 @@
     "EnkephalinClickConfirm": {
         "recognition": "TemplateMatch",
         "template": "image/enkephalin/confirm.png",
-        "roi": [
-            660,
-            480,
-            130,
-            100
-        ],
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
@@ -50,12 +32,6 @@
     "EnkephalinClickCancel": {
         "recognition": "TemplateMatch",
         "template": "image/enkephalin/cancel.png",
-        "roi": [
-            440,
-            480,
-            120,
-            100
-        ],
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
@@ -64,12 +40,6 @@
     },
     "EnkephalinFinishCheck": {
         "recognition": "TemplateMatch",
-        "template": "image/home/drive.png",
-        "roi": [
-            900,
-            580,
-            160,
-            110
-        ]
+        "template": "image/home/drive.png"
     }
 }

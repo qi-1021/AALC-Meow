@@ -2,12 +2,6 @@
     "LuxcavationEntry": {
         "recognition": "TemplateMatch",
         "template": "image/home/drive.png",
-        "roi": [
-            900,
-            580,
-            160,
-            110
-        ],
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
@@ -18,12 +12,6 @@
     "LuxcavationSelectType": {
         "recognition": "TemplateMatch",
         "template": "image/home/luxcavation.png",
-        "roi": [
-            380,
-            150,
-            140,
-            100
-        ],
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
@@ -34,12 +22,6 @@
     "LuxcavationExpChoose": {
         "recognition": "TemplateMatch",
         "template": "image/luxcavation/exp_enter.png",
-        "roi": [
-            500,
-            200,
-            600,
-            450
-        ],
         "action": "Click",
         "post_wait_freezes": 800,
         "next": [
@@ -49,12 +31,6 @@
     "LuxcavationThreadChoose": {
         "recognition": "TemplateMatch",
         "template": "image/luxcavation/thread_enter.png",
-        "roi": [
-            350,
-            380,
-            160,
-            120
-        ],
         "action": "Click",
         "post_wait_freezes": 800,
         "next": [
@@ -64,12 +40,6 @@
     "LuxcavationThreadSubLevel": {
         "recognition": "TemplateMatch",
         "template": "image/luxcavation/thread_consume.png",
-        "roi": [
-            600,
-            150,
-            650,
-            550
-        ],
         "action": "Click",
         "post_wait_freezes": 800,
         "next": [
@@ -79,12 +49,6 @@
     "LuxcavationTeamCheck": {
         "recognition": "TemplateMatch",
         "template": "image/teams/identify.png",
-        "roi": [
-            1100,
-            120,
-            180,
-            100
-        ],
         "action": "Click",
         "post_wait_freezes": 1000,
         "next": [

@@ -141,66 +141,26 @@
             ]
         },
         "set_EXP_count": {
-            "type": "select",
+            "type": "input",
             "label": "经验本次数",
             "description": "设置日常刷取经验采光副本的连续战斗次数",
-            "default_case": "1",
-            "cases": [
+            "fields": [
                 {
-                    "name": "0",
-                    "label": "0 次（不刷）"
-                },
-                {
-                    "name": "1",
-                    "label": "1 次"
-                },
-                {
-                    "name": "2",
-                    "label": "2 次"
-                },
-                {
-                    "name": "3",
-                    "label": "3 次"
-                },
-                {
-                    "name": "5",
-                    "label": "5 次"
-                },
-                {
-                    "name": "10",
-                    "label": "10 次"
+                    "name": "count",
+                    "label": "次数",
+                    "default": "1"
                 }
             ]
         },
         "set_thread_count": {
-            "type": "select",
+            "type": "input",
             "label": "纽本次数",
             "description": "设置日常刷取纽扣采光副本的连续战斗次数",
-            "default_case": "3",
-            "cases": [
+            "fields": [
                 {
-                    "name": "0",
-                    "label": "0 次（不刷）"
-                },
-                {
-                    "name": "1",
-                    "label": "1 次"
-                },
-                {
-                    "name": "2",
-                    "label": "2 次"
-                },
-                {
-                    "name": "3",
-                    "label": "3 次（推荐每日打满）"
-                },
-                {
-                    "name": "5",
-                    "label": "5 次"
-                },
-                {
-                    "name": "10",
-                    "label": "10 次"
+                    "name": "count",
+                    "label": "次数",
+                    "default": "3"
                 }
             ]
         },
@@ -689,58 +649,26 @@
             ]
         },
         "use_continuous_combat_select": {
-            "type": "select",
+            "type": "input",
             "label": "一场连续作战的最大次数",
             "description": "连续作战设定的单轮上限次数",
-            "default_case": "3",
-            "cases": [
+            "fields": [
                 {
-                    "name": "1",
-                    "label": "1 Times"
-                },
-                {
-                    "name": "2",
-                    "label": "2 Times"
-                },
-                {
-                    "name": "3",
-                    "label": "3 Times"
-                },
-                {
-                    "name": "5",
-                    "label": "5 Times"
-                },
-                {
-                    "name": "10",
-                    "label": "10 Times"
+                    "name": "count",
+                    "label": "次数",
+                    "default": "3"
                 }
             ]
         },
         "set_mirror_count": {
-            "type": "select",
+            "type": "input",
             "label": "坐牢次数",
             "description": "设置执行镜牢副本的轮次数量",
-            "default_case": "1",
-            "cases": [
+            "fields": [
                 {
-                    "name": "1",
-                    "label": "1 次"
-                },
-                {
-                    "name": "2",
-                    "label": "2 次"
-                },
-                {
-                    "name": "3",
-                    "label": "3 次"
-                },
-                {
-                    "name": "5",
-                    "label": "5 次"
-                },
-                {
-                    "name": "10",
-                    "label": "10 次"
+                    "name": "count",
+                    "label": "次数",
+                    "default": "1"
                 }
             ]
         },
@@ -1215,25 +1143,71 @@
             ]
         },
         "sinner_selection": {
-            "type": "select",
-            "label": "罪人编队模式",
-            "description": "仅使用已保存编队预设（推荐），或通过模板逐个点击12名罪人出战",
-            "default_case": "preset_only",
+            "type": "checkbox",
+            "label": "罪人出战阵容选择",
+            "description": "勾选需要出战的罪人席位（默认勾选全12人）",
+            "default_cases": [
+                "YiSang",
+                "Faust",
+                "DonQuixote",
+                "Ryoshu",
+                "Meursault",
+                "HongLu",
+                "Heathcliff",
+                "Ishmael",
+                "Rodion",
+                "Sinclair",
+                "Outis",
+                "Gregor"
+            ],
             "cases": [
                 {
-                    "name": "preset_only",
-                    "label": "仅使用已保存编队预设（推荐）",
-                    "pipeline_override": {
-                        "TeamFormationStart": {
-                            "next": [
-                                "TeamFormationConfirm"
-                            ]
-                        }
-                    }
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)"
                 },
                 {
-                    "name": "all12",
-                    "label": "逐个匹配全12名罪人出战"
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)"
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)"
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)"
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)"
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)"
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)"
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)"
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)"
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)"
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)"
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)"
                 }
             ]
         },
