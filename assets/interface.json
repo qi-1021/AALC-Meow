@@ -2,7 +2,7 @@
     "interface_version": 2,
     "name": "AALC-Meow",
     "description": "这是对于 AALC（边狱巴士小助手）手机端的一种实现，基于 MaaFramework 与 AALC 开源项目。",
-    "version": "v0.1.3",
+    "version": "v0.1.4",
     "contact": "CONTACT",
     "license": "LICENSE",
     "icon": "logo.png",

@@ -1,6 +1,15 @@
 {
     "task": [
         {
+            "name": "StartGame",
+            "label": "启动边狱公司",
+            "entry": "StartLimbusCompany",
+            "description": "在手机上自动启动边狱公司游戏，支持 Google Play 官服和 OurPlay 容器等不同包名",
+            "option": [
+                "GamePackageName"
+            ]
+        },
+        {
             "name": "EnkephalinModule",
             "label": "体力全换脑啡肽模块",
             "entry": "EnkephalinModuleStart",
@@ -21,7 +30,8 @@
             "entry": "LuxcavationEntry",
             "description": "从大厅进入采光副本，自动选中最新等级经验本，自动拼刀战斗直至通关",
             "option": [
-                "LuxcavationCombatCount"
+                "LuxcavationCombatCount",
+                "BattleSkillStrategy"
             ]
         },
         {
@@ -30,14 +40,20 @@
             "entry": "LuxcavationEntry",
             "description": "从大厅进入采光副本，自动选中纽扣采光本最高等级并自动胜率拼刀战斗",
             "option": [
-                "LuxcavationCombatCount"
+                "LuxcavationCombatCount",
+                "BattleSkillStrategy"
             ]
         },
         {
             "name": "MirrorDungeonQuick",
             "label": "镜牢快速开始挂机",
             "entry": "MirrorDungeonEntry",
-            "description": "从大厅进入镜牢，点击快速开始、难度确认并衔接自动拼刀战斗"
+            "description": "从大厅进入镜牢，点击快速开始、难度确认并衔接自动拼刀战斗",
+            "option": [
+                "MirrorDifficulty",
+                "MirrorTheme",
+                "BattleSkillStrategy"
+            ]
         },
         {
             "name": "MailClaim",
@@ -55,7 +71,10 @@
             "name": "BattleAutoCombat",
             "label": "战斗自动胜率连线",
             "entry": "BattleAutoCombat",
-            "description": "在战斗界面自动点击P（胜率拼刀）并转动齿轮开始回合，直至战斗结算确认"
+            "description": "在战斗界面自动点击P（胜率拼刀）并转动齿轮开始回合，直至战斗结算确认",
+            "option": [
+                "BattleSkillStrategy"
+            ]
         },
         {
             "name": "BackInitMenu",
@@ -73,7 +92,10 @@
             "name": "MirrorExploration",
             "label": "镜牢推进与奖励结算",
             "entry": "MirrorDungeonExploration",
-            "description": "镜牢内自动点击进入前进节点、确认获取奖励卡包、饰品箱判定与离开商店"
+            "description": "镜牢内自动点击进入前进节点、确认获取奖励卡包、饰品箱判定与离开商店",
+            "option": [
+                "MirrorRewardPreference"
+            ]
         },
         {
             "name": "ClearTeamSelection",
@@ -83,6 +105,51 @@
         }
     ],
     "option": {
+        "GamePackageName": {
+            "type": "select",
+            "label": "游戏包名/启动方式",
+            "description": "选择边狱公司的安装来源或容器类型。若游戏已在后台运行则选最后一项",
+            "default_case": "official",
+            "cases": [
+                {
+                    "name": "official",
+                    "label": "Google Play 官服 (com.ProjectMoon.LimbusCompany)",
+                    "pipeline_override": {
+                        "StartLimbusCompany": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.ProjectMoon.LimbusCompany"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "ourplay",
+                    "label": "OurPlay 容器 (com.ourplay.limbuscompany)",
+                    "pipeline_override": {
+                        "StartLimbusCompany": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.ourplay.limbuscompany"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "already_running",
+                    "label": "游戏已在后台运行，跳过启动",
+                    "pipeline_override": {
+                        "StartLimbusCompany": {
+                            "next": []
+                        }
+                    }
+                }
+            ]
+        },
         "LuxcavationCombatCount": {
             "type": "select",
             "label": "连续战斗刷取次数",
@@ -120,6 +187,102 @@
                 {
                     "name": "No",
                     "label": "否"
+                }
+            ]
+        },
+        "BattleSkillStrategy": {
+            "type": "select",
+            "label": "战斗技能策略",
+            "description": "选择自动战斗时的技能使用策略，影响拼刀时的技能档位选择",
+            "default_case": "win_rate",
+            "cases": [
+                {
+                    "name": "win_rate",
+                    "label": "胜率全选（自动选最高胜率档）"
+                },
+                {
+                    "name": "avoid_3skill",
+                    "label": "避免3技能（节省技能槽）"
+                },
+                {
+                    "name": "first_round_def",
+                    "label": "首回合全防御（降低首轮损耗）"
+                }
+            ]
+        },
+        "MirrorDifficulty": {
+            "type": "select",
+            "label": "镜牢难度",
+            "description": "快速开始时选择镜牢的挑战难度",
+            "default_case": "normal",
+            "cases": [
+                {
+                    "name": "normal",
+                    "label": "普通难度"
+                },
+                {
+                    "name": "hard",
+                    "label": "困难难度"
+                }
+            ]
+        },
+        "MirrorTheme": {
+            "type": "select",
+            "label": "镜牢主题/体系偏好",
+            "description": "快速开始时选择镜牢的体系流派，无偏好则随机",
+            "default_case": "none",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "无偏好（随机）"
+                },
+                {
+                    "name": "bleed",
+                    "label": "流血体系"
+                },
+                {
+                    "name": "tremor",
+                    "label": "震颤体系"
+                },
+                {
+                    "name": "rupture",
+                    "label": "破裂体系"
+                },
+                {
+                    "name": "sinking",
+                    "label": "沉沦体系"
+                },
+                {
+                    "name": "charge",
+                    "label": "充能体系"
+                },
+                {
+                    "name": "poise",
+                    "label": "呼吸体系"
+                },
+                {
+                    "name": "burn",
+                    "label": "燃烧体系"
+                }
+            ]
+        },
+        "MirrorRewardPreference": {
+            "type": "select",
+            "label": "镜牢奖励偏好",
+            "description": "在镜牢探索结算时优先选取哪类奖励",
+            "default_case": "ego_gift",
+            "cases": [
+                {
+                    "name": "ego_gift",
+                    "label": "优先取饰品（EGO礼物）"
+                },
+                {
+                    "name": "ego_resource",
+                    "label": "优先取自我资源"
+                },
+                {
+                    "name": "any",
+                    "label": "不偏好，自动取最左项"
                 }
             ]
         }

@@ -5,6 +5,8 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.media.AudioAttributes
+import android.media.RingtoneManager
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.aliothmoon.maafw.MainActivity
@@ -77,7 +79,12 @@ class RunEventNotifier(
             .setPriority(if (high) NotificationCompat.PRIORITY_HIGH else NotificationCompat.PRIORITY_LOW)
             .setAutoCancel(true)
             .setCategory(NotificationCompat.CATEGORY_STATUS)
-            .apply { if (high) setDefaults(NotificationCompat.DEFAULT_ALL) }
+            .apply {
+                if (high) {
+                    setDefaults(NotificationCompat.DEFAULT_ALL)
+                    setVibrate(longArrayOf(0, 200, 100, 200))
+                }
+            }
             .build()
 
         runCatching { manager.notify(notifyId, notification) }
@@ -87,6 +94,12 @@ class RunEventNotifier(
     /** 用到才建：整档关着的用户不该在系统设置里多出两个空频道 */
     private fun ensureChannels() {
         if (channelsReady) return
+        val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val audioAttr = AudioAttributes.Builder()
+            .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+            .build()
+
         manager.createNotificationChannels(
             listOf(
                 NotificationChannel(
@@ -106,6 +119,11 @@ class RunEventNotifier(
                 ).apply {
                     description =
                         appContext.getString(R.string.notification_event_channel_popup_desc)
+                    // 国内 ROM（MIUI/HyperOS/ColorOS）需要显式设置音效和振动才允许弹出横幅
+                    setSound(notificationSound, audioAttr)
+                    enableVibration(true)
+                    vibrationPattern = longArrayOf(0, 200, 100, 200)
+                    enableLights(true)
                 },
             ),
         )
@@ -114,7 +132,8 @@ class RunEventNotifier(
 
     private companion object {
         const val CHANNEL_DEFAULT = "maa_run_events_low"
-        const val CHANNEL_HIGH = "maa_run_events_high"
+        // 新 ID 避免旧设备缓存了低重要性的渠道设置无法升级
+        const val CHANNEL_HIGH = "maa_run_events_popup_v2"
 
         /** 整轮结局共用一个 id：后一轮的结果顶掉上一轮的，通知栏里只留最新那条 */
         const val ID_RUN_RESULT = 9001

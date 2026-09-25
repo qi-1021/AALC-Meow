@@ -55,7 +55,7 @@
         android:label="${appLabel}"
         android:roundIcon="${appRoundIcon}"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaaFwApp"
+        android:theme="@style/Theme.AALCMeow"
         android:localeConfig="@xml/locales_config"
         tools:targetApi="33">
 
@@ -65,7 +65,7 @@
             android:name="io.sentry.auto-init"
             android:value="false" />
 
-        <!-- 只有启动 Activity 挂启动主题；application 那层保持 Theme.MaaFwApp，
+        <!-- 只有启动 Activity 挂启动主题；application 那层保持 Theme.AALCMeow，
              否则别的窗口也会顶着首屏底色起来 -->
         <activity
             android:name=".MainActivity"
@@ -73,7 +73,7 @@
             android:exported="true"
             android:launchMode="singleTop"
             android:supportsPictureInPicture="true"
-            android:theme="@style/Theme.MaaFwApp.Starting"
+            android:theme="@style/Theme.AALCMeow.Starting"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

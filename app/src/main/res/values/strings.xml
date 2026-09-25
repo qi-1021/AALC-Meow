@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MaaFwApp</string>
+    <string name="app_name">AALC-Meow</string>
 
     <!-- 通用 -->
     <string name="common_close">关闭</string>
@@ -130,7 +130,7 @@
     <string name="settings_version">版本</string>
     <string name="settings_version_of">%1$s 版本</string>
     <string name="settings_framework">MaaFramework</string>
-    <string name="settings_upstream_core">M9A 核心资源</string>
+    <string name="settings_upstream_core">AALC 核心资源</string>
     <string name="settings_telemetry">帮助改进本项目</string>
     <string name="settings_telemetry_desc">向项目作者发送任务名与运行结果，不含截图、日志正文与你填写的内容</string>
     <string name="settings_project">项目</string>
@@ -500,7 +500,7 @@
     <string name="log_export_running">正在打包…</string>
     <string name="log_export_failed">导出失败</string>
     <string name="log_export_saved">已保存为 %1$s</string>
-    <string name="log_export_subject">MaaFwApp 日志</string>
+    <string name="log_export_subject">AALC-Meow 日志</string>
 
     <!-- 设置页「日志」分组入口 -->
     <string name="settings_section_log">日志</string>
@@ -606,7 +606,7 @@
     <string name="notification_include_log_details">推送内容附带运行日志</string>
     <string name="notification_section_test">测试推送</string>
     <string name="notification_test_title">测试通知</string>
-    <string name="notification_test_message">这是一条来自 MaaFwApp 的测试通知</string>
+    <string name="notification_test_message">这是一条来自 AALC-Meow 的测试通知</string>
 
     <!-- 推送渠道名 -->
     <string name="notification_provider_server_chan">Server 酱</string>
