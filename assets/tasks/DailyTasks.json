@@ -4,19 +4,34 @@
             "name": "EnkephalinModule",
             "label": "体力全换脑啡肽模块",
             "entry": "EnkephalinModuleStart",
-            "description": "自动在主界面点击体力槽，选择全部兑换并将体力转换为脑啡肽模块"
+            "description": "自动在主界面点击体力槽，选择全部兑换并将体力转换为脑啡肽模块",
+            "option": [
+                "UseLunacyToEnkephalin"
+            ]
+        },
+        {
+            "name": "PassPrize",
+            "label": "通行证日常与周常奖励",
+            "entry": "PassPrizeStart",
+            "description": "自动从大厅进入赛季通行证，自动领取日常及周常任务的所有经验金币"
         },
         {
             "name": "LuxcavationEXP",
             "label": "经验采光本自动刷取",
             "entry": "LuxcavationEntry",
-            "description": "从大厅进入采光副本，自动选中最新等级经验本，自动拼刀战斗直至通关"
+            "description": "从大厅进入采光副本，自动选中最新等级经验本，自动拼刀战斗直至通关",
+            "option": [
+                "LuxcavationCombatCount"
+            ]
         },
         {
             "name": "LuxcavationThread",
             "label": "纽扣采光本自动刷取",
             "entry": "LuxcavationEntry",
-            "description": "从大厅进入采光副本，自动选中纽扣采光本最高等级并自动胜率拼刀战斗"
+            "description": "从大厅进入采光副本，自动选中纽扣采光本最高等级并自动胜率拼刀战斗",
+            "option": [
+                "LuxcavationCombatCount"
+            ]
         },
         {
             "name": "MirrorDungeonQuick",
@@ -42,5 +57,47 @@
             "entry": "BattleAutoCombat",
             "description": "在战斗界面自动点击P（胜率拼刀）并转动齿轮开始回合，直至战斗结算确认"
         }
-    ]
+    ],
+    "option": {
+        "LuxcavationCombatCount": {
+            "type": "select",
+            "label": "连续战斗刷取次数",
+            "description": "设置采光副本自动执行的连续战斗次数",
+            "default_case": "1",
+            "cases": [
+                {
+                    "name": "1",
+                    "label": "单次作战 (1次)"
+                },
+                {
+                    "name": "2",
+                    "label": "连续作战 (2次)"
+                },
+                {
+                    "name": "3",
+                    "label": "连续作战 (3次)"
+                },
+                {
+                    "name": "5",
+                    "label": "连续作战 (5次)"
+                }
+            ]
+        },
+        "UseLunacyToEnkephalin": {
+            "type": "switch",
+            "label": "是否消耗狂气购买体力",
+            "description": "开启后，若自然体力不足或设为狂气模式，将自动点击狂气补充",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "是"
+                },
+                {
+                    "name": "No",
+                    "label": "否"
+                }
+            ]
+        }
+    }
 }

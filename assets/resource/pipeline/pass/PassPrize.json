@@ -1,0 +1,72 @@
+{
+    "PassPrizeStart": {
+        "recognition": "TemplateMatch",
+        "template": "home/season.png",
+        "roi": [950, 160, 200, 80],
+        "action": "Click",
+        "post_wait_freezes": 600,
+        "next": [
+            "PassEnterMissions",
+            "PassPrizeStart"
+        ]
+    },
+    "PassEnterMissions": {
+        "recognition": "TemplateMatch",
+        "template": "pass/missions.png",
+        "roi": [260, 20, 200, 80],
+        "action": "Click",
+        "post_wait_freezes": 600,
+        "next": [
+            "PassClaimDailyCoin",
+            "PassSwitchWeekly"
+        ]
+    },
+    "PassClaimDailyCoin": {
+        "recognition": "TemplateMatch",
+        "template": "pass/coin.png",
+        "roi": [200, 100, 1000, 550],
+        "action": "Click",
+        "post_wait_freezes": 400,
+        "next": [
+            "PassClaimDailyCoin",
+            "PassSwitchWeekly"
+        ]
+    },
+    "PassSwitchWeekly": {
+        "recognition": "TemplateMatch",
+        "template": "pass/weekly.png",
+        "roi": [220, 300, 100, 200],
+        "action": "Click",
+        "post_wait_freezes": 600,
+        "next": [
+            "PassClaimWeeklyCoin",
+            "PassReturnHome"
+        ]
+    },
+    "PassClaimWeeklyCoin": {
+        "recognition": "TemplateMatch",
+        "template": "pass/coin.png",
+        "roi": [200, 100, 1000, 550],
+        "action": "Click",
+        "post_wait_freezes": 400,
+        "next": [
+            "PassClaimWeeklyCoin",
+            "PassReturnHome"
+        ]
+    },
+    "PassReturnHome": {
+        "recognition": "TemplateMatch",
+        "template": "home/back.png",
+        "roi": [10, 10, 150, 100],
+        "action": "Click",
+        "post_wait_freezes": 800,
+        "next": [
+            "PassFinishCheck"
+        ]
+    },
+    "PassFinishCheck": {
+        "recognition": "TemplateMatch",
+        "template": "home/drive.png",
+        "roi": [900, 580, 160, 110]
+    }
+}
