@@ -49,7 +49,19 @@
                 "opening_items",
                 "avoid_skill_3",
                 "defense_first_round",
-                "sinner_selection"
+                "sinner_selection",
+                "sinner_order_slot_1",
+                "sinner_order_slot_2",
+                "sinner_order_slot_3",
+                "sinner_order_slot_4",
+                "sinner_order_slot_5",
+                "sinner_order_slot_6",
+                "sinner_order_slot_7",
+                "sinner_order_slot_8",
+                "sinner_order_slot_9",
+                "sinner_order_slot_10",
+                "sinner_order_slot_11",
+                "sinner_order_slot_12"
             ]
         },
         {
@@ -1212,26 +1224,14 @@
             ]
         },
         "set_lunacy_to_enkephalin": {
-            "type": "select",
-            "label": "狂气换体",
-            "description": "使用狂气购买体力的次数",
-            "default_case": "0",
-            "cases": [
+            "type": "input",
+            "label": "狂气换体次数",
+            "description": "使用狂气购买体力的次数（填 0 为不换体，1~10 为换对应次数）",
+            "fields": [
                 {
-                    "name": "0",
-                    "label": "不换"
-                },
-                {
-                    "name": "1",
-                    "label": "换第一次"
-                },
-                {
-                    "name": "2",
-                    "label": "换第二次"
-                },
-                {
-                    "name": "3",
-                    "label": "换第三次"
+                    "name": "count",
+                    "label": "次数",
+                    "default": "0"
                 }
             ]
         },
@@ -1318,6 +1318,2838 @@
                 {
                     "name": "avoid_s3",
                     "label": "避让三技能"
+                }
+            ]
+        },
+        "sinner_order_slot_1": {
+            "type": "select",
+            "label": "出战顺位 #1 (Slot 1)",
+            "description": "设置队伍第 1 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "YiSang",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot1": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot2"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_2": {
+            "type": "select",
+            "label": "出战顺位 #2 (Slot 2)",
+            "description": "设置队伍第 2 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Faust",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot2": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot3"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_3": {
+            "type": "select",
+            "label": "出战顺位 #3 (Slot 3)",
+            "description": "设置队伍第 3 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "DonQuixote",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot3": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot4"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_4": {
+            "type": "select",
+            "label": "出战顺位 #4 (Slot 4)",
+            "description": "设置队伍第 4 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Ryoshu",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot4": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot5"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_5": {
+            "type": "select",
+            "label": "出战顺位 #5 (Slot 5)",
+            "description": "设置队伍第 5 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Meursault",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot5": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot6"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_6": {
+            "type": "select",
+            "label": "出战顺位 #6 (Slot 6)",
+            "description": "设置队伍第 6 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "HongLu",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot6": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot7"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_7": {
+            "type": "select",
+            "label": "出战顺位 #7 (Slot 7)",
+            "description": "设置队伍第 7 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Heathcliff",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot7": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot8"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_8": {
+            "type": "select",
+            "label": "出战顺位 #8 (Slot 8)",
+            "description": "设置队伍第 8 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Ishmael",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot8": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot9"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_9": {
+            "type": "select",
+            "label": "出战顺位 #9 (Slot 9)",
+            "description": "设置队伍第 9 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Rodion",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot9": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot10"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_10": {
+            "type": "select",
+            "label": "出战顺位 #10 (Slot 10)",
+            "description": "设置队伍第 10 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Sinclair",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot10": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot11"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_11": {
+            "type": "select",
+            "label": "出战顺位 #11 (Slot 11)",
+            "description": "设置队伍第 11 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Outis",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "action": "DoNothing",
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot11": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "SelectSinnerSlot12"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "sinner_order_slot_12": {
+            "type": "select",
+            "label": "出战顺位 #12 (Slot 12)",
+            "description": "设置队伍第 12 顺位选取的罪人（决定战斗中的技能槽位排序）",
+            "default_case": "Gregor",
+            "cases": [
+                {
+                    "name": "none",
+                    "label": "（空置 / 不选）",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "action": "DoNothing",
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "YiSang",
+                    "label": "李箱 (Yi Sang)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/YiSang_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Faust",
+                    "label": "浮士德 (Faust)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Faust_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonQuixote",
+                    "label": "堂吉诃德 (Don Quixote)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/DonQuixote_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ryoshu",
+                    "label": "良秀 (Ryoshu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ryoshu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Meursault",
+                    "label": "默尔索 (Meursault)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Meursault_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "HongLu",
+                    "label": "鸿璐 (Hong Lu)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/HongLu_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Heathcliff",
+                    "label": "希斯克利夫 (Heathcliff)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Heathcliff_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Ishmael",
+                    "label": "以实玛利 (Ishmael)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Ishmael_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Rodion",
+                    "label": "罗佳 (Rodion)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Rodion_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Sinclair",
+                    "label": "辛克莱 (Sinclair)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Sinclair_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Outis",
+                    "label": "奥提斯 (Outis)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Outis_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gregor",
+                    "label": "格里高尔 (Gregor)",
+                    "pipeline_override": {
+                        "SelectSinnerSlot12": {
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "template": "image/teams/Gregor_assets.png",
+                                "threshold": 0.8
+                            },
+                            "action": "Click",
+                            "post_delay": 200,
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
+                        }
+                    }
                 }
             ]
         }

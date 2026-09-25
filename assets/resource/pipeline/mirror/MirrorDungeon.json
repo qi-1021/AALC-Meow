@@ -216,7 +216,7 @@
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
-            "SelectSinnerYiSang",
+            "SelectSinnerSlot1",
             "ClearCurrentTeam"
         ]
     },
@@ -525,5 +525,161 @@
         },
         "action": "Click",
         "post_delay": 1000
+    },
+    "SelectSinnerSlot1": {
+        "doc": "点击顺位第 1 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/YiSang_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot2"
+        ]
+    },
+    "SelectSinnerSlot2": {
+        "doc": "点击顺位第 2 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Faust_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot3"
+        ]
+    },
+    "SelectSinnerSlot3": {
+        "doc": "点击顺位第 3 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/DonQuixote_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot4"
+        ]
+    },
+    "SelectSinnerSlot4": {
+        "doc": "点击顺位第 4 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Ryoshu_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot5"
+        ]
+    },
+    "SelectSinnerSlot5": {
+        "doc": "点击顺位第 5 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Meursault_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot6"
+        ]
+    },
+    "SelectSinnerSlot6": {
+        "doc": "点击顺位第 6 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/HongLu_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot7"
+        ]
+    },
+    "SelectSinnerSlot7": {
+        "doc": "点击顺位第 7 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Heathcliff_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot8"
+        ]
+    },
+    "SelectSinnerSlot8": {
+        "doc": "点击顺位第 8 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Ishmael_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot9"
+        ]
+    },
+    "SelectSinnerSlot9": {
+        "doc": "点击顺位第 9 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Rodion_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot10"
+        ]
+    },
+    "SelectSinnerSlot10": {
+        "doc": "点击顺位第 10 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Sinclair_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot11"
+        ]
+    },
+    "SelectSinnerSlot11": {
+        "doc": "点击顺位第 11 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Outis_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "SelectSinnerSlot12"
+        ]
+    },
+    "SelectSinnerSlot12": {
+        "doc": "点击顺位第 12 位罪人",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/teams/Gregor_assets.png",
+            "threshold": 0.8
+        },
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "TeamFormationConfirm"
+        ]
     }
 }
