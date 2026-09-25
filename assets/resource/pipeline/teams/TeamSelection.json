@@ -1,0 +1,39 @@
+{
+  "ClearTeam": {
+    "recognition": "TemplateMatch",
+    "template": "teams/clear_selection_confirm.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "post_delay": 500
+  },
+  "SelectSinner1": {
+    "action": "Click",
+    "target": [200, 360, 50, 50],
+    "post_delay": 300
+  },
+  "SelectSinner2": {
+    "action": "Click",
+    "target": [335, 360, 50, 50],
+    "post_delay": 300
+  },
+  "SelectSinner3": {
+    "action": "Click",
+    "target": [470, 360, 50, 50],
+    "post_delay": 300
+  },
+  "SelectSinner4": {
+    "action": "Click",
+    "target": [605, 360, 50, 50],
+    "post_delay": 300
+  },
+  "SelectSinner5": {
+    "action": "Click",
+    "target": [740, 360, 50, 50],
+    "post_delay": 300
+  },
+  "SelectSinner6": {
+    "action": "Click",
+    "target": [875, 360, 50, 50],
+    "post_delay": 300
+  }
+}

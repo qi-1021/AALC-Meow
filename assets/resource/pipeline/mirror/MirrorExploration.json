@@ -1,0 +1,62 @@
+{
+  "MirrorDungeonExploration": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/enter_node.png",
+    "threshold": 0.7,
+    "action": "DoNothing",
+    "next": [
+      "ClickEnterNode",
+      "ClickRewardCardConfirm",
+      "ClickGiftConfirm",
+      "ClickLeaveShop",
+      "ClaimMirrorReward"
+    ]
+  },
+  "ClickEnterNode": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/enter_node.png",
+    "threshold": 0.7,
+    "action": "Click",
+    "post_delay": 1500,
+    "next": ["MirrorDungeonExploration"]
+  },
+  "ClickRewardCardConfirm": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/reward_card_confirm.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "post_delay": 1000,
+    "next": ["MirrorDungeonExploration"]
+  },
+  "ClickGiftConfirm": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/gift_confirm.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "post_delay": 800,
+    "next": ["MirrorDungeonExploration"]
+  },
+  "ClickLeaveShop": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/leave_shop_confirm.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "post_delay": 1000,
+    "next": ["MirrorDungeonExploration"]
+  },
+  "ClaimMirrorReward": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/claim_rewards_confirm.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "post_delay": 1000,
+    "next": ["UseEnkephalinConfirm"]
+  },
+  "UseEnkephalinConfirm": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/use_enkephalin.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "post_delay": 1500
+  }
+}

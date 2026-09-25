@@ -1,0 +1,96 @@
+{
+  "EventHandling": {
+    "recognition": "TemplateMatch",
+    "template": "event/choices_assets.png",
+    "threshold": 0.7,
+    "action": "DoNothing",
+    "next": [
+      "EventVeryHigh",
+      "EventHigh",
+      "EventNormal",
+      "EventLow",
+      "EventVeryLow",
+      "EventProceed",
+      "EventCommence",
+      "EventCommenceBattle",
+      "EventContinue",
+      "EventFallbackClick"
+    ]
+  },
+  "EventVeryHigh": {
+    "recognition": "TemplateMatch",
+    "template": "event/very_high.png",
+    "threshold": 0.72,
+    "action": "Click",
+    "post_delay": 800,
+    "next": ["EventCommence", "EventProceed", "EventContinue"]
+  },
+  "EventHigh": {
+    "recognition": "TemplateMatch",
+    "template": "event/high.png",
+    "threshold": 0.72,
+    "action": "Click",
+    "post_delay": 800,
+    "next": ["EventCommence", "EventProceed", "EventContinue"]
+  },
+  "EventNormal": {
+    "recognition": "TemplateMatch",
+    "template": "event/normal.png",
+    "threshold": 0.72,
+    "action": "Click",
+    "post_delay": 800,
+    "next": ["EventCommence", "EventProceed", "EventContinue"]
+  },
+  "EventLow": {
+    "recognition": "TemplateMatch",
+    "template": "event/low.png",
+    "threshold": 0.72,
+    "action": "Click",
+    "post_delay": 800,
+    "next": ["EventCommence", "EventProceed", "EventContinue"]
+  },
+  "EventVeryLow": {
+    "recognition": "TemplateMatch",
+    "template": "event/very_low.png",
+    "threshold": 0.72,
+    "action": "Click",
+    "post_delay": 800,
+    "next": ["EventCommence", "EventProceed", "EventContinue"]
+  },
+  "EventCommence": {
+    "recognition": "TemplateMatch",
+    "template": "event/commence_assets.png",
+    "threshold": 0.7,
+    "action": "Click",
+    "post_delay": 1000,
+    "next": ["EventContinue", "EventProceed"]
+  },
+  "EventCommenceBattle": {
+    "recognition": "TemplateMatch",
+    "template": "event/commence_battle_assets.png",
+    "threshold": 0.7,
+    "action": "Click",
+    "post_delay": 1500
+  },
+  "EventProceed": {
+    "recognition": "TemplateMatch",
+    "template": "event/proceed_assets.png",
+    "threshold": 0.7,
+    "action": "Click",
+    "post_delay": 800,
+    "next": ["EventContinue"]
+  },
+  "EventContinue": {
+    "recognition": "TemplateMatch",
+    "template": "event/continue_assets.png",
+    "threshold": 0.7,
+    "action": "Click",
+    "post_delay": 800
+  },
+  "EventFallbackClick": {
+    "action": "Click",
+    "target": [640, 650, 40, 20],
+    "post_delay": 800,
+    "next": ["EventCommence", "EventProceed", "EventContinue"]
+  }
+}

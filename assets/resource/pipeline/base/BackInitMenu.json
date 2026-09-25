@@ -1,0 +1,102 @@
+{
+  "BackInitMenu": {
+    "recognition": "TemplateMatch",
+    "template": "home/mail.png",
+    "threshold": 0.8,
+    "next": [
+      "CheckAlreadyInHome",
+      "CloseNotification",
+      "CloseAnniversaryModal",
+      "HandleStorySkipConfirm",
+      "HandleStorySkip",
+      "MirrorExitToWindowConfirm",
+      "MirrorExitToWindow",
+      "ClickBackButton",
+      "BattleSurrenderSetting",
+      "TitleScreenConfirm",
+      "ClickBlankToDismiss"
+    ]
+  },
+  "CheckAlreadyInHome": {
+    "recognition": "TemplateMatch",
+    "template": "home/mail.png",
+    "threshold": 0.8,
+    "action": "DoNothing"
+  },
+  "CloseNotification": {
+    "recognition": "TemplateMatch",
+    "template": "base/renew_confirm_assets.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "next": ["BackInitMenu"]
+  },
+  "CloseAnniversaryModal": {
+    "recognition": "TemplateMatch",
+    "template": "home/close_anniversary_event.png",
+    "threshold": 0.8,
+    "action": "Click",
+    "next": ["BackInitMenu"]
+  },
+  "HandleStorySkipConfirm": {
+    "recognition": "TemplateMatch",
+    "template": "scenes/story_skip_confirm.png",
+    "threshold": 0.8,
+    "action": "Click",
+    "next": ["BackInitMenu"]
+  },
+  "HandleStorySkip": {
+    "recognition": "TemplateMatch",
+    "template": "event/skip_assets.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "next": ["HandleStorySkipConfirm", "BackInitMenu"]
+  },
+  "MirrorExitToWindowConfirm": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/to_window_forfeit_confirm.png",
+    "threshold": 0.8,
+    "action": "Click",
+    "next": ["BackInitMenu"]
+  },
+  "MirrorExitToWindow": {
+    "recognition": "TemplateMatch",
+    "template": "mirror/to_window_assets.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "next": ["MirrorExitToWindowConfirm", "BackInitMenu"]
+  },
+  "ClickBackButton": {
+    "recognition": "TemplateMatch",
+    "template": "home/back.png",
+    "threshold": 0.8,
+    "action": "Click",
+    "next": ["BackInitMenu"]
+  },
+  "BattleSurrenderSetting": {
+    "recognition": "TemplateMatch",
+    "template": "battle/give_up_assets.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "next": ["BattleSurrenderConfirm"]
+  },
+  "BattleSurrenderConfirm": {
+    "recognition": "TemplateMatch",
+    "template": "battle/normal_give_up_assets.png",
+    "threshold": 0.8,
+    "action": "Click",
+    "next": ["BackInitMenu"]
+  },
+  "TitleScreenConfirm": {
+    "recognition": "TemplateMatch",
+    "template": "base/renew_confirm_assets.png",
+    "threshold": 0.75,
+    "action": "Click",
+    "next": ["BackInitMenu"]
+  },
+  "ClickBlankToDismiss": {
+    "action": "Click",
+    "target": [640, 100, 10, 10],
+    "post_delay": 500,
+    "next": ["BackInitMenu"]
+  }
+}

@@ -56,6 +56,30 @@
             "label": "战斗自动胜率连线",
             "entry": "BattleAutoCombat",
             "description": "在战斗界面自动点击P（胜率拼刀）并转动齿轮开始回合，直至战斗结算确认"
+        },
+        {
+            "name": "BackInitMenu",
+            "label": "异常救援·一键返回大厅",
+            "entry": "BackInitMenu",
+            "description": "全局救援与状态回退：自动跳过剧情、投降逃离异常战斗、关闭公告弹窗并返回主界面大厅"
+        },
+        {
+            "name": "EventHandling",
+            "label": "事件高成功率自动判定",
+            "entry": "EventHandling",
+            "description": "遇到镜牢/主线事件时，自动检测成功率最高的罪人进行判定与推进"
+        },
+        {
+            "name": "MirrorExploration",
+            "label": "镜牢推进与奖励结算",
+            "entry": "MirrorDungeonExploration",
+            "description": "镜牢内自动点击进入前进节点、确认获取奖励卡包、饰品箱判定与离开商店"
+        },
+        {
+            "name": "ClearTeamSelection",
+            "label": "罪人编队快速清空",
+            "entry": "ClearTeam",
+            "description": "在编队界面一键清空当前出战的罪人席位"
         }
     ],
     "option": {
