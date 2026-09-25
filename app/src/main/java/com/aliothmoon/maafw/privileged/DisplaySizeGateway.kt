@@ -74,9 +74,12 @@ class DisplaySizeController(
 
     override fun isAspectSupported(): Boolean {
         val (width, height) = ScreenSize.current(context)
-        return ScreenSize.isAspect16x9(width, height).also {
-            if (!it) Timber.w("primary display %dx%d is not 16:9", width, height)
+        val is16x9 = ScreenSize.isAspect16x9(width, height)
+        if (!is16x9) {
+            Timber.i("primary display %dx%d is not 16:9, but allowing overlay to run in foreground", width, height)
         }
+        // 允许现代全面屏（20:9, 19.5:9 等）直接弹出悬浮窗与前台运行
+        return true
     }
 
     /**

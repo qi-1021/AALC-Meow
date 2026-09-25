@@ -1,41 +1,75 @@
 {
     "BattleAutoCombat": {
-        "recognition": "TemplateMatch",
-        "template": "battle/win_rate.png",
-        "roi": [950, 500, 100, 90],
+        "doc": "战斗主循环入口：优先点击胜率连线（P键）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/battle/win_rate.png",
+            "threshold": 0.72
+        },
         "action": "Click",
         "post_wait_freezes": 400,
         "next": [
             "BattleStartTurn",
+            "BattleHandleMidBattleEvent",
+            "BattleFinishCheck",
             "BattleAutoCombat"
         ]
     },
+
     "BattleStartTurn": {
-        "recognition": "TemplateMatch",
-        "template": "battle/gear_right.png",
-        "roi": [1180, 540, 100, 150],
+        "doc": "连线后点击右侧齿轮（Enter键）开始回合战斗",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/battle/gear_right.png",
+            "threshold": 0.72
+        },
         "action": "Click",
         "post_wait_freezes": 1000,
         "next": [
             "BattleChecking",
+            "BattleHandleMidBattleEvent",
             "BattleFinishCheck"
         ]
     },
+
     "BattleChecking": {
-        "recognition": "TemplateMatch",
-        "template": "battle/turn.png",
-        "roi": [10, 10, 200, 100],
+        "doc": "回合战斗进行中检测：出现 turn 或战斗中待机时继续下回合",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/battle/turn.png",
+            "threshold": 0.70
+        },
         "next": [
             "BattleAutoCombat",
+            "BattleHandleMidBattleEvent",
             "BattleFinishCheck",
             "BattleChecking"
         ]
     },
-    "BattleFinishCheck": {
-        "recognition": "TemplateMatch",
-        "template": "battle/battle_finish_confirm.png",
-        "roi": [500, 550, 280, 150],
+
+    "BattleHandleMidBattleEvent": {
+        "doc": "战斗中途如果出现异常事件选项，点击第一个选项继续",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/event/select_first_option_assets.png",
+            "threshold": 0.75
+        },
         "action": "Click",
-        "post_wait_freezes": 1000
+        "post_delay": 800,
+        "next": [
+            "BattleAutoCombat",
+            "BattleChecking"
+        ]
+    },
+
+    "BattleFinishCheck": {
+        "doc": "战斗结算确认（打完后点击结算弹窗）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/battle/battle_finish_confirm.png",
+            "threshold": 0.72
+        },
+        "action": "Click",
+        "post_wait_freezes": 1200
     }
 }

@@ -54,6 +54,8 @@
             "option": [
                 "MirrorTeamPreset",
                 "SinnerSelection",
+                "ChooseOpeningBonus",
+                "ChooseOpeningItems",
                 "MirrorDifficulty",
                 "MirrorTheme",
                 "BattleSkillStrategy"
@@ -381,6 +383,49 @@
                     "label": "自动选全12名罪人（按模板匹配）"
                 }
             ]
+        },
+        "ChooseOpeningBonus": {
+            "type": "switch",
+            "label": "自选开局星光增益",
+            "description": "进入镜牢时是否自动点选星光加成buff并确定",
+            "default_case": "Yes",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "是（自动确认星光）"
+                },
+                {
+                    "name": "No",
+                    "label": "否（跳过星光选择）",
+                    "pipeline_override": {
+                        "MirrorCheckDreamingStar": {
+                            "next": ["MirrorCheckInitEgoGift", "TeamFormationStart", "MirrorLevelConfirm"]
+                        }
+                    }
+                }
+            ]
+        },
+        "ChooseOpeningItems": {
+            "type": "switch",
+            "label": "自选开局初始3饰品",
+            "description": "开局藏品搜索界面是否自动根据所选体系选定前3件饰品并确认",
+            "default_case": "Yes",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "是（自动选定初始3饰品）"
+                },
+                {
+                    "name": "No",
+                    "label": "否（跳过初始饰品自选）",
+                    "pipeline_override": {
+                        "MirrorCheckInitEgoGift": {
+                            "next": ["TeamFormationStart", "MirrorLevelConfirm", "MirrorInDungeon"]
+                        }
+                    }
+                }
+            ]
         }
     }
 }
+

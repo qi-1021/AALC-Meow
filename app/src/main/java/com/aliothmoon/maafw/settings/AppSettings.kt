@@ -33,8 +33,8 @@ data class AppSettings(
     val shizukuShortcutEnabled: String = "true",
 
     /** [com.aliothmoon.maafw.domain.RunMode] 的 name */
-    @PrefKey(default = "BACKGROUND")
-    val runMode: String = "BACKGROUND",
+    @PrefKey(default = "FOREGROUND")
+    val runMode: String = "FOREGROUND",
 
     /** [com.aliothmoon.maafw.domain.OverlayControlMode] 的 name；仅前台模式生效 */
     @PrefKey(default = "FLOAT_BALL")

@@ -265,7 +265,7 @@ class AppSettingsManager(private val context: Context) : AppSettingsGateway {
         runCatching { RemoteBackend.valueOf(raw) }.getOrDefault(RemoteBackend.SHIZUKU)
 
     private fun parseRunMode(raw: String): RunMode =
-        runCatching { RunMode.valueOf(raw) }.getOrDefault(RunMode.BACKGROUND)
+        runCatching { RunMode.valueOf(raw) }.getOrDefault(RunMode.FOREGROUND)
 
     private fun parseOverlayMode(raw: String): OverlayControlMode =
         runCatching { OverlayControlMode.valueOf(raw) }.getOrDefault(OverlayControlMode.FLOAT_BALL)

@@ -4,12 +4,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/mirror/road_in_mir/legend_assets.png",
-            "threshold": 0.72
+            "threshold": 0.70
         },
         "action": "DoNothing",
         "next": [
             "ClickEnterNode",
-            "MirrorHandleThemePack",
+            "MirrorHandleThemePackFeature",
             "MirrorHandleRewardCard",
             "MirrorHandleEgoGiftCard",
             "MirrorHandleEgoGiftBox",
@@ -30,35 +30,50 @@
         },
         "action": "Click",
         "post_delay": 1500,
-        "next": ["MirrorDungeonExploration"]
-    },
-
-    "MirrorHandleThemePack": {
-        "doc": "检测到主题包选择界面（楼层卡包选择），选择与体系匹配的卡包",
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "image/mirror/road_in_mir/hard_battle.png",
-            "threshold": 0.72
-        },
-        "action": "DoNothing",
         "next": [
-            "MirrorThemePackConfirm",
+            "BattleAutoCombat",
             "MirrorDungeonExploration"
         ]
     },
 
-    "MirrorThemePackConfirm": {
-        "doc": "选中卡包后确认（拖拽到卡包上）",
+    "MirrorHandleThemePackFeature": {
+        "doc": "检测到楼层主题包选择页面（feature_theme_pack_assets）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/theme_pack/feature_theme_pack_assets.png",
+            "threshold": 0.72
+        },
+        "action": "DoNothing",
+        "next": [
+            "MirrorPickThemePackConfirm",
+            "MirrorRefreshThemePack"
+        ]
+    },
+
+    "MirrorPickThemePackConfirm": {
+        "doc": "选中卡包并下拉/点击确认（默认点击中间偏左位置的主题卡包）",
         "action": {
             "type": "Click",
-            "target": [400, 540]
+            "target": [500, 540]
         },
-        "post_delay": 1200,
+        "post_delay": 1500,
         "next": ["MirrorDungeonExploration"]
     },
 
+    "MirrorRefreshThemePack": {
+        "doc": "若卡包不理想，点击刷新主题包按钮",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/theme_pack/refresh_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 1000,
+        "next": ["MirrorPickThemePackConfirm"]
+    },
+
     "MirrorHandleRewardCard": {
-        "doc": "检测到奖励卡选择界面（encounter reward card），选择对应奖励卡",
+        "doc": "检测到奖励卡选择界面（encounter reward card）",
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/mirror/get_reward_card/get_reward_card_confirm_assets.png",
@@ -106,7 +121,7 @@
     },
 
     "MirrorHandleEgoGiftCard": {
-        "doc": "检测到 EGO 饰品卡选择界面，按 MirrorTheme 选体系饰品或第一个",
+        "doc": "检测到 EGO 饰品卡选择界面，按体系挑选或默认第一个",
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/mirror/road_in_mir/acquire_ego_gift_card.png",
@@ -219,7 +234,7 @@
     },
 
     "MirrorEgoGiftGetConfirm2": {
-        "doc": "确认获得 EGO 饰品弹窗（获得后弹出）",
+        "doc": "确认获得 EGO 饰品弹窗",
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/mirror/road_in_mir/ego_gift_get_confirm_assets.png",
@@ -231,7 +246,7 @@
     },
 
     "MirrorHandleShop": {
-        "doc": "检测到商店界面，直接关闭（不购买）",
+        "doc": "检测到商店界面，直接离开商店",
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/mirror/road_in_mir/shop.png",

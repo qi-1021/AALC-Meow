@@ -1,8 +1,13 @@
 {
     "StoryAutoSkip": {
         "recognition": "TemplateMatch",
-        "template": "story/skip.png",
-        "roi": [800, 10, 180, 90],
+        "template": "image/story/skip.png",
+        "roi": [
+            800,
+            10,
+            180,
+            90
+        ],
         "action": "Click",
         "post_wait_freezes": 400,
         "next": [
@@ -12,8 +17,13 @@
     },
     "StorySkipConfirm": {
         "recognition": "TemplateMatch",
-        "template": "story/skip_confirm.png",
-        "roi": [650, 440, 150, 100],
+        "template": "image/story/skip_confirm.png",
+        "roi": [
+            650,
+            440,
+            150,
+            100
+        ],
         "action": "Click",
         "post_wait_freezes": 1000
     }

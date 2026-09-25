@@ -12,6 +12,8 @@
         "next": [
             "MirrorClickEnter",
             "MirrorSelectTeamScreen",
+            "MirrorCheckDreamingStar",
+            "MirrorCheckInitEgoGift",
             "MirrorDungeonEntry"
         ]
     },
@@ -28,6 +30,8 @@
         "next": [
             "MirrorQuickStart",
             "MirrorSelectTeamScreen",
+            "MirrorCheckDreamingStar",
+            "MirrorCheckInitEgoGift",
             "MirrorLevelConfirm"
         ]
     },
@@ -44,6 +48,8 @@
         "post_wait_freezes": 1200,
         "next": [
             "MirrorSelectTeamScreen",
+            "MirrorCheckDreamingStar",
+            "MirrorCheckInitEgoGift",
             "MirrorLevelConfirm"
         ]
     },
@@ -58,7 +64,8 @@
         "action": "DoNothing",
         "post_delay": 500,
         "next": [
-            "MirrorOpenTeamPanel"
+            "MirrorOpenTeamPanel",
+            "MirrorClickConfirmTeamButton"
         ]
     },
 
@@ -87,22 +94,113 @@
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
-            "MirrorConfirmTeamSelect",
+            "MirrorClickConfirmTeamButton",
             "MirrorSelectTeamByOCR"
         ]
     },
 
-    "MirrorConfirmTeamSelect": {
-        "doc": "点击「确认队伍」按钮完成镜牢队伍选择，进入编队界面配置罪人",
+    "MirrorClickConfirmTeamButton": {
+        "doc": "点击队伍确认按钮（select_team_confirm_assets）完成队伍选定",
         "recognition": {
             "type": "TemplateMatch",
-            "template": "image/mirror/road_to_mir/select_team_stars_assets.png",
+            "template": "image/mirror/road_to_mir/select_team_confirm_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "MirrorCheckDreamingStar",
+            "MirrorCheckInitEgoGift",
+            "TeamFormationStart",
+            "MirrorLevelConfirm"
+        ]
+    },
+
+    "MirrorCheckDreamingStar": {
+        "doc": "检测到开局星光选择界面（dreaming_star/coins_assets.png）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/dreaming_star/coins_assets.png",
             "threshold": 0.75
         },
         "action": "DoNothing",
+        "post_delay": 500,
         "next": [
+            "MirrorConfirmDreamingStar",
+            "MirrorEnterDreamingStar"
+        ]
+    },
+
+    "MirrorConfirmDreamingStar": {
+        "doc": "点击确认选定星光增益",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/dreaming_star/select_star_confirm_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 800,
+        "next": [
+            "MirrorEnterDreamingStar",
+            "MirrorCheckInitEgoGift"
+        ]
+    },
+
+    "MirrorEnterDreamingStar": {
+        "doc": "点击进入梦境星光确定按钮",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/dreaming_star/dreaming_star_enter_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "MirrorCheckInitEgoGift",
             "TeamFormationStart",
             "MirrorLevelConfirm"
+        ]
+    },
+
+    "MirrorCheckInitEgoGift": {
+        "doc": "检测到开局自选3饰品界面（activate_gift_search_on/off）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/activate_gift_search_on_assets.png",
+            "threshold": 0.72
+        },
+        "action": "DoNothing",
+        "next": [
+            "MirrorPickInitGiftsFirstThree",
+            "MirrorConfirmInitGifts"
+        ]
+    },
+
+    "MirrorPickInitGiftsFirstThree": {
+        "doc": "点击前3个初始藏品并确认",
+        "action": {
+            "type": "Click",
+            "target": [400, 450]
+        },
+        "post_delay": 400,
+        "next": [
+            "MirrorConfirmInitGifts"
+        ]
+    },
+
+    "MirrorConfirmInitGifts": {
+        "doc": "点击初始藏品选定确认按钮（select_init_ego_gifts_confirm_assets）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_to_mir/select_init_ego_gifts_confirm_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 1200,
+        "next": [
+            "TeamFormationStart",
+            "MirrorLevelConfirm",
+            "MirrorInDungeon"
         ]
     },
 
@@ -136,7 +234,7 @@
     },
 
     "SelectSinnerYiSang": {
-        "doc": "在编队格子中点击李想（Yi Sang）。通过 SinnerOrder option 的 pipeline_override 控制哪些罪人被选择。",
+        "doc": "依次点击罪人出战",
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/teams/YiSang_assets.png",
