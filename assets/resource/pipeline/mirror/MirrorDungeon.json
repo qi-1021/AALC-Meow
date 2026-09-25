@@ -1,0 +1,44 @@
+{
+    "MirrorDungeonEntry": {
+        "recognition": "TemplateMatch",
+        "template": "home/drive.png",
+        "roi": [900, 580, 160, 110],
+        "action": "Click",
+        "post_wait_freezes": 600,
+        "next": [
+            "MirrorClickEnter",
+            "MirrorDungeonEntry"
+        ]
+    },
+    "MirrorClickEnter": {
+        "recognition": "TemplateMatch",
+        "template": "mirror/enter_mirror.png",
+        "roi": [650, 420, 180, 130],
+        "action": "Click",
+        "post_wait_freezes": 800,
+        "next": [
+            "MirrorQuickStart",
+            "MirrorLevelConfirm"
+        ]
+    },
+    "MirrorQuickStart": {
+        "recognition": "TemplateMatch",
+        "template": "mirror/quick_start.png",
+        "roi": [850, 380, 380, 140],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "MirrorLevelConfirm"
+        ]
+    },
+    "MirrorLevelConfirm": {
+        "recognition": "TemplateMatch",
+        "template": "mirror/level_confirm.png",
+        "roi": [680, 440, 150, 120],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "BattleAutoCombat"
+        ]
+    }
+}

@@ -7,6 +7,24 @@
             "description": "自动在主界面点击体力槽，选择全部兑换并将体力转换为脑啡肽模块"
         },
         {
+            "name": "LuxcavationEXP",
+            "label": "经验采光本自动刷取",
+            "entry": "LuxcavationEntry",
+            "description": "从大厅进入采光副本，自动选中最新等级经验本，自动拼刀战斗直至通关"
+        },
+        {
+            "name": "LuxcavationThread",
+            "label": "纽扣采光本自动刷取",
+            "entry": "LuxcavationEntry",
+            "description": "从大厅进入采光副本，自动选中纽扣采光本最高等级并自动胜率拼刀战斗"
+        },
+        {
+            "name": "MirrorDungeonQuick",
+            "label": "镜牢快速开始挂机",
+            "entry": "MirrorDungeonEntry",
+            "description": "从大厅进入镜牢，点击快速开始、难度确认并衔接自动拼刀战斗"
+        },
+        {
             "name": "MailClaim",
             "label": "一键领取邮箱奖励",
             "entry": "MailStart",
