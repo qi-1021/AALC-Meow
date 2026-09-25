@@ -7,6 +7,18 @@
             "description": "自动在主界面点击体力槽，选择全部兑换并将体力转换为脑啡肽模块"
         },
         {
+            "name": "MailClaim",
+            "label": "一键领取邮箱奖励",
+            "entry": "MailStart",
+            "description": "自动从大厅进入邮箱，点击全部领取并确认关闭"
+        },
+        {
+            "name": "StoryAutoSkip",
+            "label": "剧情自动跳过",
+            "entry": "StoryAutoSkip",
+            "description": "在剧情播放过程中自动检测并点击右上角跳过按钮与二次确认"
+        },
+        {
             "name": "BattleAutoCombat",
             "label": "战斗自动胜率连线",
             "entry": "BattleAutoCombat",
