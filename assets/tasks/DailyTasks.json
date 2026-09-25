@@ -1,0 +1,16 @@
+{
+    "task": [
+        {
+            "name": "EnkephalinModule",
+            "label": "体力全换脑啡肽模块",
+            "entry": "EnkephalinModuleStart",
+            "description": "自动在主界面点击体力槽，选择全部兑换并将体力转换为脑啡肽模块"
+        },
+        {
+            "name": "BattleAutoCombat",
+            "label": "战斗自动胜率连线",
+            "entry": "BattleAutoCombat",
+            "description": "在战斗界面自动点击P（胜率拼刀）并转动齿轮开始回合，直至战斗结算确认"
+        }
+    ]
+}

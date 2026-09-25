@@ -1,0 +1,32 @@
+{
+    "interface_version": 2,
+    "name": "AALC-Meow",
+    "description": "这是对于 AALC（边狱巴士小助手）手机端的一种实现，基于 MaaFramework 与 AALC 开源项目。",
+    "version": "v0.1.0",
+    "contact": "CONTACT",
+    "license": "LICENSE",
+    "icon": "logo.png",
+    "github": "https://github.com/qi-1021/AALC-Meow",
+    "languages": {
+        "zh_cn": "locales/zh_cn.json"
+    },
+    "controller": [
+        {
+            "name": "ADB",
+            "label": "原生 / 容器内挂载 (ADB / Shizuku)",
+            "type": "Adb"
+        }
+    ],
+    "resource": [
+        {
+            "name": "Default",
+            "label": "默认资源",
+            "path": [
+                "./resource"
+            ]
+        }
+    ],
+    "import": [
+        "tasks/DailyTasks.json"
+    ]
+}

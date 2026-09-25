@@ -1,0 +1,50 @@
+{
+    "EnkephalinModuleStart": {
+        "recognition": "TemplateMatch",
+        "template": "home/enkephalin_box.png",
+        "roi": [260, 580, 120, 120],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "EnkephalinClickAllIn",
+            "EnkephalinModuleStart"
+        ]
+    },
+    "EnkephalinClickAllIn": {
+        "recognition": "TemplateMatch",
+        "template": "enkephalin/all_in.png",
+        "roi": [750, 280, 120, 100],
+        "action": "Click",
+        "post_wait_freezes": 300,
+        "next": [
+            "EnkephalinClickConfirm",
+            "EnkephalinClickAllIn"
+        ]
+    },
+    "EnkephalinClickConfirm": {
+        "recognition": "TemplateMatch",
+        "template": "enkephalin/confirm.png",
+        "roi": [660, 480, 130, 100],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "EnkephalinClickCancel",
+            "EnkephalinClickConfirm"
+        ]
+    },
+    "EnkephalinClickCancel": {
+        "recognition": "TemplateMatch",
+        "template": "enkephalin/cancel.png",
+        "roi": [440, 480, 120, 100],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "EnkephalinFinishCheck"
+        ]
+    },
+    "EnkephalinFinishCheck": {
+        "recognition": "TemplateMatch",
+        "template": "home/drive.png",
+        "roi": [900, 580, 160, 110]
+    }
+}

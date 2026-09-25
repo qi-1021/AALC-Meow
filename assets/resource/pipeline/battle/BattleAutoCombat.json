@@ -1,0 +1,41 @@
+{
+    "BattleAutoCombat": {
+        "recognition": "TemplateMatch",
+        "template": "battle/win_rate.png",
+        "roi": [950, 500, 100, 90],
+        "action": "Click",
+        "post_wait_freezes": 400,
+        "next": [
+            "BattleStartTurn",
+            "BattleAutoCombat"
+        ]
+    },
+    "BattleStartTurn": {
+        "recognition": "TemplateMatch",
+        "template": "battle/gear_right.png",
+        "roi": [1180, 540, 100, 150],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "BattleChecking",
+            "BattleFinishCheck"
+        ]
+    },
+    "BattleChecking": {
+        "recognition": "TemplateMatch",
+        "template": "battle/turn.png",
+        "roi": [10, 10, 200, 100],
+        "next": [
+            "BattleAutoCombat",
+            "BattleFinishCheck",
+            "BattleChecking"
+        ]
+    },
+    "BattleFinishCheck": {
+        "recognition": "TemplateMatch",
+        "template": "battle/battle_finish_confirm.png",
+        "roi": [500, 550, 280, 150],
+        "action": "Click",
+        "post_wait_freezes": 1000
+    }
+}

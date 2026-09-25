@@ -1,0 +1,9 @@
+[submodule "upstream/m9a"]
+	path = upstream/m9a
+	url = https://github.com/MAA1999/M9A.git
+[submodule "upstream/maaend"]
+	path = upstream/maaend
+	url = https://github.com/MaaEnd/MaaEnd.git
+[submodule "upstream/aalc"]
+	path = upstream/aalc
+	url = https://github.com/KIYI671/AhabAssistantLimbusCompany.git
