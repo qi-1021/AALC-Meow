@@ -43,7 +43,7 @@
     },
     "HandleStorySkipConfirm": {
         "recognition": "TemplateMatch",
-        "template": "image/scenes/story_skip_confirm.png",
+        "template": "image/story/skip_confirm.png",
         "threshold": 0.8,
         "action": "Click",
         "next": [

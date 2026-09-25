@@ -11,6 +11,7 @@
         "next": [
             "BattleStartTurn",
             "BattleHandleMidBattleEvent",
+            "BattleHandleGiveUp",
             "BattleFinishCheck",
             "BattleAutoCombat"
         ]
@@ -28,6 +29,7 @@
         "next": [
             "BattleChecking",
             "BattleHandleMidBattleEvent",
+            "BattleHandleGiveUp",
             "BattleFinishCheck"
         ]
     },
@@ -42,6 +44,7 @@
         "next": [
             "BattleAutoCombat",
             "BattleHandleMidBattleEvent",
+            "BattleHandleGiveUp",
             "BattleFinishCheck",
             "BattleChecking"
         ]
@@ -60,6 +63,17 @@
             "BattleAutoCombat",
             "BattleChecking"
         ]
+    },
+
+    "BattleHandleGiveUp": {
+        "doc": "全军覆没或战斗失败时弹出认输确认，自动点击放弃退出重试",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/battle/give_up_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 1200
     },
 
     "BattleFinishCheck": {

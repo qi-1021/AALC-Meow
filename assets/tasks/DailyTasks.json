@@ -56,6 +56,10 @@
                 "SinnerSelection",
                 "ChooseOpeningBonus",
                 "ChooseOpeningItems",
+                "Floor3Exit",
+                "MirrorShopStrategy",
+                "MirrorRewardCardPreference",
+                "MirrorWeeklyBonus",
                 "MirrorDifficulty",
                 "MirrorTheme",
                 "BattleSkillStrategy"
@@ -100,7 +104,11 @@
             "entry": "MirrorDungeonExploration",
             "description": "镜牢内自动点击进入前进节点、确认获取奖励卡包、饰品箱判定与离开商店",
             "option": [
-                "MirrorRewardPreference"
+                "Floor3Exit",
+                "MirrorShopStrategy",
+                "MirrorRewardCardPreference",
+                "MirrorRewardPreference",
+                "MirrorWeeklyBonus"
             ]
         },
         {
@@ -421,6 +429,131 @@
                     "pipeline_override": {
                         "MirrorCheckInitEgoGift": {
                             "next": ["TeamFormationStart", "MirrorLevelConfirm", "MirrorInDungeon"]
+                        }
+                    }
+                }
+            ]
+        },
+        "Floor3Exit": {
+            "type": "switch",
+            "label": "只打三层速刷退出",
+            "description": "开启后，镜牢进入第4层时自动点击设置->放弃并领取前3层奖励（通行证狂气最高性价比刷法）",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开启（3层速刷退牢）",
+                    "pipeline_override": {
+                        "MirrorDungeonExploration": {
+                            "next": [
+                                "MirrorFloor3ExitAction",
+                                "ClickEnterNode",
+                                "ClaimMirrorReward",
+                                "MirrorDungeonExploration"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "label": "关闭（通关全部楼层）",
+                    "pipeline_override": {
+                        "MirrorFloor3ExitAction": {
+                            "next": ["ClickEnterNode"]
+                        }
+                    }
+                }
+            ]
+        },
+        "MirrorShopStrategy": {
+            "type": "select",
+            "label": "镜牢商店进店策略",
+            "description": "遇到商店节点时的自动化行为",
+            "default_case": "heal_then_leave",
+            "cases": [
+                {
+                    "name": "heal_then_leave",
+                    "label": "全员治疗后离开（推荐）",
+                    "pipeline_override": {
+                        "MirrorHandleShop": {
+                            "next": ["MirrorShopHealAll", "MirrorLeaveShop"]
+                        }
+                    }
+                },
+                {
+                    "name": "leave_directly",
+                    "label": "不治疗，直接离开",
+                    "pipeline_override": {
+                        "MirrorHandleShop": {
+                            "next": ["MirrorLeaveShop"]
+                        }
+                    }
+                }
+            ]
+        },
+        "MirrorRewardCardPreference": {
+            "type": "select",
+            "label": "战后奖励卡优先类型",
+            "description": "镜牢战斗获胜后出现奖励卡牌时的优选顺序",
+            "default_case": "ego",
+            "cases": [
+                {
+                    "name": "starlight",
+                    "label": "优先星光加成卡（gain_starlight）",
+                    "pipeline_override": {
+                        "MirrorHandleRewardCard": {
+                            "next": [
+                                "MirrorRewardCardSelectStarlight",
+                                "MirrorRewardCardSelectEGO",
+                                "MirrorRewardCardSelectFirst"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "ego",
+                    "label": "优先饰品卡（gain_ego）",
+                    "pipeline_override": {
+                        "MirrorHandleRewardCard": {
+                            "next": [
+                                "MirrorRewardCardSelectEGO",
+                                "MirrorRewardCardSelectCostAndEGO",
+                                "MirrorRewardCardSelectFirst"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "cost",
+                    "label": "优先经费卡（gain_cost）",
+                    "pipeline_override": {
+                        "MirrorHandleRewardCard": {
+                            "next": [
+                                "MirrorRewardCardSelectCost",
+                                "MirrorRewardCardSelectCostAndEGO",
+                                "MirrorRewardCardSelectFirst"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "MirrorWeeklyBonus": {
+            "type": "select",
+            "label": "每周狂气/通行证加成领取策略",
+            "description": "镜牢通关结算时对每周 3 次高倍奖励的处理",
+            "default_case": "use_all",
+            "cases": [
+                {
+                    "name": "use_all",
+                    "label": "自动使用每周加成"
+                },
+                {
+                    "name": "save_bonus",
+                    "label": "留存加成（不勾选加成直接确认）",
+                    "pipeline_override": {
+                        "MirrorCheckWeeklyBonuses": {
+                            "next": ["MirrorRewardsAcquiredConfirm"]
                         }
                     }
                 }

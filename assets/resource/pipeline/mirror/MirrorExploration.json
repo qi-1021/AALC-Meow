@@ -8,6 +8,7 @@
         },
         "action": "DoNothing",
         "next": [
+            "MirrorFloor3ExitAction",
             "ClickEnterNode",
             "MirrorHandleThemePackFeature",
             "MirrorHandleRewardCard",
@@ -18,6 +19,48 @@
             "MirrorHandleEvent",
             "ClaimMirrorReward",
             "MirrorDungeonExploration"
+        ]
+    },
+
+    "MirrorFloor3ExitAction": {
+        "doc": "只打三层速刷退出逻辑：由 Floor3Exit option 激活后，在地图界面点击右上角设置图标",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/setting_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 800,
+        "next": [
+            "MirrorClickForfeitButton"
+        ]
+    },
+
+    "MirrorClickForfeitButton": {
+        "doc": "在设置菜单中点击「放弃/认输」按钮",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/forfeit_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 800,
+        "next": [
+            "MirrorConfirmForfeitExit"
+        ]
+    },
+
+    "MirrorConfirmForfeitExit": {
+        "doc": "二次确认放弃，直接进入奖励结算页",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/road_in_mir/towindow&forfeit_confirm_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_wait_freezes": 1500,
+        "next": [
+            "ClaimMirrorReward"
         ]
     },
 
@@ -51,7 +94,7 @@
     },
 
     "MirrorPickThemePackConfirm": {
-        "doc": "选中卡包并下拉/点击确认（默认点击中间偏左位置的主题卡包）",
+        "doc": "选中卡包并点击确认（默认点击中间偏左位置的主题卡包）",
         "action": {
             "type": "Click",
             "target": [500, 540]
@@ -81,13 +124,29 @@
         },
         "action": "DoNothing",
         "next": [
+            "MirrorRewardCardSelectStarlight",
             "MirrorRewardCardSelectEGO",
+            "MirrorRewardCardSelectCost",
+            "MirrorRewardCardSelectCostAndEGO",
+            "MirrorRewardCardSelectEGOResource",
             "MirrorRewardCardSelectFirst"
         ]
     },
 
+    "MirrorRewardCardSelectStarlight": {
+        "doc": "优先选择星光奖励卡",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/get_reward_card/gain_starlight.png",
+            "threshold": 0.78
+        },
+        "action": "Click",
+        "post_delay": 500,
+        "next": ["ClickRewardCardConfirm"]
+    },
+
     "MirrorRewardCardSelectEGO": {
-        "doc": "优先选择含 EGO 的奖励卡",
+        "doc": "选择含 EGO 饰品的奖励卡",
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/mirror/get_reward_card/gain_ego.png",
@@ -98,8 +157,44 @@
         "next": ["ClickRewardCardConfirm"]
     },
 
+    "MirrorRewardCardSelectCost": {
+        "doc": "选择含经费（Cost）的奖励卡",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/get_reward_card/gain_cost.png",
+            "threshold": 0.78
+        },
+        "action": "Click",
+        "post_delay": 500,
+        "next": ["ClickRewardCardConfirm"]
+    },
+
+    "MirrorRewardCardSelectCostAndEGO": {
+        "doc": "选择经费与 EGO 复合奖励卡",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/get_reward_card/gain_cost_and_ego.png",
+            "threshold": 0.78
+        },
+        "action": "Click",
+        "post_delay": 500,
+        "next": ["ClickRewardCardConfirm"]
+    },
+
+    "MirrorRewardCardSelectEGOResource": {
+        "doc": "选择自我资源奖励卡",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/get_reward_card/gain_ego_resource.png",
+            "threshold": 0.78
+        },
+        "action": "Click",
+        "post_delay": 500,
+        "next": ["ClickRewardCardConfirm"]
+    },
+
     "MirrorRewardCardSelectFirst": {
-        "doc": "无偏好时选择第一张奖励卡（最左）",
+        "doc": "无匹配偏好时选择第一张奖励卡（最左侧固定位置）",
         "action": {
             "type": "Click",
             "target": [400, 540]
@@ -117,6 +212,21 @@
         },
         "action": "Click",
         "post_delay": 1000,
+        "next": [
+            "MirrorRewardCardContinueChoosing",
+            "MirrorDungeonExploration"
+        ]
+    },
+
+    "MirrorRewardCardContinueChoosing": {
+        "doc": "如果弹出「继续选择」按钮，点击继续",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/get_reward_card/continue_choosing_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 800,
         "next": ["MirrorDungeonExploration"]
     },
 
@@ -246,7 +356,7 @@
     },
 
     "MirrorHandleShop": {
-        "doc": "检测到商店界面，直接离开商店",
+        "doc": "检测到商店界面",
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/mirror/road_in_mir/shop.png",
@@ -254,12 +364,40 @@
         },
         "action": "DoNothing",
         "next": [
+            "MirrorShopHealAll",
             "MirrorLeaveShop"
         ]
     },
 
+    "MirrorShopHealAll": {
+        "doc": "进店自动点击全员治疗（由 MirrorShopStrategy option 决定是否启用）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/shop/heal_sinner/heal_all_sinner_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 800,
+        "next": [
+            "MirrorShopHealReturn",
+            "MirrorLeaveShop"
+        ]
+    },
+
+    "MirrorShopHealReturn": {
+        "doc": "治疗后点击返回商店主界面",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/shop/heal_sinner/heal_sinner_return_assets.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 600,
+        "next": ["MirrorLeaveShop"]
+    },
+
     "MirrorLeaveShop": {
-        "doc": "点击离开商店",
+        "doc": "点击离开商店按钮",
         "recognition": {
             "type": "TemplateMatch",
             "template": "image/mirror/leave_shop_confirm.png",
@@ -293,6 +431,22 @@
         },
         "action": "Click",
         "post_delay": 1200,
+        "next": [
+            "MirrorCheckWeeklyBonuses",
+            "UseEnkephalinConfirm",
+            "MirrorRewardsAcquiredConfirm"
+        ]
+    },
+
+    "MirrorCheckWeeklyBonuses": {
+        "doc": "处理每周加成选项（weekly_bonuses）",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "image/mirror/claim_reward/weekly_bonuses.png",
+            "threshold": 0.75
+        },
+        "action": "Click",
+        "post_delay": 600,
         "next": [
             "UseEnkephalinConfirm",
             "MirrorRewardsAcquiredConfirm"
