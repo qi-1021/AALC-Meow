@@ -106,7 +106,10 @@
                     "label": "Google Play 官方包 (com.ProjectMoon.LimbusCompany)",
                     "pipeline_override": {
                         "StartLimbusCompany": {
-                            "action": { "type": "StartApp", "package": "com.ProjectMoon.LimbusCompany" }
+                            "action": {
+                                "type": "StartApp",
+                                "package": "com.ProjectMoon.LimbusCompany"
+                            }
                         }
                     }
                 },
@@ -115,7 +118,10 @@
                     "label": "OurPlay 容器版 (com.ourplay.limbuscompany)",
                     "pipeline_override": {
                         "StartLimbusCompany": {
-                            "action": { "type": "StartApp", "package": "com.ourplay.limbuscompany" }
+                            "action": {
+                                "type": "StartApp",
+                                "package": "com.ourplay.limbuscompany"
+                            }
                         }
                     }
                 },
@@ -125,7 +131,10 @@
                     "pipeline_override": {
                         "StartLimbusCompany": {
                             "action": "DoNothing",
-                            "next": ["WaitLimbusHomeScreen", "StartGameSuccess"]
+                            "next": [
+                                "WaitLimbusHomeScreen",
+                                "StartGameSuccess"
+                            ]
                         }
                     }
                 }
@@ -137,12 +146,30 @@
             "description": "设置日常刷取经验采光副本的连续战斗次数",
             "default_case": "1",
             "cases": [
-                { "name": "0", "label": "0 次（不刷）" },
-                { "name": "1", "label": "1 次" },
-                { "name": "2", "label": "2 次" },
-                { "name": "3", "label": "3 次" },
-                { "name": "5", "label": "5 次" },
-                { "name": "10", "label": "10 次" }
+                {
+                    "name": "0",
+                    "label": "0 次（不刷）"
+                },
+                {
+                    "name": "1",
+                    "label": "1 次"
+                },
+                {
+                    "name": "2",
+                    "label": "2 次"
+                },
+                {
+                    "name": "3",
+                    "label": "3 次"
+                },
+                {
+                    "name": "5",
+                    "label": "5 次"
+                },
+                {
+                    "name": "10",
+                    "label": "10 次"
+                }
             ]
         },
         "set_thread_count": {
@@ -151,12 +178,30 @@
             "description": "设置日常刷取纽扣采光副本的连续战斗次数",
             "default_case": "3",
             "cases": [
-                { "name": "0", "label": "0 次（不刷）" },
-                { "name": "1", "label": "1 次" },
-                { "name": "2", "label": "2 次" },
-                { "name": "3", "label": "3 次（推荐每日打满）" },
-                { "name": "5", "label": "5 次" },
-                { "name": "10", "label": "10 次" }
+                {
+                    "name": "0",
+                    "label": "0 次（不刷）"
+                },
+                {
+                    "name": "1",
+                    "label": "1 次"
+                },
+                {
+                    "name": "2",
+                    "label": "2 次"
+                },
+                {
+                    "name": "3",
+                    "label": "3 次（推荐每日打满）"
+                },
+                {
+                    "name": "5",
+                    "label": "5 次"
+                },
+                {
+                    "name": "10",
+                    "label": "10 次"
+                }
             ]
         },
         "daily_teams": {
@@ -170,7 +215,20 @@
                     "label": "Team1 (编队#1)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
-                            "recognition": { "type": "OCR", "text": ["编队#1"], "roi": [0, 0, 500, 1080] },
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#1",
+                                    "TEAMS #1",
+                                    "TEAMS#1"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
                             "action": "Click"
                         }
                     }
@@ -180,7 +238,20 @@
                     "label": "Team2 (编队#2)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
-                            "recognition": { "type": "OCR", "text": ["编队#2"], "roi": [0, 0, 500, 1080] },
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#2",
+                                    "TEAMS #2",
+                                    "TEAMS#2"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
                             "action": "Click"
                         }
                     }
@@ -190,7 +261,20 @@
                     "label": "Team3 (编队#3)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
-                            "recognition": { "type": "OCR", "text": ["编队#3"], "roi": [0, 0, 500, 1080] },
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#3",
+                                    "TEAMS #3",
+                                    "TEAMS#3"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
                             "action": "Click"
                         }
                     }
@@ -200,7 +284,20 @@
                     "label": "Team4 (编队#4)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
-                            "recognition": { "type": "OCR", "text": ["编队#4"], "roi": [0, 0, 500, 1080] },
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#4",
+                                    "TEAMS #4",
+                                    "TEAMS#4"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
                             "action": "Click"
                         }
                     }
@@ -210,7 +307,365 @@
                     "label": "Team5 (编队#5)",
                     "pipeline_override": {
                         "MirrorSelectTeamByOCR": {
-                            "recognition": { "type": "OCR", "text": ["编队#5"], "roi": [0, 0, 500, 1080] },
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#5",
+                                    "TEAMS #5",
+                                    "TEAMS#5"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "6",
+                    "label": "Team6 (编队#6)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#6",
+                                    "TEAMS #6",
+                                    "TEAMS#6"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "7",
+                    "label": "Team7 (编队#7)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#7",
+                                    "TEAMS #7",
+                                    "TEAMS#7"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "8",
+                    "label": "Team8 (编队#8)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#8",
+                                    "TEAMS #8",
+                                    "TEAMS#8"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "9",
+                    "label": "Team9 (编队#9)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#9",
+                                    "TEAMS #9",
+                                    "TEAMS#9"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "10",
+                    "label": "Team10 (编队#10)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#10",
+                                    "TEAMS #10",
+                                    "TEAMS#10"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "11",
+                    "label": "Team11 (编队#11)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#11",
+                                    "TEAMS #11",
+                                    "TEAMS#11"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "12",
+                    "label": "Team12 (编队#12)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#12",
+                                    "TEAMS #12",
+                                    "TEAMS#12"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "13",
+                    "label": "Team13 (编队#13)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#13",
+                                    "TEAMS #13",
+                                    "TEAMS#13"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "14",
+                    "label": "Team14 (编队#14)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#14",
+                                    "TEAMS #14",
+                                    "TEAMS#14"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "15",
+                    "label": "Team15 (编队#15)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#15",
+                                    "TEAMS #15",
+                                    "TEAMS#15"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "16",
+                    "label": "Team16 (编队#16)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#16",
+                                    "TEAMS #16",
+                                    "TEAMS#16"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "17",
+                    "label": "Team17 (编队#17)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#17",
+                                    "TEAMS #17",
+                                    "TEAMS#17"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "18",
+                    "label": "Team18 (编队#18)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#18",
+                                    "TEAMS #18",
+                                    "TEAMS#18"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "19",
+                    "label": "Team19 (编队#19)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#19",
+                                    "TEAMS #19",
+                                    "TEAMS#19"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
+                            "action": "Click"
+                        }
+                    }
+                },
+                {
+                    "name": "20",
+                    "label": "Team20 (编队#20)",
+                    "pipeline_override": {
+                        "MirrorSelectTeamByOCR": {
+                            "recognition": {
+                                "type": "OCR",
+                                "text": [
+                                    "编队#20",
+                                    "TEAMS #20",
+                                    "TEAMS#20"
+                                ],
+                                "roi": [
+                                    0,
+                                    0,
+                                    500,
+                                    1080
+                                ]
+                            },
                             "action": "Click"
                         }
                     }
@@ -223,8 +678,14 @@
             "description": "开启后将在采光本结算时自动点击连续作战继续下一场",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "use_continuous_combat_select": {
@@ -233,11 +694,26 @@
             "description": "连续作战设定的单轮上限次数",
             "default_case": "3",
             "cases": [
-                { "name": "1", "label": "1 Times" },
-                { "name": "2", "label": "2 Times" },
-                { "name": "3", "label": "3 Times" },
-                { "name": "5", "label": "5 Times" },
-                { "name": "10", "label": "10 Times" }
+                {
+                    "name": "1",
+                    "label": "1 Times"
+                },
+                {
+                    "name": "2",
+                    "label": "2 Times"
+                },
+                {
+                    "name": "3",
+                    "label": "3 Times"
+                },
+                {
+                    "name": "5",
+                    "label": "5 Times"
+                },
+                {
+                    "name": "10",
+                    "label": "10 Times"
+                }
             ]
         },
         "set_mirror_count": {
@@ -246,11 +722,26 @@
             "description": "设置执行镜牢副本的轮次数量",
             "default_case": "1",
             "cases": [
-                { "name": "1", "label": "1 次" },
-                { "name": "2", "label": "2 次" },
-                { "name": "3", "label": "3 次" },
-                { "name": "5", "label": "5 次" },
-                { "name": "10", "label": "10 次" }
+                {
+                    "name": "1",
+                    "label": "1 次"
+                },
+                {
+                    "name": "2",
+                    "label": "2 次"
+                },
+                {
+                    "name": "3",
+                    "label": "3 次"
+                },
+                {
+                    "name": "5",
+                    "label": "5 次"
+                },
+                {
+                    "name": "10",
+                    "label": "10 次"
+                }
             ]
         },
         "hard_mirror": {
@@ -259,8 +750,14 @@
             "description": "选择镜牢难度级别（普通难度 / 困难难度）",
             "default_case": "normal",
             "cases": [
-                { "name": "normal", "label": "普通镜牢" },
-                { "name": "hard", "label": "使用困难镜牢" }
+                {
+                    "name": "normal",
+                    "label": "普通镜牢"
+                },
+                {
+                    "name": "hard",
+                    "label": "使用困难镜牢"
+                }
             ]
         },
         "no_weekly_bonuses": {
@@ -274,11 +771,16 @@
                     "label": "不使用每周加成",
                     "pipeline_override": {
                         "MirrorCheckWeeklyBonuses": {
-                            "next": ["MirrorRewardsAcquiredConfirm"]
+                            "next": [
+                                "MirrorRewardsAcquiredConfirm"
+                            ]
                         }
                     }
                 },
-                { "name": "No", "label": "使用每周加成" }
+                {
+                    "name": "No",
+                    "label": "使用每周加成"
+                }
             ]
         },
         "hard_mirror_single_bonuses": {
@@ -287,8 +789,14 @@
             "description": "困难镜牢结算时仅使用单次加成，保留剩余次数给周常",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启单次加成" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启单次加成"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "save_rewards": {
@@ -297,8 +805,14 @@
             "description": "仅在困难镜牢时生效，打完通关后暂不领取奖励，保存在结算页",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "保存奖励" },
-                { "name": "No", "label": "直接领取" }
+                {
+                    "name": "Yes",
+                    "label": "保存奖励"
+                },
+                {
+                    "name": "No",
+                    "label": "直接领取"
+                }
             ]
         },
         "floor_3_exit": {
@@ -326,7 +840,9 @@
                     "label": "关闭（打满全层）",
                     "pipeline_override": {
                         "MirrorFloor3ExitAction": {
-                            "next": ["ClickEnterNode"]
+                            "next": [
+                                "ClickEnterNode"
+                            ]
                         }
                     }
                 }
@@ -338,8 +854,14 @@
             "description": "循环不断刷镜牢，不限次数，直至体力或脑啡肽耗尽",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "无限坐牢" },
-                { "name": "No", "label": "按次数执行" }
+                {
+                    "name": "Yes",
+                    "label": "无限坐牢"
+                },
+                {
+                    "name": "No",
+                    "label": "按次数执行"
+                }
             ]
         },
         "select_event_pack": {
@@ -348,8 +870,14 @@
             "description": "在第五层楼层卡包选择时，强制优先选中最左侧的活动限定卡包",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "skip_event_pack": {
@@ -358,8 +886,14 @@
             "description": "在第五层楼层卡包选择时，避开最左侧活动卡包，选择常规体系卡包",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "re_claim_rewards": {
@@ -368,8 +902,14 @@
             "description": "如果镜牢结算界面未完全领完，再次执行领取奖励动作",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "not_skip_whitegossypium": {
@@ -378,8 +918,14 @@
             "description": "遇到带有白棉花负面效果的事件或饰品时不主动跳过，按需收取",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "fight_to_last_man": {
@@ -388,8 +934,14 @@
             "description": "战斗中即使劣势或死人也不认输逃跑，战斗直至全员阵亡",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "team_system": {
@@ -403,7 +955,10 @@
                     "label": "烧伤",
                     "pipeline_override": {
                         "MirrorAcquireEgoGiftCard": {
-                            "next": ["MirrorEgoGiftPickBurn", "MirrorEgoGiftPickFirst"]
+                            "next": [
+                                "MirrorEgoGiftPickBurn",
+                                "MirrorEgoGiftPickFirst"
+                            ]
                         }
                     }
                 },
@@ -412,7 +967,10 @@
                     "label": "流血",
                     "pipeline_override": {
                         "MirrorAcquireEgoGiftCard": {
-                            "next": ["MirrorEgoGiftPickBleed", "MirrorEgoGiftPickFirst"]
+                            "next": [
+                                "MirrorEgoGiftPickBleed",
+                                "MirrorEgoGiftPickFirst"
+                            ]
                         }
                     }
                 },
@@ -421,7 +979,10 @@
                     "label": "震颤",
                     "pipeline_override": {
                         "MirrorAcquireEgoGiftCard": {
-                            "next": ["MirrorEgoGiftPickTremor", "MirrorEgoGiftPickFirst"]
+                            "next": [
+                                "MirrorEgoGiftPickTremor",
+                                "MirrorEgoGiftPickFirst"
+                            ]
                         }
                     }
                 },
@@ -430,7 +991,10 @@
                     "label": "破裂",
                     "pipeline_override": {
                         "MirrorAcquireEgoGiftCard": {
-                            "next": ["MirrorEgoGiftPickRupture", "MirrorEgoGiftPickFirst"]
+                            "next": [
+                                "MirrorEgoGiftPickRupture",
+                                "MirrorEgoGiftPickFirst"
+                            ]
                         }
                     }
                 },
@@ -439,7 +1003,10 @@
                     "label": "呼吸",
                     "pipeline_override": {
                         "MirrorAcquireEgoGiftCard": {
-                            "next": ["MirrorEgoGiftPickPoise", "MirrorEgoGiftPickFirst"]
+                            "next": [
+                                "MirrorEgoGiftPickPoise",
+                                "MirrorEgoGiftPickFirst"
+                            ]
                         }
                     }
                 },
@@ -448,7 +1015,10 @@
                     "label": "沉沦",
                     "pipeline_override": {
                         "MirrorAcquireEgoGiftCard": {
-                            "next": ["MirrorEgoGiftPickSinking", "MirrorEgoGiftPickFirst"]
+                            "next": [
+                                "MirrorEgoGiftPickSinking",
+                                "MirrorEgoGiftPickFirst"
+                            ]
                         }
                     }
                 },
@@ -457,13 +1027,25 @@
                     "label": "充能",
                     "pipeline_override": {
                         "MirrorAcquireEgoGiftCard": {
-                            "next": ["MirrorEgoGiftPickCharge", "MirrorEgoGiftPickFirst"]
+                            "next": [
+                                "MirrorEgoGiftPickCharge",
+                                "MirrorEgoGiftPickFirst"
+                            ]
                         }
                     }
                 },
-                { "name": "slash", "label": "斩击" },
-                { "name": "pierce", "label": "突刺" },
-                { "name": "blunt", "label": "打击" }
+                {
+                    "name": "slash",
+                    "label": "斩击"
+                },
+                {
+                    "name": "pierce",
+                    "label": "突刺"
+                },
+                {
+                    "name": "blunt",
+                    "label": "打击"
+                }
             ]
         },
         "shop_strategy": {
@@ -477,7 +1059,10 @@
                     "label": "优先全员治疗后离开（推荐）",
                     "pipeline_override": {
                         "MirrorHandleShop": {
-                            "next": ["MirrorShopHealAll", "MirrorLeaveShop"]
+                            "next": [
+                                "MirrorShopHealAll",
+                                "MirrorLeaveShop"
+                            ]
                         }
                     }
                 },
@@ -486,7 +1071,9 @@
                     "label": "直接离开（不消耗金币）",
                     "pipeline_override": {
                         "MirrorHandleShop": {
-                            "next": ["MirrorLeaveShop"]
+                            "next": [
+                                "MirrorLeaveShop"
+                            ]
                         }
                     }
                 }
@@ -551,13 +1138,20 @@
             "description": "进入镜牢时是否自动点选星光加成buff并确定",
             "default_case": "Yes",
             "cases": [
-                { "name": "Yes", "label": "是" },
+                {
+                    "name": "Yes",
+                    "label": "是"
+                },
                 {
                     "name": "No",
                     "label": "否",
                     "pipeline_override": {
                         "MirrorCheckDreamingStar": {
-                            "next": ["MirrorCheckInitEgoGift", "TeamFormationStart", "MirrorLevelConfirm"]
+                            "next": [
+                                "MirrorCheckInitEgoGift",
+                                "TeamFormationStart",
+                                "MirrorLevelConfirm"
+                            ]
                         }
                     }
                 }
@@ -569,13 +1163,20 @@
             "description": "开局藏品搜索界面是否自动根据所选体系选定前3件饰品并确认",
             "default_case": "Yes",
             "cases": [
-                { "name": "Yes", "label": "是" },
+                {
+                    "name": "Yes",
+                    "label": "是"
+                },
                 {
                     "name": "No",
                     "label": "否",
                     "pipeline_override": {
                         "MirrorCheckInitEgoGift": {
-                            "next": ["TeamFormationStart", "MirrorLevelConfirm", "MirrorInDungeon"]
+                            "next": [
+                                "TeamFormationStart",
+                                "MirrorLevelConfirm",
+                                "MirrorInDungeon"
+                            ]
                         }
                     }
                 }
@@ -587,8 +1188,14 @@
             "description": "战斗中留存三技能，防止强力技能被非必要消耗",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "defense_first_round": {
@@ -597,8 +1204,14 @@
             "description": "开战第1回合全员点击防御格，调整状态并积累行动点",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "sinner_selection": {
@@ -612,7 +1225,9 @@
                     "label": "仅使用已保存编队预设（推荐）",
                     "pipeline_override": {
                         "TeamFormationStart": {
-                            "next": ["TeamFormationConfirm"]
+                            "next": [
+                                "TeamFormationConfirm"
+                            ]
                         }
                     }
                 },
@@ -628,10 +1243,22 @@
             "description": "使用狂气购买体力的次数",
             "default_case": "0",
             "cases": [
-                { "name": "0", "label": "不换" },
-                { "name": "1", "label": "换第一次" },
-                { "name": "2", "label": "换第二次" },
-                { "name": "3", "label": "换第三次" }
+                {
+                    "name": "0",
+                    "label": "不换"
+                },
+                {
+                    "name": "1",
+                    "label": "换第一次"
+                },
+                {
+                    "name": "2",
+                    "label": "换第二次"
+                },
+                {
+                    "name": "3",
+                    "label": "换第三次"
+                }
             ]
         },
         "Dr_Grandet_mode": {
@@ -640,8 +1267,14 @@
             "description": "仅在自然体力达到满额溢出阈值时才兑换脑啡肽模块，精打细算模式",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "skip_enkephalin": {
@@ -650,8 +1283,14 @@
             "description": "勾选后除狂气换体以外不执行兑换脑啡肽的操作",
             "default_case": "No",
             "cases": [
-                { "name": "Yes", "label": "开启（跳过换模块）" },
-                { "name": "No", "label": "关闭" }
+                {
+                    "name": "Yes",
+                    "label": "开启（跳过换模块）"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
             ]
         },
         "set_get_prize": {
@@ -669,7 +1308,9 @@
                     "label": "日/周常",
                     "pipeline_override": {
                         "PassPrizeStart": {
-                            "next": ["PassCoinClaim"]
+                            "next": [
+                                "PassCoinClaim"
+                            ]
                         }
                     }
                 },
@@ -678,7 +1319,9 @@
                     "label": "邮件",
                     "pipeline_override": {
                         "PassPrizeStart": {
-                            "next": ["MailStart"]
+                            "next": [
+                                "MailStart"
+                            ]
                         }
                     }
                 }
