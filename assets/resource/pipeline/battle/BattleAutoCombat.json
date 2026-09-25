@@ -7,16 +7,18 @@
             "threshold": 0.72
         },
         "action": "Click",
-        "post_wait_freezes": 400,
+        "post_wait_freezes": 0,
         "next": [
             "BattleStartTurn",
+            "BattleChecking",
             "BattleHandleMidBattleEvent",
             "BattleHandleGiveUp",
             "BattleFinishCheck",
             "BattleAutoCombat"
-        ]
+        ],
+        "threshold": 0.7,
+        "post_delay": 400
     },
-
     "BattleStartTurn": {
         "doc": "连线后点击右侧齿轮（Enter键）开始回合战斗",
         "recognition": {
@@ -25,31 +27,35 @@
             "threshold": 0.72
         },
         "action": "Click",
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": 0,
         "next": [
             "BattleChecking",
+            "BattleAutoCombat",
             "BattleHandleMidBattleEvent",
             "BattleHandleGiveUp",
             "BattleFinishCheck"
-        ]
+        ],
+        "threshold": 0.7,
+        "post_delay": 800
     },
-
     "BattleChecking": {
         "doc": "回合战斗进行中检测：出现 turn 或战斗中待机时继续下回合",
         "recognition": {
             "type": "TemplateMatch",
             "template": "battle/turn.png",
-            "threshold": 0.70
+            "threshold": 0.7
         },
         "next": [
             "BattleAutoCombat",
+            "BattleStartTurn",
             "BattleHandleMidBattleEvent",
             "BattleHandleGiveUp",
             "BattleFinishCheck",
             "BattleChecking"
-        ]
+        ],
+        "threshold": 0.68,
+        "post_delay": 800
     },
-
     "BattleHandleMidBattleEvent": {
         "doc": "战斗中途如果出现异常事件选项，点击第一个选项继续",
         "recognition": {
@@ -64,7 +70,6 @@
             "BattleChecking"
         ]
     },
-
     "BattleHandleGiveUp": {
         "doc": "全军覆没或战斗失败时弹出认输确认，自动点击放弃退出重试",
         "recognition": {
@@ -75,7 +80,6 @@
         "action": "Click",
         "post_wait_freezes": 1200
     },
-
     "BattleFinishCheck": {
         "doc": "战斗结算确认（打完后点击结算弹窗）",
         "recognition": {
@@ -84,6 +88,8 @@
             "threshold": 0.72
         },
         "action": "Click",
-        "post_wait_freezes": 1200
+        "post_wait_freezes": 0,
+        "threshold": 0.7,
+        "post_delay": 1000
     }
 }
