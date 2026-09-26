@@ -1,18 +1,44 @@
 {
     "MirrorDungeonEntry": {
-        "doc": "从大厅点击进入镜牢（Drive 按钮）",
+        "doc": "从任意界面智能路由进入镜牢",
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "MirrorSelectTeamScreen",
+            "MirrorCheckDreamingStar",
+            "MirrorCheckInitEgoGift",
+            "MirrorQuickStart",
+            "MirrorClickEnter",
+            "MirrorClickDrive",
+            "MirrorBackToLobby"
+        ]
+    },
+    "MirrorClickDrive": {
         "recognition": {
             "type": "TemplateMatch",
             "template": "home/drive.png",
-            "threshold": 0.75
+            "threshold": 0.72
         },
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
             "MirrorClickEnter",
+            "MirrorQuickStart",
             "MirrorSelectTeamScreen",
             "MirrorCheckDreamingStar",
-            "MirrorCheckInitEgoGift",
+            "MirrorCheckInitEgoGift"
+        ]
+    },
+    "MirrorBackToLobby": {
+        "doc": "不在任何镜牢相关页面时，点击返回大厅重新进入",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "home/back.png",
+            "threshold": 0.72
+        },
+        "action": "Click",
+        "post_wait_freezes": 800,
+        "next": [
             "MirrorDungeonEntry"
         ]
     },

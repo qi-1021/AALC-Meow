@@ -1,12 +1,25 @@
 {
     "MailStart": {
-        "recognition": "TemplateMatch",
-        "template": "home/mail.png",
+        "doc": "邮件领取入口路由器",
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "MailClaimAll",
+            "MailClickIcon",
+            "MailClose"
+        ]
+    },
+    "MailClickIcon": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "home/mail.png",
+            "threshold": 0.72
+        },
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
             "MailClaimAll",
-            "MailStart"
+            "MailClose"
         ]
     },
     "MailClaimAll": {

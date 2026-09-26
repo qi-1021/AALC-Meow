@@ -1,8 +1,7 @@
 {
     "BackInitMenu": {
-        "recognition": "TemplateMatch",
-        "template": "home/mail.png",
-        "threshold": 0.8,
+        "recognition": "DirectHit",
+        "action": "DoNothing",
         "next": [
             "CheckAlreadyInHome",
             "CloseNotification",
@@ -19,8 +18,11 @@
     },
     "CheckAlreadyInHome": {
         "recognition": "TemplateMatch",
-        "template": "home/mail.png",
-        "threshold": 0.8,
+        "template": [
+            "home/mail.png",
+            "home/window_assets.png"
+        ],
+        "threshold": 0.72,
         "action": "DoNothing"
     },
     "CloseNotification": {

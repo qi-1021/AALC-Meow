@@ -192,7 +192,6 @@ public final class InputControlUtils {
             if (info == null || info.size() == null) {
                 return new float[] { x, y };
             }
-            int rotation = info.rotation();
             com.aliothmoon.maafw.third.Size size = info.size();
             int curW = size.width();
             int curH = size.height();
@@ -201,53 +200,11 @@ public final class InputControlUtils {
                 return new float[] { x, y };
             }
 
-            // 若无旋转，直接返回原坐标并限制在屏幕内
-            if (rotation == Surface.ROTATION_0) {
-                return new float[] {
-                    Math.max(0, Math.min(curW - 1, x)),
-                    Math.max(0, Math.min(curH - 1, y))
-                };
-            }
-
-            // 计算未旋转自然坐标系下的宽高 (naturalW, naturalH)
-            int naturalW;
-            int naturalH;
-            if (rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270) {
-                naturalW = curH;
-                naturalH = curW;
-            } else {
-                naturalW = curW;
-                naturalH = curH;
-            }
-
-            float targetX;
-            float targetY;
-
-            switch (rotation) {
-                case Surface.ROTATION_90:
-                    // 顺时针旋转90度
-                    targetX = y;
-                    targetY = naturalW - 1 - x;
-                    break;
-                case Surface.ROTATION_180:
-                    // 倒置180度
-                    targetX = naturalW - 1 - x;
-                    targetY = naturalH - 1 - y;
-                    break;
-                case Surface.ROTATION_270:
-                    // 逆时针旋转90度（顺时针270度）
-                    targetX = naturalH - 1 - y;
-                    targetY = x;
-                    break;
-                default:
-                    targetX = x;
-                    targetY = y;
-                    break;
-            }
-
+            // Android InputManager 注入事件直接基于当前屏幕的逻辑坐标空间，
+            // 无需二次手动旋转，直接安全限制在当前屏幕尺寸范围内即可。
             return new float[] {
-                Math.max(0, Math.min(curW - 1, targetX)),
-                Math.max(0, Math.min(curH - 1, targetY))
+                Math.max(0, Math.min(curW - 1, x)),
+                Math.max(0, Math.min(curH - 1, y))
             };
         } catch (Throwable t) {
             return new float[] { x, y };

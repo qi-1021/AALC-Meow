@@ -1,12 +1,25 @@
 {
     "EnkephalinModuleStart": {
-        "recognition": "TemplateMatch",
-        "template": "home/enkephalin_box.png",
+        "doc": "脑啡肽模块制造路由器",
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "EnkephalinClickAllIn",
+            "EnkephalinClickIcon",
+            "EnkephalinClickCancel"
+        ]
+    },
+    "EnkephalinClickIcon": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "home/enkephalin_box.png",
+            "threshold": 0.72
+        },
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
             "EnkephalinClickAllIn",
-            "EnkephalinModuleStart"
+            "EnkephalinClickCancel"
         ]
     },
     "EnkephalinClickAllIn": {

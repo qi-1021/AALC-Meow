@@ -1,12 +1,26 @@
 {
     "PassPrizeStart": {
-        "recognition": "TemplateMatch",
-        "template": "home/season.png",
+        "doc": "狂气通票奖励领取路由器",
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "PassClaimDailyCoin",
+            "PassEnterMissions",
+            "PassClickSeason",
+            "PassReturnHome"
+        ]
+    },
+    "PassClickSeason": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "home/season.png",
+            "threshold": 0.72
+        },
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
             "PassEnterMissions",
-            "PassPrizeStart"
+            "PassClaimDailyCoin"
         ]
     },
     "PassEnterMissions": {

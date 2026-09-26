@@ -1,11 +1,42 @@
 {
     "LuxcavationEntry": {
-        "recognition": "TemplateMatch",
-        "template": "home/drive.png",
+        "doc": "日常本入口状态机：智能识别当前页面并自愈导航",
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "LuxcavationTeamCheck",
+            "LuxcavationThreadSubLevel",
+            "LuxcavationExpChoose",
+            "LuxcavationThreadChoose",
+            "LuxcavationSelectType",
+            "LuxcavationClickDrive",
+            "LuxcavationBackToLobby"
+        ]
+    },
+    "LuxcavationClickDrive": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "home/drive.png",
+            "threshold": 0.72
+        },
         "action": "Click",
         "post_wait_freezes": 600,
         "next": [
             "LuxcavationSelectType",
+            "LuxcavationExpChoose",
+            "LuxcavationThreadChoose"
+        ]
+    },
+    "LuxcavationBackToLobby": {
+        "doc": "不在任何采光相关页面时，点击返回大厅重新进入",
+        "recognition": {
+            "type": "TemplateMatch",
+            "template": "home/back.png",
+            "threshold": 0.72
+        },
+        "action": "Click",
+        "post_wait_freezes": 800,
+        "next": [
             "LuxcavationEntry"
         ]
     },

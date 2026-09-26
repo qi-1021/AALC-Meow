@@ -48,6 +48,8 @@ interface MaaFrameworkLibrary : Library {
 
     fun MaaControllerConnected(ctrl: Pointer?): Byte
 
+    fun MaaControllerSetOption(ctrl: Pointer?, key: Int, value: Pointer?, valSize: Long): Byte
+
     // ── Tasker ──
 
     fun MaaTaskerCreate(): Pointer?
@@ -122,6 +124,15 @@ object MaaStatus {
     const val FAILED = 4000
 
     fun isDone(status: Int): Boolean = status == SUCCEEDED || status == FAILED
+}
+
+/** `MaaCtrlOptionEnum` */
+object MaaCtrlOption {
+    const val SCREENSHOT_TARGET_LONG_SIDE = 1
+    const val SCREENSHOT_TARGET_SHORT_SIDE = 2
+    const val SCREENSHOT_USE_RAW_SIZE = 3
+    const val MOUSE_LOCK_FOLLOW = 4
+    const val SCREENSHOT_RESIZE_METHOD = 6
 }
 
 /** 本项目用到的 `MaaGlobalOptionEnum` */

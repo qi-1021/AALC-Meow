@@ -162,6 +162,12 @@ class MaaRunner(private val agentHost: AgentHost) {
         return lib.MaaGlobalSetOption(key, memory, Int.SIZE_BYTES.toLong()).toInt() != 0
     }
 
+    private fun setControllerIntOption(lib: MaaFrameworkLibrary, ctrl: com.sun.jna.Pointer, key: Int, value: Int): Boolean {
+        val memory = Memory(Int.SIZE_BYTES.toLong())
+        memory.setInt(0, value)
+        return lib.MaaControllerSetOption(ctrl, key, memory, Int.SIZE_BYTES.toLong()).toInt() != 0
+    }
+
     private fun setBoolOption(lib: MaaFrameworkLibrary, key: Int, value: Boolean): Boolean {
         val memory = Memory(1)
         memory.setByte(0, if (value) 1 else 0)
@@ -403,6 +409,10 @@ class MaaRunner(private val agentHost: AgentHost) {
             boundDisplayId = displayId
             boundResolution = currentResolution
             boundInferenceDevice = currentInferenceDevice
+            // 关键：将截屏短边自动缩放归一化至 720p（1280x720 基准），MaaFramework 会在识别后自动逆向映射点击坐标至真机物理分辨率。
+            // 彻底解决不同手机（1080p / 1200p / 2K / 带鱼屏）因物理尺寸不同导致模板匹配全盘失败的问题。
+            setControllerIntOption(lib, ctrl, MaaCtrlOption.SCREENSHOT_TARGET_SHORT_SIDE, 720)
+            Ln.i("MaaRunner: Controller configured with SCREENSHOT_TARGET_SHORT_SIDE=720")
             releaseTasker(lib)
         }
 

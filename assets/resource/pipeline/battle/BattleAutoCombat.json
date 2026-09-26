@@ -1,13 +1,27 @@
 {
     "BattleAutoCombat": {
-        "doc": "战斗主循环入口：优先点击胜率连线（P键）",
+        "doc": "战斗主循环入口路由器：动态自适应当前战斗状态",
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "BattleClickWinRate",
+            "BattleStartTurn",
+            "BattleHandleMidBattleEvent",
+            "BattleFinishCheck",
+            "BattleChecking",
+            "BattleHandleGiveUp"
+        ]
+    },
+    "BattleClickWinRate": {
+        "doc": "优先点击胜率连线（P键）",
         "recognition": {
             "type": "TemplateMatch",
             "template": "battle/win_rate.png",
-            "threshold": 0.72
+            "threshold": 0.70
         },
         "action": "Click",
         "post_wait_freezes": 0,
+        "post_delay": 400,
         "next": [
             "BattleStartTurn",
             "BattleChecking",
@@ -15,9 +29,7 @@
             "BattleHandleGiveUp",
             "BattleFinishCheck",
             "BattleAutoCombat"
-        ],
-        "threshold": 0.7,
-        "post_delay": 400
+        ]
     },
     "BattleStartTurn": {
         "doc": "连线后点击右侧齿轮（Enter键）开始回合战斗",
