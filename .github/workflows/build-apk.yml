@@ -110,11 +110,12 @@ jobs:
         run: |
           if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
             # 注意：Gradle 的 file(keystorePath) 相对 app/ 模块目录解析，
-            # 所以 keystore 必须放在 app/ 下，KEYSTORE_PATH 也按此写。
+            # 因此 keystore 必须落在 app/.signing/，而 KEYSTORE_PATH 保持
+            # 相对路径 .signing/release.jks。
             mkdir -p app/.signing
             echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > app/.signing/release.jks
             {
-              echo "KEYSTORE_PATH=app/.signing/release.jks"
+              echo "KEYSTORE_PATH=.signing/release.jks"
               echo "KEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}"
               echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}"
               echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}"
