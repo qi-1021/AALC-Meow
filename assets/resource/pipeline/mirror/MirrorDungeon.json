@@ -435,27 +435,24 @@
     ]
   },
   "MirrorDismissFirstPrompt": {
-    "doc": "官方 mirror.py:140-143 首次引导弹窗 + 返回键",
+    "doc": "官方 mirror.py:140-143 首次引导弹窗 + 返回键同时出现才点（与原版 find_element 两个条件一致）",
     "recognition": "And",
-    "recognition_and": [
+    "all_of": [
       {
-        "type": "TemplateMatch",
+        "sub_name": "first_prompt",
+        "recognition": "TemplateMatch",
         "template": "home/first_prompt_assets.png",
         "threshold": 0.75
       },
       {
-        "type": "TemplateMatch",
+        "sub_name": "back",
+        "recognition": "TemplateMatch",
         "template": "home/back.png",
         "threshold": 0.75
       }
     ],
+    "box_index": 1,
     "action": "Click",
-    "roi": [
-      0,
-      0,
-      1280,
-      720
-    ],
     "post_wait_freezes": 600,
     "next": [
       "MirrorDungeonEntry"
@@ -518,7 +515,7 @@
     "doc": "用 OCR 找到对应编队名称（如「编队#1」）并点击。编队号由 MirrorTeamPreset option 的 pipeline_override 注入。",
     "recognition": {
       "type": "OCR",
-      "text": [
+      "expected": [
         "编队#1"
       ]
     },

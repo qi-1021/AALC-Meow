@@ -103,6 +103,30 @@ jobs:
           fi
           echo "pi.profile=pi-profile.yaml" >> local.properties
 
+      - name: Validate pipelines against MaaFramework schema
+        # 非法字段（recognition_and / timeout_next / OCR 用 text 等）不会静默忽略，
+        # 而是让资源加载整体失败、App 启动即崩。必须在出包前拦住两道：
+        #   1) 静态 schema 校验（validate_pipelines.py）
+        #   2) 真实引擎加载（verify_with_engine.py，用官方 MaaPiCli）
+        run: |
+          python scripts/validate_pipelines.py
+          python -c "
+          import json, glob
+          for p in glob.glob('assets/**/*.json', recursive=True):
+              json.load(open(p, encoding='utf-8'))
+          print('assets JSON 全部可解析')"
+
+      - name: Verify resources load with real MaaFramework engine
+        run: |
+          MFW_VER="${{ runner.temp }}/maa"
+          mkdir -p "$MFW_VER"
+          curl -sL -o "$MFW_VER/maa.zip" \
+            "https://github.com/MaaXYZ/MaaFramework/releases/download/v5.14.0/MAA-linux-x86_64-v5.14.0.zip"
+          unzip -oq "$MFW_VER/maa.zip" -d "$MFW_VER"
+          chmod +x "$MFW_VER/bin/MaaPiCli"
+          MAA_CLI="$MFW_VER/bin/MaaPiCli" MAA_LIB="$MFW_VER/bin" \
+            python scripts/verify_with_engine.py
+
       - name: Set up release signing keystore
         # signingSetting() 优先读环境变量，local.properties 仅作本地兜底，
         # 所以这里导出环境变量即可。未配置 Secrets 时回退 debug 签名，CI 永远能出包。
