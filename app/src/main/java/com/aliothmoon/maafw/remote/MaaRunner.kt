@@ -6,6 +6,7 @@ import com.aliothmoon.maafw.constant.DefaultDisplayConfig
 import com.aliothmoon.maafw.constant.DisplayMode
 import com.aliothmoon.maafw.maa.MaaAgentClientLibrary
 import com.aliothmoon.maafw.maa.MaaAgentClientLoader
+import com.aliothmoon.maafw.maa.MaaCtrlOption
 import com.aliothmoon.maafw.maa.MaaFrameworkLibrary
 import com.aliothmoon.maafw.maa.MaaFrameworkLoader
 import com.aliothmoon.maafw.maa.MaaGlobalOption
