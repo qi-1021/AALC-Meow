@@ -1,15 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "name": "MAAend-Meow",
+  "name": "AALC-Meow",
   "description": "Upstream component versions, pinned commits, and build baseline",
   "components": {
-    "maaend": {
-      "name": "MaaEnd (Assistant For Arknights: Endfield)",
-      "repository": "https://github.com/MaaEnd/MaaEnd",
-      "path": "upstream/maaend",
-      "pinned_commit": "17acf0dbf78598fc9976607873d5f363ae84422a",
-      "pinned_tag": "v2.30.0-rc.1-5-g17acf0db",
-      "description": "上游业务资源仓库，提供 interface.json、tasks、resource、多渠道服与 ADB 适配"
+    "aalc": {
+      "name": "AALC (AhabAssistantLimbusCompany)",
+      "repository": "https://github.com/KIYI671/AhabAssistantLimbusCompany",
+      "path": "upstream/aalc",
+      "pinned_commit": "ddc22040d1baf3f86fcd94c5384eda038ab8d439",
+      "pinned_tag": "V1.6.1-beta.2",
+      "description": "上游业务资源仓库，提供 interface.json、tasks、resource、teams/mirror/event 等全量识别模板与流程逻辑（唯一权威参考）"
     },
     "maa_framework": {
       "name": "MaaFramework",
@@ -19,7 +19,7 @@
         "v5.13.1",
         "v5.14.0"
       ],
-      "description": "自动化与图像识别底层核心库，提供 libMaaFramework.so、libMaaUtils.so 及 AndroidNativeControlUnit"
+      "description": "自动化与图像识别底层核心库，提供 libMaaFramework.so、libMaaUtils.so 及 AndroidNativeControlUnit；截图按 SCREENSHOT_TARGET_SHORT_SIDE=720 归一化，模板比例必须为 0.5x"
     },
     "maa_common_assets": {
       "name": "MaaCommonAssets (OCR)",
@@ -49,5 +49,11 @@
     "agp": "9.2.1",
     "kotlin": "2.3.21",
     "ksp": "2.3.9"
+  },
+  "asset_rules": {
+    "screenshot_short_side": 720,
+    "template_scale": 0.5,
+    "note": "上游资源为 2560x1440 全屏透明图；本项目截图归一化到短边 720p，故所有模板必须按 0.5x 重新导出。改动归一化尺寸后必须重跑 scripts/regen_templates.py --apply",
+    "regen_command": "python3 scripts/regen_templates.py --apply"
   }
 }

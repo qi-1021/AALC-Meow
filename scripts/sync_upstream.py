@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Check and synchronize upstream MaaEnd and MaaFramework updates.
-Updates submodule pointer, UPSTREAM_VERSIONS.json, and README.md.
-Ensures zero pollution of system /tmp.
-"""
+"""检查并同步上游 AALC 更新。
 
+更新内容：
+  1. upstream/aalc submodule 指针
+  2. UPSTREAM_VERSIONS.json 里的 pinned_commit / pinned_tag
+  3. 按 0.5x 重新导出识别模板（截图短边 720p，见 docs/RELEASING.md）
+
+以 GITHUB_OUTPUT 传出 has_changes，供 workflow 决定是否提交与触发构建。
+"""
 from __future__ import annotations
 
 import json
@@ -13,149 +15,111 @@ import os
 import re
 import subprocess
 import sys
-import urllib.request
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-MAAEND_ROOT = PROJECT_ROOT / "upstream" / "maaend"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+AALC_ROOT = PROJECT_ROOT / "upstream" / "aalc"
 VERSIONS_FILE = PROJECT_ROOT / "UPSTREAM_VERSIONS.json"
-README_FILE = PROJECT_ROOT / "README.md"
-TMP_DIR = PROJECT_ROOT / ".tmp"
-
-TMP_DIR.mkdir(parents=True, exist_ok=True)
-os.environ["TMPDIR"] = str(TMP_DIR)
-os.environ["TEMP"] = str(TMP_DIR)
-os.environ["TMP"] = str(TMP_DIR)
+AALC_REPO = "https://github.com/KIYI671/AhabAssistantLimbusCompany"
 
 
-def log(msg: str):
-    print(f"[Auto-Sync] {msg}", flush=True)
+def log(msg: str) -> None:
+    print(f"[sync] {msg}", flush=True)
 
 
-def run_cmd(args: list[str], cwd: Path | None = None) -> str:
-    res = subprocess.run(
-        args, cwd=cwd or PROJECT_ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True
-    )
-    return res.stdout.strip()
+def sh(*args: str, cwd: Path | None = None) -> str:
+    return subprocess.run(
+        args, cwd=cwd, check=True, capture_output=True, text=True
+    ).stdout.strip()
 
 
-def check_maaend_update() -> tuple[bool, str, str, str]:
-    """Check if upstream MaaEnd has a new commit on v2 branch."""
-    log("Checking upstream MaaEnd updates...")
-    run_cmd(["git", "fetch", "origin", "v2"], cwd=MAAEND_ROOT)
-    current_commit = run_cmd(["git", "rev-parse", "HEAD"], cwd=MAAEND_ROOT)
-    latest_commit = run_cmd(["git", "rev-parse", "origin/v2"], cwd=MAAEND_ROOT)
-    latest_subject = run_cmd(["git", "log", "-1", "--format=%s", "origin/v2"], cwd=MAAEND_ROOT)
-
-    if current_commit != latest_commit:
-        log(f"New MaaEnd commit detected: {current_commit[:7]} -> {latest_commit[:7]}")
-        log(f"Latest commit message: {latest_subject}")
-        return True, current_commit, latest_commit, latest_subject
-    else:
-        log(f"MaaEnd is already up-to-date ({current_commit[:7]}).")
-        return False, current_commit, latest_commit, latest_subject
+def current_commit() -> str:
+    return sh("git", "rev-parse", "HEAD", cwd=AALC_ROOT)
 
 
-def check_maafw_update(current_release: str) -> tuple[bool, str]:
-    """Check if MaaFramework has a newer stable release tag."""
-    log("Checking MaaFramework latest release...")
-    url = "https://api.github.com/repos/MaaXYZ/MaaFramework/releases/latest"
-    req = urllib.request.Request(url, headers={"User-Agent": "MAAend-Android-Sync"})
-    token = os.environ.get("GITHUB_TOKEN")
-    if token:
-        req.add_header("Authorization", f"token {token}")
+def remote_commit() -> str:
+    sh("git", "fetch", "origin", cwd=AALC_ROOT)
+    for ref in ("origin/HEAD", "origin/main", "origin/master"):
+        try:
+            return sh("git", "rev-parse", ref, cwd=AALC_ROOT)
+        except subprocess.CalledProcessError:
+            continue
+    return sh("git", "rev-parse", "origin/main", cwd=AALC_ROOT)
+
+
+def describe(commit: str) -> str:
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            latest_tag = data.get("tag_name", "").strip()
-            if latest_tag and latest_tag != current_release:
-                log(f"New MaaFramework release detected: {current_release} -> {latest_tag}")
-                return True, latest_tag
-            return False, current_release
-    except Exception as e:
-        log(f"Warning: Failed to fetch latest MaaFramework release: {e}")
-        return False, current_release
+        return sh("git", "describe", "--tags", commit, cwd=AALC_ROOT)
+    except subprocess.CalledProcessError:
+        return commit[:7]
 
 
-def update_maaend_submodule(target_commit: str):
-    log(f"Updating MaaEnd submodule to {target_commit[:7]}...")
-    run_cmd(["git", "checkout", target_commit], cwd=MAAEND_ROOT)
-    import prepare_maaend
-    prepare_maaend.main()
-
-
-def update_records(new_maaend_commit: str, new_maafw_tag: str | None = None):
-    # 1. Update UPSTREAM_VERSIONS.json
-    versions_data = json.loads(VERSIONS_FILE.read_text(encoding="utf-8"))
-    tag_info = run_cmd(["git", "describe", "--tags", "--always"], cwd=MAAEND_ROOT)
-
-    versions_data["components"]["maaend"]["pinned_commit"] = new_maaend_commit
-    versions_data["components"]["maaend"]["pinned_tag"] = tag_info
-
-    if new_maafw_tag:
-        versions_data["components"]["maa_framework"]["pinned_release"] = new_maafw_tag
-
-    VERSIONS_FILE.write_text(json.dumps(versions_data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    log("Updated UPSTREAM_VERSIONS.json")
-
-    # 2. Update README.md pinned commit reference
-    if README_FILE.is_file():
-        content = README_FILE.read_text(encoding="utf-8")
-        short_sha = new_maaend_commit[:7]
-        content = re.sub(
-            r"https://github\.com/MaaEnd/MaaEnd/commit/[0-9a-f]{40}",
-            f"https://github.com/MaaEnd/MaaEnd/commit/{new_maaend_commit}",
-            content,
-        )
-        content = re.sub(
-            r"Commit \[`[0-9a-f]{7}`\]",
-            f"Commit [`{short_sha}`]",
-            content,
-        )
-        README_FILE.write_text(content, encoding="utf-8")
-        log("Updated README.md commit links")
-
-
-def set_github_output(key: str, value: str):
-    output_path = os.environ.get("GITHUB_OUTPUT")
-    if output_path and os.path.exists(output_path):
-        with open(output_path, "a", encoding="utf-8") as f:
-            f.write(f"{key}={value}\n")
-
-
-def main():
-    force_build = os.environ.get("FORCE_BUILD", "false").lower() == "true"
-    versions_data = json.loads(VERSIONS_FILE.read_text(encoding="utf-8"))
-    current_maafw = versions_data["components"]["maa_framework"]["pinned_release"]
-
-    maaend_changed, old_c, new_c, subject = check_maaend_update()
-    maafw_changed, new_maafw = check_maafw_update(current_maafw)
-
-    has_changes = maaend_changed or maafw_changed or force_build
-
-    if maaend_changed:
-        update_maaend_submodule(new_c)
-        update_records(new_c, new_maafw if maafw_changed else None)
-    elif maafw_changed:
-        update_records(old_c, new_maafw)
-
-    summary = ""
-    if maaend_changed and maafw_changed:
-        summary = f"MaaEnd to {new_c[:7]} ({subject[:40]}) & MaaFW to {new_maafw}"
-    elif maaend_changed:
-        summary = f"MaaEnd to {new_c[:7]} ({subject[:40]})"
-    elif maafw_changed:
-        summary = f"MaaFramework to {new_maafw}"
-    elif force_build:
-        summary = "Forced rebuild triggered"
+def regen_templates() -> None:
+    """按 0.5x 重新导出模板；失败不应中断同步（宁可让人工介入）"""
+    script = PROJECT_ROOT / "scripts" / "regen_templates.py"
+    if not script.is_file():
+        log("regen_templates.py 不存在，跳过模板重导")
+        return
+    log("重新导出模板（0.5x）…")
+    proc = subprocess.run(
+        [sys.executable, str(script), "--apply"],
+        cwd=PROJECT_ROOT, capture_output=True, text=True,
+    )
+    if proc.returncode != 0:
+        log(f"警告: 模板重导失败\n{proc.stdout}\n{proc.stderr}")
     else:
-        summary = "No upstream changes"
+        head = [l for l in proc.stdout.splitlines() if "需重导" in l or "尺寸已正确" in l]
+        for l in head:
+            log(l.strip())
 
-    log(f"Result: has_changes={has_changes}, summary={summary}")
-    set_github_output("has_changes", "true" if has_changes else "false")
-    set_github_output("summary", summary)
-    set_github_output("new_maaend_commit", new_c if maaend_changed else "")
+
+def update_records(new_commit: str) -> None:
+    data = json.loads(VERSIONS_FILE.read_text(encoding="utf-8"))
+    comp = data["components"]["aalc"]
+    old = comp.get("pinned_commit", "")
+    comp["pinned_commit"] = new_commit
+    comp["pinned_tag"] = describe(new_commit)
+    VERSIONS_FILE.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    if old and old != new_commit:
+        log(f"UPSTREAM_VERSIONS.json: {old[:7]} -> {new_commit[:7]}")
+
+
+def set_output(has_changes: bool, summary: str) -> None:
+    out = os.environ.get("GITHUB_OUTPUT")
+    if not out or not os.path.exists(out):
+        return
+    with open(out, "a", encoding="utf-8") as f:
+        f.write(f"has_changes={'true' if has_changes else 'false'}\n")
+        f.write(f"summary={summary}\n")
+
+
+def main() -> int:
+    if not AALC_ROOT.is_dir():
+        log(f"错误: 找不到 submodule {AALC_ROOT}")
+        return 1
+
+    old = current_commit()
+    new = remote_commit()
+
+    if old == new:
+        log(f"上游无更新 ({old[:7]})")
+        set_output(False, "no upstream change")
+        return 0
+
+    subject = sh("git", "log", "-1", "--format=%s", new, cwd=AALC_ROOT)
+    log(f"发现上游更新 {old[:7]} -> {new[:7]}  {subject}")
+
+    sh("git", "checkout", new, cwd=AALC_ROOT)
+    update_records(new)
+    regen_templates()
+
+    summary = f"AALC {old[:7]}..{new[:7]} {subject}"
+    set_output(True, summary)
+    log(summary)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
