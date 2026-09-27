@@ -103,6 +103,25 @@ jobs:
           fi
           echo "pi.profile=pi-profile.yaml" >> local.properties
 
+      - name: Set up release signing keystore
+        # signingSetting() 优先读环境变量，local.properties 仅作本地兜底，
+        # 所以这里导出环境变量即可。未配置 Secrets 时回退 debug 签名，CI 永远能出包。
+        # 配置方法见 docs/RELEASING.md。
+        run: |
+          if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
+            mkdir -p .signing
+            echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > .signing/release.jks
+            {
+              echo "KEYSTORE_PATH=.signing/release.jks"
+              echo "KEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}"
+              echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}"
+              echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}"
+            } >> "$GITHUB_ENV"
+            echo "release keystore configured from secrets"
+          else
+            echo "::warning::KEYSTORE_BASE64 secret not set; falling back to debug signing"
+          fi
+
       - name: Build APK via Gradle
         run: |
           chmod +x ./gradlew
@@ -158,7 +177,9 @@ jobs:
         with:
           files: output_apks/*.apk
           draft: false
-          prerelease: false
+          # 功能开发完成前，所有 tag 一律按 beta 预发布（用户 2026-09-27 规定）。
+          # 开发完成后把这里改回 false，并同步把应用内默认更新通道切回 STABLE。
+          prerelease: true
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -109,9 +109,11 @@ data class AppSettings(
     @PrefKey(default = "false")
     val autoDownloadUpdate: String = "false",
 
-    /** [UpdateChannel] 的 name */
-    @PrefKey(default = "STABLE")
-    val updateChannel: String = "STABLE",
+    /** [UpdateChannel] 的 name。功能开发完成前默认 BETA：Release 均为 prerelease，
+     *  STABLE 通道会在 GitHubUpdate.latestEligible() 里被过滤掉，导致永远提示"已是最新版"。
+     *  正式版发布后改回 "STABLE"。 */
+    @PrefKey(default = "BETA")
+    val updateChannel: String = "BETA",
 
     /** [com.aliothmoon.maafw.update.UpdateSource] 的 name；检查与下载都只走这一个源 */
     @PrefKey(default = "GITHUB")

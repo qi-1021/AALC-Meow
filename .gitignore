@@ -58,3 +58,6 @@ __pycache__/
 /agent-dist/
 /.tmp/
 /output_apks/
+
+# 签名材料目录（绝不入库）
+/.signing/
