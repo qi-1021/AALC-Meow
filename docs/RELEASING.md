@@ -7,40 +7,35 @@
   过滤掉 `prerelease = true` 的 Release，所以 beta 期间若不切到 BETA，应用内检查更新会一直
   显示"已是最新版"。开发完成后再把 workflow 改回 `prerelease: false` 并切回 `STABLE`。
 
-## 一、签名（重要，务必在铺开装机前完成）
+## 一、签名（已落地，2026-09-27）
 
-已发布的 v0.1.0 – v0.2.3 全部是 **debug 签名**（CI 未配置 keystore，`KEYSTORE_PATH` 为空，
-`AndroidApplicationConventionPlugin.kt:163` 回退到 debug signingConfig）。
+release keystore 已生成并接入 CI：
 
-**为什么必须换**：Android 要求覆盖安装时签名一致。一旦换了正式签名，此前 debug 签名的包
-无法覆盖升级，用户只能卸载重装（会丢本地配置）。
+- 别名 `aalc`，RSA 4096，有效期至 2054-02-12
+- 证书 SHA-256：`1B:4D:FF:F2:07:E4:55:E4:B9:DE:F5:B6:9A:58:0B:F0:18:96:76:24:26:AC:CC:45:5B:8D:01:48:BD:A5:2D:6F`
+- keystore 文件与密码备份在 `~/.local/share/aalc-signing/`（权限 600），
+  四个 Secrets（`KEYSTORE_BASE64`/`KEYSTORE_PASSWORD`/`KEY_ALIAS`/`KEY_PASSWORD`）
+  已写入 `qi-1021/AALC-Meow` 仓库
+- 已用 workflow_dispatch 手动构建验证：产物 APK 的 v2 签名证书指纹与上述一致
+- **注意此前的 v0.1.0 – v0.3.0-beta.1 全部是 debug 签名**（keystore 接入前的构建）；
+  换签名后旧包无法覆盖安装，如已装机需卸载重装一次
 
-配置步骤：
+血泪教训（轮换 keystore 时必读）：
 
-1. 本地生成 keystore（**密码请自行保管，不要提交到仓库**）：
-
-   ```bash
-   keytool -genkeypair -v \
-     -keystore aalc-release.jks \
-     -alias aalc \
-     -keyalg RSA -keysize 4096 -validity 10000
-   ```
-
-2. 在 GitHub 仓库添加 Secrets（Settings → Secrets and variables → Actions）：
-   - `KEYSTORE_BASE64`：`base64 -i aalc-release.jks | pbcopy`
-   - `KEYSTORE_PASSWORD`
-   - `KEY_ALIAS`（上例为 `aalc`）
-   - `KEY_PASSWORD`
-
-3. 下次出包时 workflow 会自动注入这四个环境变量
-   （`signingSetting()` 优先读环境变量，见 `build-logic/.../BuildSettings.kt:29`）。
-   未配置时打 warning 并回退 debug 签名，**CI 不会因此失败**。
-
-4. 出包后核对签名是否已切换：
+1. 现代 `keytool` 默认生成 **PKCS12**（即使后缀写 `.jks`），该格式**强制
+   key 密码 = store 密码**。若给了两个不同密码，key 密码会被静默忽略，
+   CI 会报 `Get Key failed: Given final block not properly padded`。
+   **做法：store 与 key 用同一个密码。**
+2. `gh secret set` 用 `echo xxx |` 管道会带入换行符导致密码错误，
+   必须用 `printf '%s'` 或 Python `subprocess(input=...)` 写入。
+3. `signingSetting()` 读到的 `KEYSTORE_PATH` 经 Gradle `file()` 解析，
+   是**相对 `app/` 模块目录**的，所以 keystore 必须落在 `app/.signing/`，
+   而 `KEYSTORE_PATH` 保持相对路径 `.signing/release.jks`。
+4. 出包后按下式核对（本机无 build-tools 时可用 androguard 读 v2 块）：
 
    ```bash
-   # 从 Release 下载 APK 后本地核对
    $ANDROID_HOME/build-tools/*/apksigner verify --print-certs AALC-Meow-vX.Y.Z-arm64-v8a.apk
+   # 或：keytool -list -printcert -jarfile 仅支持 v1 签名，对 v2 包无效
    ```
 
 ## 二、模板资产的黄金法则（血泪教训）
