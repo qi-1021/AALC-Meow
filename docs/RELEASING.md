@@ -136,3 +136,63 @@ MAA_CLI=/path/to/MaaPiCli python3 scripts/verify_with_engine.py
    （`screenshot`/`ocr <node>` 可在任务运行时直接测各模板命中分布）。
    但它是给 App 加网络监听，即使有双闸门（BuildConfig.DEBUG + 应用内开关），
    是否引入由用户决定。
+
+## 七、容器识别与后台模式（Kuyo / OurPlay，2026-09-30）
+
+手机端边狱巴士常跑在沙箱容器里。系统层面只能看到容器本身，看不到里面的游戏。
+先分清两种形态，对策完全不同：
+
+| 容器 | 包名 | 形态 | 游戏在哪跑 | 后台模式 |
+|---|---|---|---|---|
+| Kuyo 游戏盒 | `org.kuyo.game` | **云游戏**："不占手机内存，所有游戏都在云端运行" | Kuyo 服务器，手机只收串流画面 | **可行**：把 `org.kuyo.game` 搬到虚拟屏，识别/点按照常（画面是压缩流，阈值必要时放宽；延迟高于本地） |
+| OurPlay | `com.excean.gspace` | **GMS 环境**：游戏"导入"为本地 APK | 手机本地 | **可行**：与官方包同法，游戏包名不变（`com.ProjectMoon.LimbusCompany`） |
+
+关键结论：
+
+1. **识别方法**：`AppWatchdog.getTopPackageOnDisplay(displayId)` 拿到的就是容器包名，
+   直接把它当 target（容器就是本地进程，`pidof` 判活、repin 都正常工作），
+   不需要、也不可能从系统层面"看到容器里的游戏"。
+2. **Kuyo 的唯一前置条件**：游戏必须已在盒内手动启动到可操作界面。
+   我们的 `StartApp org.kuyo.game` 只能打开盒子，deep-link 不进云端。
+   对应 DailyTasks 的 `kuyo` 选项（描述里已写明）。
+3. **`com.ourplay.limbuscompany` 不存在**：OurPlay 不改包（"导入游戏"模型），
+   之前 option 里写的是编造包名，已改为官方包。如在真机上发现反例，
+   按下式核实后改回：
+   ```bash
+   adb shell pm list packages | grep -i -E "limbus|projectmoon|ourplay|kuyo"
+   adb shell dumpsys activity activities | grep -i -E "limbus|kuyo|ourplay" | head
+   # 游戏经 OurPlay 启动后，看顶层 activity 属于哪个包：
+   adb shell dumpsys activity top | grep -E "ACTIVITY|PACKAGE" | head -5
+   ```
+4. **Kuyo 串流画面的识别**：压缩 + 延迟，模板阈值 0.75 在串流上可能偏严。
+   先按现有阈值跑，日志里看实际得分再调，不要预先全局放宽。
+
+来源：`MAAend-Meow/docs/reports/debug-cli-and-remote-debug.md`。以下与本项目直接相关：
+
+1. **本地构建必须完整复刻 CI 步骤** —— 已落地为 `scripts/build_local.sh`。
+   漏 `prepare_aalc.py` 会拿到没准备的资源；漏 `setup_maa_framework.py` 会缺
+   native `.so`，打出"能装能开 UI、但框架加载失败（`UnsatisfiedLinkError`）、
+   任务立刻 `NOT_RUN`"的包。**调试结论只以本脚本打出的包为准。**
+
+2. **D8 与 R8 接受面不同**（姊妹项目实测踩过）：release 能编不代表 debug 能编。
+   D8 曾对某方法内部报 `ArrayIndexOutOfBoundsException` 而 R8 同代码无事。
+   触发形状：Kotlin **局部函数**（捕获一圈局部变量）+ 方法上**一堆默认参数**；
+   解法：局部函数抽成成员类型、实现体拆成不带默认参数的私有方法。
+   **若出现"只有 debug 变体编不过"的诡异错误，先往这个方向查**，不要在业务代码里乱改。
+
+3. **override 共用节点必须写全可变键**：MaaFramework 的 override 会继承该节点
+   上一次的值，漏写一个 `only_rec` 这类键就会静默读空。
+   本项目 DailyTasks 目前没有 `pipeline_override`，暂时不咬人；将来加配置覆盖时必须遵守。
+
+4. **tasker 是单线程串行队列**：`MaaTaskerPostRecognition/PostAction` 与任务
+   共用同一队列，运行中 post 只会排队。将来做应用内调试/探针时：
+   只读观察必须用**不绑 controller 的独立 tasker**（否则框架在 task 结束时
+   `auto_release_pressed` 会把正在跑的任务按着的手指放掉）；
+   会驱动点击的操作必须排队、绝不阻塞调用方。
+
+5. **调试 CLI 移植（待定，需用户确认）**：MAAend-Meow 已有一套成熟的调试 CLI
+   （手机端裸 TCP 行协议 7777 端口 + `adb forward` + 运行中可用的 screenshot/ocr/run 探针），
+   按那份文档 §8 可整体移植。本项目当前最需要它的场景是 **roi 提速采样**
+   （`screenshot`/`ocr <node>` 可在任务运行时直接测各模板命中分布）。
+   但它是给 App 加网络监听，即使有双闸门（BuildConfig.DEBUG + 应用内开关），
+   是否引入由用户决定。
