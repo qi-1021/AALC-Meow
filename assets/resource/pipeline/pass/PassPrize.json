@@ -1,79 +1,104 @@
 {
-    "PassPrizeStart": {
-        "doc": "狂气通票奖励领取路由器",
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "next": [
-            "PassClaimDailyCoin",
-            "PassEnterMissions",
-            "PassClickSeason",
-            "PassReturnHome"
-        ]
+  "PassPrizeStart": {
+    "doc": "狂气通票奖励领取路由器",
+    "recognition": "DirectHit",
+    "action": "DoNothing",
+    "next": [
+      "PassClaimDailyCoin",
+      "PassEnterMissions",
+      "PassClickSeason",
+      "PassReturnHome"
+    ],
+    "timeout": 30000,
+    "on_error": [
+      "PassTryMailFallback"
+    ]
+  },
+  "PassClickSeason": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "home/season.png",
+      "threshold": 0.72
     },
-    "PassClickSeason": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "home/season.png",
-            "threshold": 0.72
-        },
-        "action": "Click",
-        "post_wait_freezes": 600,
-        "next": [
-            "PassEnterMissions",
-            "PassClaimDailyCoin"
-        ]
-    },
-    "PassEnterMissions": {
-        "recognition": "TemplateMatch",
-        "template": "pass/missions.png",
-        "action": "Click",
-        "post_wait_freezes": 600,
-        "next": [
-            "PassClaimDailyCoin",
-            "PassSwitchWeekly"
-        ]
-    },
-    "PassClaimDailyCoin": {
-        "recognition": "TemplateMatch",
-        "template": "pass/coin.png",
-        "action": "Click",
-        "post_wait_freezes": 400,
-        "next": [
-            "PassClaimDailyCoin",
-            "PassSwitchWeekly"
-        ]
-    },
-    "PassSwitchWeekly": {
-        "recognition": "TemplateMatch",
-        "template": "pass/weekly.png",
-        "action": "Click",
-        "post_wait_freezes": 600,
-        "next": [
-            "PassClaimWeeklyCoin",
-            "PassReturnHome"
-        ]
-    },
-    "PassClaimWeeklyCoin": {
-        "recognition": "TemplateMatch",
-        "template": "pass/coin.png",
-        "action": "Click",
-        "post_wait_freezes": 400,
-        "next": [
-            "PassClaimWeeklyCoin",
-            "PassReturnHome"
-        ]
-    },
-    "PassReturnHome": {
-        "recognition": "TemplateMatch",
-        "template": "home/back.png",
-        "action": "Click",
-        "post_wait_freezes": 800,
-        "next": [
-            "PassFinishCheck"
-        ]
-    },
-    "PassFinishCheck": {
-        "recognition": "TemplateMatch",
-        "template": "home/drive.png"
-    }
+    "action": "Click",
+    "post_wait_freezes": 600,
+    "next": [
+      "PassEnterMissions",
+      "PassClaimDailyCoin"
+    ]
+  },
+  "PassEnterMissions": {
+    "recognition": "TemplateMatch",
+    "template": "pass/missions.png",
+    "action": "Click",
+    "post_wait_freezes": 600,
+    "next": [
+      "PassClaimDailyCoin",
+      "PassSwitchWeekly"
+    ]
+  },
+  "PassClaimDailyCoin": {
+    "recognition": "TemplateMatch",
+    "template": "pass/pass_coin.png",
+    "action": "Click",
+    "post_wait_freezes": 400,
+    "next": [
+      "PassClaimDailyCoin",
+      "PassSwitchWeekly"
+    ]
+  },
+  "PassSwitchWeekly": {
+    "recognition": "TemplateMatch",
+    "template": "pass/weekly.png",
+    "action": "Click",
+    "post_wait_freezes": 600,
+    "next": [
+      "PassClaimWeeklyCoin",
+      "PassReturnHome"
+    ]
+  },
+  "PassClaimWeeklyCoin": {
+    "recognition": "TemplateMatch",
+    "template": "pass/pass_coin.png",
+    "action": "Click",
+    "post_wait_freezes": 400,
+    "next": [
+      "PassClaimWeeklyCoin",
+      "PassReturnHome"
+    ]
+  },
+  "PassReturnHome": {
+    "recognition": "TemplateMatch",
+    "template": "home/back.png",
+    "action": "Click",
+    "post_wait_freezes": 800,
+    "next": [
+      "PassFinishCheck"
+    ]
+  },
+  "PassFinishCheck": {
+    "recognition": "TemplateMatch",
+    "template": "home/drive.png"
+  },
+  "PassTryMailFallback": {
+    "doc": "官方 get_prize.py:46-53 last_try 单次版：路由超时后点主页邮件入口(+100y)，然后退出，不无限重试",
+    "recognition": "TemplateMatch",
+    "template": "home/mail.png",
+    "threshold": 0.72,
+    "action": "Click",
+    "target_offset": [
+      0,
+      100,
+      0,
+      0
+    ],
+    "post_wait_freezes": 800,
+    "timeout": 15000,
+    "next": [
+      "PassReturnHome"
+    ],
+    "on_error": [
+      "PassReturnHome"
+    ]
+  }
 }
