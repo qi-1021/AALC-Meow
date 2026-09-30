@@ -101,8 +101,38 @@ gh release view v0.3.0-beta.1 -R qi-1021/AALC-Meow
 推 tag 前务必跑一次全量校验：
 
 ```bash
-python3 -c "
-import json, glob
-for p in glob.glob('assets/**/*.json', recursive=True): json.load(open(p))
-print('JSON ok')"
+python3 scripts/validate_pipelines.py
+MAA_CLI=/path/to/MaaPiCli python3 scripts/verify_with_engine.py
 ```
+
+## 六、从 MAAend-Meow 学到的经验（2026-09-27）
+
+来源：`MAAend-Meow/docs/reports/debug-cli-and-remote-debug.md`。以下与本项目直接相关：
+
+1. **本地构建必须完整复刻 CI 步骤** —— 已落地为 `scripts/build_local.sh`。
+   漏 `prepare_aalc.py` 会拿到没准备的资源；漏 `setup_maa_framework.py` 会缺
+   native `.so`，打出"能装能开 UI、但框架加载失败（`UnsatisfiedLinkError`）、
+   任务立刻 `NOT_RUN`"的包。**调试结论只以本脚本打出的包为准。**
+
+2. **D8 与 R8 接受面不同**（姊妹项目实测踩过）：release 能编不代表 debug 能编。
+   D8 曾对某方法内部报 `ArrayIndexOutOfBoundsException` 而 R8 同代码无事。
+   触发形状：Kotlin **局部函数**（捕获一圈局部变量）+ 方法上**一堆默认参数**；
+   解法：局部函数抽成成员类型、实现体拆成不带默认参数的私有方法。
+   **若出现"只有 debug 变体编不过"的诡异错误，先往这个方向查**，不要在业务代码里乱改。
+
+3. **override 共用节点必须写全可变键**：MaaFramework 的 override 会继承该节点
+   上一次的值，漏写一个 `only_rec` 这类键就会静默读空。
+   本项目 DailyTasks 目前没有 `pipeline_override`，暂时不咬人；将来加配置覆盖时必须遵守。
+
+4. **tasker 是单线程串行队列**：`MaaTaskerPostRecognition/PostAction` 与任务
+   共用同一队列，运行中 post 只会排队。将来做应用内调试/探针时：
+   只读观察必须用**不绑 controller 的独立 tasker**（否则框架在 task 结束时
+   `auto_release_pressed` 会把正在跑的任务按着的手指放掉）；
+   会驱动点击的操作必须排队、绝不阻塞调用方。
+
+5. **调试 CLI 移植（待定，需用户确认）**：MAAend-Meow 已有一套成熟的调试 CLI
+   （手机端裸 TCP 行协议 7777 端口 + `adb forward` + 运行中可用的 screenshot/ocr/run 探针），
+   按那份文档 §8 可整体移植。本项目当前最需要它的场景是 **roi 提速采样**
+   （`screenshot`/`ocr <node>` 可在任务运行时直接测各模板命中分布）。
+   但它是给 App 加网络监听，即使有双闸门（BuildConfig.DEBUG + 应用内开关），
+   是否引入由用户决定。
