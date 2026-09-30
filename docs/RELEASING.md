@@ -144,28 +144,37 @@ MAA_CLI=/path/to/MaaPiCli python3 scripts/verify_with_engine.py
 
 | 容器 | 包名 | 形态 | 游戏在哪跑 | 后台模式 |
 |---|---|---|---|---|
-| Kuyo 游戏盒 | `org.kuyo.game` | **云游戏**："不占手机内存，所有游戏都在云端运行" | Kuyo 服务器，手机只收串流画面 | **可行**：把 `org.kuyo.game` 搬到虚拟屏，识别/点按照常（画面是压缩流，阈值必要时放宽；延迟高于本地） |
+| Kuyo 游戏盒 | `org.kuyo.game` | **本地虚拟环境**为主（官方："自带虚拟环境""专属游戏空间"），兼有云游戏 | 盒内本地进程（虚拟化）或云端串流 | **可行**：把 `org.kuyo.game` 搬到虚拟屏，识别/点按照常 |
 | OurPlay | `com.excean.gspace` | **GMS 环境**：游戏"导入"为本地 APK | 手机本地 | **可行**：与官方包同法，游戏包名不变（`com.ProjectMoon.LimbusCompany`） |
 
-关键结论：
+关键结论（2026-09-30 修正：Kuyo 以本地虚拟化运行为主，不是纯云）：
 
-1. **识别方法**：`AppWatchdog.getTopPackageOnDisplay(displayId)` 拿到的就是容器包名，
-   直接把它当 target（容器就是本地进程，`pidof` 判活、repin 都正常工作），
-   不需要、也不可能从系统层面"看到容器里的游戏"。
-2. **Kuyo 的唯一前置条件**：游戏必须已在盒内手动启动到可操作界面。
-   我们的 `StartApp org.kuyo.game` 只能打开盒子，deep-link 不进云端。
+1. **为什么系统层面"识别不出里面的游戏"**：应用层虚拟化（VirtualApp 这类机制）
+   让游戏跑在容器的进程里、UID 与容器相同，ActivityManager 看到的是容器的
+   stub Activity，PackageManager 里根本没有游戏的包。这是机制决定的，
+   不是我们的 bug——**不要试图从系统层面挖出里面的游戏，要反过来把容器本身当目标**。
+2. **识别方法**：`AppWatchdog.getTopPackageOnDisplay(displayId)` 拿到的就是容器包名，
+   直接把它当 target（容器是普通本地进程，`pidof` 判活、repin 都正常工作）。
+   里面的游戏是什么，靠用户在选项里声明（`kuyo`/`ourplay`/`official`），
+   或靠游戏 UI 自身的识别来确认，不靠包名。
+3. **Kuyo 的唯一前置条件**：游戏必须已在盒内手动启动到可操作界面。
+   我们的 `StartApp org.kuyo.game` 只能打开盒子。对云串流模式同样成立。
    对应 DailyTasks 的 `kuyo` 选项（描述里已写明）。
-3. **`com.ourplay.limbuscompany` 不存在**：OurPlay 不改包（"导入游戏"模型），
-   之前 option 里写的是编造包名，已改为官方包。如在真机上发现反例，
-   按下式核实后改回：
-   ```bash
-   adb shell pm list packages | grep -i -E "limbus|projectmoon|ourplay|kuyo"
-   adb shell dumpsys activity activities | grep -i -E "limbus|kuyo|ourplay" | head
-   # 游戏经 OurPlay 启动后，看顶层 activity 属于哪个包：
-   adb shell dumpsys activity top | grep -E "ACTIVITY|PACKAGE" | head -5
-   ```
-4. **Kuyo 串流画面的识别**：压缩 + 延迟，模板阈值 0.75 在串流上可能偏严。
+4. **`com.ourplay.limbuscompany` 不存在**：OurPlay 不改包（"导入游戏"模型），
+   之前 option 里写的是编造包名，已改为官方包。
+5. **Kuyo 串流/虚拟画面的识别**：若走云模式，画面是压缩流，模板阈值 0.75 可能偏严；
    先按现有阈值跑，日志里看实际得分再调，不要预先全局放宽。
+6. **真机核实命令**（确认容器包名与虚拟化形态，游戏在盒内运行时执行）：
+   ```bash
+   # 容器本身是否安装：
+   adb shell pm list packages | grep -i -E "kuyo|ourplay|projectmoon|limbus"
+   # 系统看到的顶层 activity（虚拟化容器一般只暴露自己的 stub）：
+   adb shell dumpsys activity activities | grep -E "mFocusedApp|topResumed" | head -3
+   # 进程名（虚拟化游戏可能以原包名为进程名、但 UID 归容器）：
+   adb shell ps -A | grep -i -E "kuyo|limbus|projectmoon"
+   # 若 pm 里没有 com.ProjectMoon.LimbusCompany 但游戏正在盒内跑，
+   # 即证实为虚拟化（游戏未向系统注册），识别只能靠容器包名 + 游戏 UI 自身。
+   ```
 
 来源：`MAAend-Meow/docs/reports/debug-cli-and-remote-debug.md`。以下与本项目直接相关：
 

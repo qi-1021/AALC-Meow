@@ -110,7 +110,7 @@
     "game_package_name": {
       "type": "select",
       "label": "游戏包名/启动方式",
-      "description": "选择边狱公司的安装来源或容器类型。Kuyo 云游戏：游戏在云端运行，手机上只能看到 org.kuyo.game，请先在 Kuyo 内手动启动游戏到可操作界面，本任务只负责接管当前画面（前台或虚拟屏均可）。OurPlay：游戏为本地安装，包名与官方一致。",
+      "description": "选择边狱公司的安装来源或容器类型。Kuyo（org.kuyo.game）：自带虚拟环境，游戏在盒内本地运行；系统层面只能看到容器本身，请先在盒内把游戏启动到可操作界面，本任务接管容器当前画面（前台或虚拟屏均可）。OurPlay：游戏为本地安装，包名与官方一致。",
       "default_case": "official",
       "cases": [
         {
@@ -139,7 +139,7 @@
         },
         {
           "name": "kuyo",
-          "label": "Kuyo 云游戏盒（org.kuyo.game，须先在盒内手动启动游戏）",
+          "label": "Kuyo 游戏盒（org.kuyo.game，须先在盒内手动启动游戏）",
           "pipeline_override": {
             "StartLimbusCompany": {
               "action": {
