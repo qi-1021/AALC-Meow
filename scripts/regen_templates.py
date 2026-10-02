@@ -25,11 +25,20 @@ REF_SHORT = 1440
 SCALE = TARGET_SHORT / REF_SHORT          # 0.5
 SEARCH_ORDER = ('share', 'zh_cn', 'en')    # 官方 load_image 的查找顺序
 
-# 这些是 v0.2.2 有意用真机截图重制的（官方源是 16:9 美术字，真机更稳），保留不覆盖
-KEEP_REAL_SCREENSHOT = {
-    'battle/win_rate.png',
-    'battle/gear_right.png',
+# 显式路径映射：解决 AALC-Meow 与官方命名微小差异的模板（如 enkephalin_confirm_assets -> confirm.png）
+EXPLICIT_SOURCE_MAP = {
+    'enkephalin/confirm.png': 'upstream/aalc/assets/images/default/share/enkephalin/enkephalin_confirm_assets.png',
+    'enkephalin/cancel.png': 'upstream/aalc/assets/images/default/share/enkephalin/enkephalin_cancel_assets.png',
+    'mail/confirm.png': 'upstream/aalc/assets/images/default/share/mail/get_mail_prize_confirm.png',
+    'mirror/to_window_forfeit_confirm.png': 'upstream/aalc/assets/images/default/share/mirror/road_in_mir/towindow&forfeit_confirm_assets.png',
+    'pass/missions.png': 'upstream/aalc/assets/images/default/zh_cn/pass/pass_missions_assets.png',
+    'story/skip_confirm.png': 'upstream/aalc/assets/images/default/share/scenes/story_skip_confirm_assets.png',
+    'battle/win_rate.png': 'upstream/aalc/assets/images/default/share/battle/win_rate_assets.png',
+    'battle/gear_right.png': 'upstream/aalc/assets/images/default/share/battle/gear_right.png',
 }
+
+# 彻底拔除真机 1080p 历史截图保留列表，统一对齐 720p（0.5x）黄金基准
+KEEP_REAL_SCREENSHOT = set()
 
 
 def official_get_bbox(arr, threshold=0):
@@ -49,6 +58,10 @@ def official_get_bbox(arr, threshold=0):
 
 def find_official(rel):
     """按 load_image 的顺序定位官方源文件"""
+    if rel in EXPLICIT_SOURCE_MAP:
+        src = EXPLICIT_SOURCE_MAP[rel]
+        if os.path.exists(src):
+            return src
     for sub in SEARCH_ORDER:
         p = f'{UP}/{sub}/{rel}'
         if os.path.exists(p):
