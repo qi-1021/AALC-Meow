@@ -25,6 +25,12 @@
     "next": [
       "PassEnterMissions",
       "PassClaimDailyCoin"
+    ],
+    "roi": [
+      950,
+      151,
+      750,
+      81
     ]
   },
   "PassEnterMissions": {
@@ -35,6 +41,12 @@
     "next": [
       "PassClaimDailyCoin",
       "PassSwitchWeekly"
+    ],
+    "roi": [
+      268,
+      9,
+      200,
+      94
     ]
   },
   "PassClaimDailyCoin": {
@@ -55,6 +67,12 @@
     "next": [
       "PassClaimWeeklyCoin",
       "PassReturnHome"
+    ],
+    "roi": [
+      211,
+      322,
+      121,
+      156
     ]
   },
   "PassClaimWeeklyCoin": {
@@ -74,11 +92,23 @@
     "post_wait_freezes": 800,
     "next": [
       "PassFinishCheck"
+    ],
+    "roi": [
+      7,
+      0,
+      178,
+      116
     ]
   },
   "PassFinishCheck": {
     "recognition": "TemplateMatch",
-    "template": "home/drive.png"
+    "template": "home/drive.png",
+    "roi": [
+      894,
+      581,
+      750,
+      102
+    ]
   },
   "PassTryMailFallback": {
     "doc": "官方 get_prize.py:46-53 last_try 单次版：路由超时后点主页邮件入口(+100y)，然后退出，不无限重试",
@@ -99,6 +129,12 @@
     ],
     "on_error": [
       "PassReturnHome"
+    ],
+    "roi": [
+      1043,
+      77,
+      750,
+      95
     ]
   }
 }

@@ -1,89 +1,119 @@
 {
-    "LuxcavationEntry": {
-        "doc": "日常本入口状态机：智能识别当前页面并自愈导航",
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "next": [
-            "LuxcavationTeamCheck",
-            "LuxcavationThreadSubLevel",
-            "LuxcavationExpChoose",
-            "LuxcavationThreadChoose",
-            "LuxcavationSelectType",
-            "LuxcavationClickDrive",
-            "LuxcavationBackToLobby"
-        ]
+  "LuxcavationEntry": {
+    "doc": "日常本入口状态机：智能识别当前页面并自愈导航",
+    "recognition": "DirectHit",
+    "action": "DoNothing",
+    "next": [
+      "LuxcavationTeamCheck",
+      "LuxcavationThreadSubLevel",
+      "LuxcavationExpChoose",
+      "LuxcavationThreadChoose",
+      "LuxcavationSelectType",
+      "LuxcavationClickDrive",
+      "LuxcavationBackToLobby"
+    ]
+  },
+  "LuxcavationClickDrive": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "home/drive.png",
+      "threshold": 0.72
     },
-    "LuxcavationClickDrive": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "home/drive.png",
-            "threshold": 0.72
-        },
-        "action": "Click",
-        "post_wait_freezes": 600,
-        "next": [
-            "LuxcavationSelectType",
-            "LuxcavationExpChoose",
-            "LuxcavationThreadChoose"
-        ]
+    "action": "Click",
+    "post_wait_freezes": 600,
+    "next": [
+      "LuxcavationSelectType",
+      "LuxcavationExpChoose",
+      "LuxcavationThreadChoose"
+    ],
+    "roi": [
+      894,
+      581,
+      750,
+      102
+    ]
+  },
+  "LuxcavationBackToLobby": {
+    "doc": "不在任何采光相关页面时，点击返回大厅重新进入",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "home/back.png",
+      "threshold": 0.72
     },
-    "LuxcavationBackToLobby": {
-        "doc": "不在任何采光相关页面时，点击返回大厅重新进入",
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "home/back.png",
-            "threshold": 0.72
-        },
-        "action": "Click",
-        "post_wait_freezes": 800,
-        "next": [
-            "LuxcavationEntry"
-        ]
-    },
-    "LuxcavationSelectType": {
-        "recognition": "TemplateMatch",
-        "template": "home/luxcavation.png",
-        "action": "Click",
-        "post_wait_freezes": 600,
-        "next": [
-            "LuxcavationExpChoose",
-            "LuxcavationThreadChoose"
-        ]
-    },
-    "LuxcavationExpChoose": {
-        "recognition": "TemplateMatch",
-        "template": "luxcavation/exp_enter.png",
-        "action": "Click",
-        "post_wait_freezes": 800,
-        "next": [
-            "LuxcavationTeamCheck"
-        ]
-    },
-    "LuxcavationThreadChoose": {
-        "recognition": "TemplateMatch",
-        "template": "luxcavation/thread_enter.png",
-        "action": "Click",
-        "post_wait_freezes": 800,
-        "next": [
-            "LuxcavationThreadSubLevel"
-        ]
-    },
-    "LuxcavationThreadSubLevel": {
-        "recognition": "TemplateMatch",
-        "template": "luxcavation/thread_consume.png",
-        "action": "Click",
-        "post_wait_freezes": 800,
-        "next": [
-            "LuxcavationTeamCheck"
-        ]
-    },
-    "LuxcavationTeamCheck": {
-        "recognition": "TemplateMatch",
-        "template": "teams/identify.png",
-        "action": "Click",
-        "post_wait_freezes": 1000,
-        "next": [
-            "BattleAutoCombat"
-        ]
-    }
+    "action": "Click",
+    "post_wait_freezes": 800,
+    "next": [
+      "LuxcavationEntry"
+    ],
+    "roi": [
+      7,
+      0,
+      178,
+      116
+    ]
+  },
+  "LuxcavationSelectType": {
+    "recognition": "TemplateMatch",
+    "template": "home/luxcavation.png",
+    "action": "Click",
+    "post_wait_freezes": 600,
+    "next": [
+      "LuxcavationExpChoose",
+      "LuxcavationThreadChoose"
+    ],
+    "roi": [
+      370,
+      151,
+      158,
+      100
+    ]
+  },
+  "LuxcavationExpChoose": {
+    "recognition": "TemplateMatch",
+    "template": "luxcavation/exp_enter.png",
+    "action": "Click",
+    "post_wait_freezes": 800,
+    "next": [
+      "LuxcavationTeamCheck"
+    ]
+  },
+  "LuxcavationThreadChoose": {
+    "recognition": "TemplateMatch",
+    "template": "luxcavation/thread_enter.png",
+    "action": "Click",
+    "post_wait_freezes": 800,
+    "next": [
+      "LuxcavationThreadSubLevel"
+    ],
+    "roi": [
+      289,
+      433,
+      124,
+      95
+    ]
+  },
+  "LuxcavationThreadSubLevel": {
+    "recognition": "TemplateMatch",
+    "template": "luxcavation/thread_consume.png",
+    "action": "Click",
+    "post_wait_freezes": 800,
+    "next": [
+      "LuxcavationTeamCheck"
+    ]
+  },
+  "LuxcavationTeamCheck": {
+    "recognition": "TemplateMatch",
+    "template": "teams/identify.png",
+    "action": "Click",
+    "post_wait_freezes": 1000,
+    "next": [
+      "BattleAutoCombat"
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
+    ]
+  }
 }

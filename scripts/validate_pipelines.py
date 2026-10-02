@@ -72,7 +72,26 @@ def collect():
         d = json.load(open(f, encoding='utf-8'))
         for node_name, node in d.items():
             nodes[node_name] = (name, node, f)
+
+    # 同时也收集 tasks/*.json 中的 pipeline_override，防止无效字段溜进任务配置
+    for f in glob.glob('assets/tasks/**/*.json', recursive=True):
+        name = os.path.basename(f)
+        d = json.load(open(f, encoding='utf-8'))
+        def walk(obj, p=''):
+            if isinstance(obj, dict):
+                for k, v in obj.items():
+                    if k == 'pipeline_override' and isinstance(v, dict):
+                        for node_name, node in v.items():
+                            if isinstance(node, dict):
+                                nodes[f"{node_name}@{p}"] = (f"{name}::{p}", node, f)
+                    else:
+                        walk(v, f'{p}.{k}' if p else k)
+            elif isinstance(obj, list):
+                for i, item in enumerate(obj):
+                    walk(item, f'{p}[{i}]')
+        walk(d)
     return nodes
+
 
 
 def check():
@@ -92,6 +111,12 @@ def check():
             elif k not in TOP_KEYS and not (is_v1 and k in V1_RECOGNITION_PARAMS):
                 errs.append(f"{where}: 未知顶层字段 '{k}'")
 
+        is_override = '@' in name
+        base_node = name.split('@')[0] if is_override else name
+
+        if is_override and base_node not in nodes:
+            errs.append(f"{where}: 覆盖了不存在的管线节点 '{base_node}'")
+
         if is_v2:
             for k in rec:
                 if k == 'text':
@@ -103,8 +128,8 @@ def check():
         elif is_v1:
             if rec == 'OCR' and 'expected' not in node:
                 warns.append(f"{where}: OCR 无 expected，将匹配全部结果")
-        elif 'action' in node:
-            # 终点节点 / 纯动作节点：只有 action 没有 recognition 是合法用法
+        elif 'action' in node or is_override:
+            # 终点节点 / 纯动作节点 / 局部覆盖补丁：不要求必须声明 recognition
             pass
         else:
             errs.append(f"{where}: recognition 必须是字符串(v1)或对象(v2)，"

@@ -1,18 +1,30 @@
 {
-    "StoryAutoSkip": {
-        "recognition": "TemplateMatch",
-        "template": "story/skip.png",
-        "action": "Click",
-        "post_wait_freezes": 400,
-        "next": [
-            "StorySkipConfirm",
-            "StoryAutoSkip"
-        ]
-    },
-    "StorySkipConfirm": {
-        "recognition": "TemplateMatch",
-        "template": "story/skip_confirm.png",
-        "action": "Click",
-        "post_wait_freezes": 1000
-    }
+  "StoryAutoSkip": {
+    "recognition": "TemplateMatch",
+    "template": "story/skip.png",
+    "action": "Click",
+    "post_wait_freezes": 400,
+    "next": [
+      "StorySkipConfirm",
+      "StoryAutoSkip"
+    ],
+    "roi": [
+      982,
+      577,
+      750,
+      143
+    ]
+  },
+  "StorySkipConfirm": {
+    "recognition": "TemplateMatch",
+    "template": "story/skip_confirm.png",
+    "action": "Click",
+    "post_wait_freezes": 1000,
+    "roi": [
+      601,
+      439,
+      335,
+      98
+    ]
+  }
 }

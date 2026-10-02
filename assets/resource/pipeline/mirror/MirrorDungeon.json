@@ -9,6 +9,12 @@
     "action": "DoNothing",
     "next": [
       "ClearCurrentTeam"
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "ClearCurrentTeam": {
@@ -23,6 +29,12 @@
     "next": [
       "SelectSinnerSlot1",
       "TeamFormationConfirm"
+    ],
+    "roi": [
+      608,
+      448,
+      336,
+      95
     ]
   },
   "SelectSinnerSlot1": {
@@ -42,6 +54,12 @@
       65,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot2": {
@@ -61,6 +79,12 @@
       65,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot3": {
@@ -80,6 +104,12 @@
       65,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot4": {
@@ -99,6 +129,12 @@
       65,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot5": {
@@ -118,6 +154,12 @@
       65,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot6": {
@@ -137,6 +179,12 @@
       65,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot7": {
@@ -156,6 +204,12 @@
       315,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot8": {
@@ -175,6 +229,12 @@
       315,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot9": {
@@ -194,6 +254,12 @@
       315,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot10": {
@@ -213,6 +279,12 @@
       315,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot11": {
@@ -232,6 +304,12 @@
       315,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "SelectSinnerSlot12": {
@@ -251,6 +329,12 @@
       315,
       0,
       0
+    ],
+    "roi": [
+      1122,
+      129,
+      750,
+      98
     ]
   },
   "TeamFormationConfirm": {
@@ -266,6 +350,12 @@
       "MirrorLevelConfirm",
       "MirrorInDungeon",
       "BattleAutoCombat"
+    ],
+    "roi": [
+      1030,
+      539,
+      750,
+      98
     ]
   },
   "MirrorDungeonEntry": {
@@ -299,6 +389,12 @@
     "action": "DoNothing",
     "next": [
       "MirrorClaimReward"
+    ],
+    "roi": [
+      276,
+      315,
+      146,
+      118
     ]
   },
   "MirrorCheckShopCoins": {
@@ -311,6 +407,12 @@
     "action": "DoNothing",
     "next": [
       "MirrorLeaveShop"
+    ],
+    "roi": [
+      428,
+      81,
+      346,
+      112
     ]
   },
   "MirrorCheckLegend": {
@@ -323,6 +425,12 @@
     "action": "DoNothing",
     "next": [
       "MirrorInDungeon"
+    ],
+    "roi": [
+      1158,
+      55,
+      750,
+      92
     ]
   },
   "MirrorClickResume": {
@@ -339,6 +447,12 @@
       "MirrorCheckDreamingStar",
       "MirrorCheckInitEgoGift",
       "MirrorSelectTeamScreen"
+    ],
+    "roi": [
+      429,
+      345,
+      522,
+      107
     ]
   },
   "MirrorClickEnterMirror": {
@@ -356,6 +470,12 @@
       "MirrorLevelConfirm",
       "MirrorCheckDreamingStar",
       "MirrorCheckInitEgoGift"
+    ],
+    "roi": [
+      614,
+      435,
+      340,
+      98
     ]
   },
   "MirrorConfirmEnterMirror": {
@@ -388,6 +508,12 @@
       "MirrorCheckDreamingStar",
       "MirrorCheckInitEgoGift",
       "MirrorLevelConfirm"
+    ],
+    "roi": [
+      939,
+      333,
+      750,
+      88
     ]
   },
   "MirrorClickEnterRoadToMir": {
@@ -404,6 +530,12 @@
       "MirrorSelectTeamScreen",
       "MirrorCheckDreamingStar",
       "MirrorCheckInitEgoGift"
+    ],
+    "roi": [
+      994,
+      441,
+      750,
+      108
     ]
   },
   "MirrorClickMirrorDungeons": {
@@ -420,6 +552,12 @@
       "MirrorClickEnterRoadToMir",
       "MirrorClickEnterMirror",
       "MirrorCheckDreamingStar"
+    ],
+    "roi": [
+      328,
+      269,
+      246,
+      102
     ]
   },
   "MirrorClickDrive": {
@@ -432,6 +570,12 @@
     "post_wait_freezes": 600,
     "next": [
       "MirrorDungeonEntry"
+    ],
+    "roi": [
+      894,
+      581,
+      750,
+      102
     ]
   },
   "MirrorDismissFirstPrompt": {
@@ -468,6 +612,12 @@
     "action": "DoNothing",
     "next": [
       "MirrorInDungeon"
+    ],
+    "roi": [
+      1126,
+      60,
+      750,
+      117
     ]
   },
   "MirrorLeaveShop": {
@@ -481,6 +631,12 @@
     "post_wait_freezes": 800,
     "next": [
       "MirrorDungeonEntry"
+    ],
+    "roi": [
+      610,
+      444,
+      336,
+      97
     ]
   },
   "MirrorSelectTeamScreen": {
@@ -495,6 +651,12 @@
     "next": [
       "MirrorOpenTeamPanel",
       "MirrorClickConfirmTeamButton"
+    ],
+    "roi": [
+      1078,
+      490,
+      750,
+      97
     ]
   },
   "MirrorOpenTeamPanel": {
@@ -540,6 +702,12 @@
       "MirrorCheckInitEgoGift",
       "TeamFormationStart",
       "MirrorLevelConfirm"
+    ],
+    "roi": [
+      1041,
+      529,
+      750,
+      114
     ]
   },
   "MirrorCheckDreamingStar": {
@@ -554,6 +722,12 @@
     "next": [
       "MirrorConfirmDreamingStar",
       "MirrorEnterDreamingStar"
+    ],
+    "roi": [
+      1060,
+      0,
+      750,
+      91
     ]
   },
   "MirrorConfirmDreamingStar": {
@@ -568,6 +742,12 @@
     "next": [
       "MirrorEnterDreamingStar",
       "MirrorCheckInitEgoGift"
+    ],
+    "roi": [
+      598,
+      483,
+      331,
+      96
     ]
   },
   "MirrorEnterDreamingStar": {
@@ -583,6 +763,12 @@
       "MirrorCheckInitEgoGift",
       "TeamFormationStart",
       "MirrorLevelConfirm"
+    ],
+    "roi": [
+      1078,
+      602,
+      750,
+      91
     ]
   },
   "MirrorCheckInitEgoGift": {
@@ -596,6 +782,12 @@
     "next": [
       "MirrorPickInitGiftsFirstThree",
       "MirrorConfirmInitGifts"
+    ],
+    "roi": [
+      1052,
+      115,
+      750,
+      90
     ]
   },
   "MirrorPickInitGiftsFirstThree": {
@@ -625,6 +817,12 @@
       "TeamFormationStart",
       "MirrorLevelConfirm",
       "MirrorInDungeon"
+    ],
+    "roi": [
+      971,
+      541,
+      750,
+      92
     ]
   },
   "MirrorLevelConfirm": {
@@ -639,6 +837,12 @@
     "next": [
       "MirrorInDungeon",
       "BattleAutoCombat"
+    ],
+    "roi": [
+      625,
+      447,
+      335,
+      98
     ]
   },
   "MirrorInDungeon": {
@@ -656,6 +860,12 @@
       "MirrorClaimReward",
       "BattleAutoCombat",
       "MirrorInDungeon"
+    ],
+    "roi": [
+      1158,
+      55,
+      750,
+      92
     ]
   },
   "MirrorClickNode": {
@@ -669,6 +879,12 @@
     "post_delay": 1500,
     "next": [
       "MirrorInDungeon"
+    ],
+    "roi": [
+      1026,
+      488,
+      750,
+      109
     ]
   },
   "MirrorEgoGiftGetConfirm": {
@@ -682,6 +898,12 @@
     "post_delay": 800,
     "next": [
       "MirrorInDungeon"
+    ],
+    "roi": [
+      483,
+      478,
+      338,
+      107
     ]
   },
   "MirrorAcquireEgoGiftCard": {
@@ -735,6 +957,12 @@
     "post_delay": 600,
     "next": [
       "MirrorInDungeon"
+    ],
+    "roi": [
+      13,
+      1,
+      151,
+      122
     ]
   },
   "MirrorClaimReward": {
@@ -749,6 +977,12 @@
     "next": [
       "MirrorUseEnkephalinConfirm",
       "MirrorRewardAcquiredDone"
+    ],
+    "roi": [
+      1005,
+      553,
+      750,
+      89
     ]
   },
   "MirrorUseEnkephalinConfirm": {
@@ -762,6 +996,12 @@
     "post_delay": 1500,
     "next": [
       "MirrorInDungeon"
+    ],
+    "roi": [
+      698,
+      495,
+      333,
+      97
     ]
   },
   "MirrorRewardAcquiredDone": {
@@ -772,6 +1012,12 @@
       "threshold": 0.75
     },
     "action": "Click",
-    "post_delay": 1000
+    "post_delay": 1000,
+    "roi": [
+      488,
+      427,
+      324,
+      88
+    ]
   }
 }

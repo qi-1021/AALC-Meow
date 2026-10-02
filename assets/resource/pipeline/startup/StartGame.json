@@ -24,6 +24,12 @@
     ],
     "next": [
       "StartGameSuccess"
+    ],
+    "roi": [
+      246,
+      589,
+      138,
+      104
     ]
   },
   "StartGameSuccess": {

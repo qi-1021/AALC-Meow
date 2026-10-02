@@ -1,57 +1,81 @@
 {
-    "MailStart": {
-        "doc": "邮件领取入口路由器",
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "next": [
-            "MailClaimAll",
-            "MailClickIcon",
-            "MailClose"
-        ]
+  "MailStart": {
+    "doc": "邮件领取入口路由器",
+    "recognition": "DirectHit",
+    "action": "DoNothing",
+    "next": [
+      "MailClaimAll",
+      "MailClickIcon",
+      "MailClose"
+    ]
+  },
+  "MailClickIcon": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "home/mail.png",
+      "threshold": 0.72
     },
-    "MailClickIcon": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "home/mail.png",
-            "threshold": 0.72
-        },
-        "action": "Click",
-        "post_wait_freezes": 500,
-        "next": [
-            "MailClaimAll",
-            "MailClose"
-        ]
-    },
-    "MailClaimAll": {
-        "recognition": "TemplateMatch",
-        "template": "mail/claim_all.png",
-        "action": "Click",
-        "post_wait_freezes": 800,
-        "next": [
-            "MailConfirmPrize",
-            "MailClose"
-        ]
-    },
-    "MailConfirmPrize": {
-        "recognition": "TemplateMatch",
-        "template": "mail/confirm.png",
-        "action": "Click",
-        "post_wait_freezes": 500,
-        "next": [
-            "MailClose"
-        ]
-    },
-    "MailClose": {
-        "recognition": "TemplateMatch",
-        "template": "mail/close.png",
-        "action": "Click",
-        "post_wait_freezes": 500,
-        "next": [
-            "MailFinishCheck"
-        ]
-    },
-    "MailFinishCheck": {
-        "recognition": "TemplateMatch",
-        "template": "home/mail.png"
-    }
+    "action": "Click",
+    "post_wait_freezes": 500,
+    "next": [
+      "MailClaimAll",
+      "MailClose"
+    ],
+    "roi": [
+      1043,
+      77,
+      750,
+      95
+    ]
+  },
+  "MailClaimAll": {
+    "recognition": "TemplateMatch",
+    "template": "mail/claim_all.png",
+    "action": "Click",
+    "post_wait_freezes": 800,
+    "next": [
+      "MailConfirmPrize",
+      "MailClose"
+    ],
+    "roi": [
+      813,
+      491,
+      750,
+      108
+    ]
+  },
+  "MailConfirmPrize": {
+    "recognition": "TemplateMatch",
+    "template": "mail/confirm.png",
+    "action": "Click",
+    "post_wait_freezes": 500,
+    "next": [
+      "MailClose"
+    ]
+  },
+  "MailClose": {
+    "recognition": "TemplateMatch",
+    "template": "mail/close.png",
+    "action": "Click",
+    "post_wait_freezes": 500,
+    "next": [
+      "MailFinishCheck"
+    ],
+    "roi": [
+      650,
+      504,
+      356,
+      97
+    ]
+  },
+  "MailFinishCheck": {
+    "recognition": "TemplateMatch",
+    "template": "home/mail.png",
+    "roi": [
+      1043,
+      77,
+      750,
+      95
+    ]
+  }
 }

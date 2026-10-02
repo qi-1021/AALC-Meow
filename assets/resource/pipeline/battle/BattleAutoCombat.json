@@ -1,107 +1,143 @@
 {
-    "BattleAutoCombat": {
-        "doc": "战斗主循环入口路由器：动态自适应当前战斗状态",
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "next": [
-            "BattleClickWinRate",
-            "BattleStartTurn",
-            "BattleHandleMidBattleEvent",
-            "BattleFinishCheck",
-            "BattleChecking",
-            "BattleHandleGiveUp"
-        ]
+  "BattleAutoCombat": {
+    "doc": "战斗主循环入口路由器：动态自适应当前战斗状态",
+    "recognition": "DirectHit",
+    "action": "DoNothing",
+    "next": [
+      "BattleClickWinRate",
+      "BattleStartTurn",
+      "BattleHandleMidBattleEvent",
+      "BattleFinishCheck",
+      "BattleChecking",
+      "BattleHandleGiveUp"
+    ]
+  },
+  "BattleClickWinRate": {
+    "doc": "优先点击胜率连线（P键）",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "battle/win_rate.png",
+      "threshold": 0.7
     },
-    "BattleClickWinRate": {
-        "doc": "优先点击胜率连线（P键）",
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "battle/win_rate.png",
-            "threshold": 0.70
-        },
-        "action": "Click",
-        "post_wait_freezes": 0,
-        "post_delay": 400,
-        "next": [
-            "BattleStartTurn",
-            "BattleChecking",
-            "BattleHandleMidBattleEvent",
-            "BattleHandleGiveUp",
-            "BattleFinishCheck",
-            "BattleAutoCombat"
-        ]
+    "action": "Click",
+    "post_wait_freezes": 0,
+    "post_delay": 400,
+    "next": [
+      "BattleStartTurn",
+      "BattleChecking",
+      "BattleHandleMidBattleEvent",
+      "BattleHandleGiveUp",
+      "BattleFinishCheck",
+      "BattleAutoCombat"
+    ],
+    "roi": [
+      934,
+      499,
+      750,
+      94
+    ]
+  },
+  "BattleStartTurn": {
+    "doc": "连线后点击右侧齿轮（Enter键）开始回合战斗",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "battle/gear_right.png",
+      "threshold": 0.72
     },
-    "BattleStartTurn": {
-        "doc": "连线后点击右侧齿轮（Enter键）开始回合战斗",
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "battle/gear_right.png",
-            "threshold": 0.72
-        },
-        "action": "Click",
-        "post_wait_freezes": 0,
-        "next": [
-            "BattleChecking",
-            "BattleAutoCombat",
-            "BattleHandleMidBattleEvent",
-            "BattleHandleGiveUp",
-            "BattleFinishCheck"
-        ],
-        "threshold": 0.7,
-        "post_delay": 800
+    "action": "Click",
+    "post_wait_freezes": 0,
+    "next": [
+      "BattleChecking",
+      "BattleAutoCombat",
+      "BattleHandleMidBattleEvent",
+      "BattleHandleGiveUp",
+      "BattleFinishCheck"
+    ],
+    "threshold": 0.7,
+    "post_delay": 800,
+    "roi": [
+      950,
+      180,
+      650,
+      350
+    ]
+  },
+  "BattleChecking": {
+    "doc": "回合战斗进行中检测：出现 turn 或战斗中待机时继续下回合",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "battle/turn.png",
+      "threshold": 0.7
     },
-    "BattleChecking": {
-        "doc": "回合战斗进行中检测：出现 turn 或战斗中待机时继续下回合",
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "battle/turn.png",
-            "threshold": 0.7
-        },
-        "next": [
-            "BattleAutoCombat",
-            "BattleStartTurn",
-            "BattleHandleMidBattleEvent",
-            "BattleHandleGiveUp",
-            "BattleFinishCheck",
-            "BattleChecking"
-        ],
-        "threshold": 0.68,
-        "post_delay": 800
+    "next": [
+      "BattleAutoCombat",
+      "BattleStartTurn",
+      "BattleHandleMidBattleEvent",
+      "BattleHandleGiveUp",
+      "BattleFinishCheck",
+      "BattleChecking"
+    ],
+    "threshold": 0.68,
+    "post_delay": 800,
+    "roi": [
+      0,
+      28,
+      131,
+      92
+    ]
+  },
+  "BattleHandleMidBattleEvent": {
+    "doc": "战斗中途如果出现异常事件选项，点击第一个选项继续",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "event/select_first_option_assets.png",
+      "threshold": 0.75
     },
-    "BattleHandleMidBattleEvent": {
-        "doc": "战斗中途如果出现异常事件选项，点击第一个选项继续",
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "event/select_first_option_assets.png",
-            "threshold": 0.75
-        },
-        "action": "Click",
-        "post_delay": 800,
-        "next": [
-            "BattleAutoCombat",
-            "BattleChecking"
-        ]
+    "action": "Click",
+    "post_delay": 800,
+    "next": [
+      "BattleAutoCombat",
+      "BattleChecking"
+    ],
+    "roi": [
+      584,
+      132,
+      326,
+      129
+    ]
+  },
+  "BattleHandleGiveUp": {
+    "doc": "全军覆没或战斗失败时弹出认输确认，自动点击放弃退出重试",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "battle/give_up_assets.png",
+      "threshold": 0.75
     },
-    "BattleHandleGiveUp": {
-        "doc": "全军覆没或战斗失败时弹出认输确认，自动点击放弃退出重试",
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "battle/give_up_assets.png",
-            "threshold": 0.75
-        },
-        "action": "Click",
-        "post_wait_freezes": 1200
+    "action": "Click",
+    "post_wait_freezes": 1200,
+    "roi": [
+      474,
+      375,
+      340,
+      104
+    ]
+  },
+  "BattleFinishCheck": {
+    "doc": "战斗结算确认（打完后点击结算弹窗）",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "battle/battle_finish_confirm.png",
+      "threshold": 0.72
     },
-    "BattleFinishCheck": {
-        "doc": "战斗结算确认（打完后点击结算弹窗）",
-        "recognition": {
-            "type": "TemplateMatch",
-            "template": "battle/battle_finish_confirm.png",
-            "threshold": 0.72
-        },
-        "action": "Click",
-        "post_wait_freezes": 0,
-        "threshold": 0.7,
-        "post_delay": 1000
-    }
+    "action": "Click",
+    "post_wait_freezes": 0,
+    "threshold": 0.7,
+    "post_delay": 1000,
+    "roi": [
+      978,
+      503,
+      750,
+      110
+    ]
+  }
 }

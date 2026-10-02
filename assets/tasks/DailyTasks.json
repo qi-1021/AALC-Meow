@@ -201,7 +201,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#1",
                   "TEAMS #1",
                   "TEAMS#1"
@@ -209,8 +209,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -224,7 +224,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#2",
                   "TEAMS #2",
                   "TEAMS#2"
@@ -232,8 +232,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -247,7 +247,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#3",
                   "TEAMS #3",
                   "TEAMS#3"
@@ -255,8 +255,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -270,7 +270,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#4",
                   "TEAMS #4",
                   "TEAMS#4"
@@ -278,8 +278,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -293,7 +293,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#5",
                   "TEAMS #5",
                   "TEAMS#5"
@@ -301,8 +301,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -316,7 +316,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#6",
                   "TEAMS #6",
                   "TEAMS#6"
@@ -324,8 +324,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -339,7 +339,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#7",
                   "TEAMS #7",
                   "TEAMS#7"
@@ -347,8 +347,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -362,7 +362,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#8",
                   "TEAMS #8",
                   "TEAMS#8"
@@ -370,8 +370,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -385,7 +385,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#9",
                   "TEAMS #9",
                   "TEAMS#9"
@@ -393,8 +393,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -408,7 +408,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#10",
                   "TEAMS #10",
                   "TEAMS#10"
@@ -416,8 +416,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -431,7 +431,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#11",
                   "TEAMS #11",
                   "TEAMS#11"
@@ -439,8 +439,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -454,7 +454,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#12",
                   "TEAMS #12",
                   "TEAMS#12"
@@ -462,8 +462,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -477,7 +477,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#13",
                   "TEAMS #13",
                   "TEAMS#13"
@@ -485,8 +485,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -500,7 +500,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#14",
                   "TEAMS #14",
                   "TEAMS#14"
@@ -508,8 +508,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -523,7 +523,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#15",
                   "TEAMS #15",
                   "TEAMS#15"
@@ -531,8 +531,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -546,7 +546,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#16",
                   "TEAMS #16",
                   "TEAMS#16"
@@ -554,8 +554,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -569,7 +569,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#17",
                   "TEAMS #17",
                   "TEAMS#17"
@@ -577,8 +577,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -592,7 +592,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#18",
                   "TEAMS #18",
                   "TEAMS#18"
@@ -600,8 +600,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -615,7 +615,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#19",
                   "TEAMS #19",
                   "TEAMS#19"
@@ -623,8 +623,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -638,7 +638,7 @@
             "MirrorSelectTeamByOCR": {
               "recognition": {
                 "type": "OCR",
-                "text": [
+                "expected": [
                   "编队#20",
                   "TEAMS #20",
                   "TEAMS#20"
@@ -646,8 +646,8 @@
                 "roi": [
                   0,
                   0,
-                  500,
-                  1080
+                  400,
+                  720
                 ]
               },
               "action": "Click"
@@ -1294,8 +1294,12 @@
           "label": "日/周常",
           "pipeline_override": {
             "PassPrizeStart": {
+              "action": "DoNothing",
               "next": [
-                "PassCoinClaim"
+                "PassClaimDailyCoin",
+                "PassEnterMissions",
+                "PassClickSeason",
+                "PassReturnHome"
               ]
             }
           }
@@ -1305,6 +1309,7 @@
           "label": "邮件",
           "pipeline_override": {
             "PassPrizeStart": {
+              "action": "DoNothing",
               "next": [
                 "MailStart"
               ]
@@ -1344,10 +1349,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -1356,16 +1358,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1374,16 +1373,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1392,16 +1388,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1410,16 +1403,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1428,16 +1418,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1446,16 +1433,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1464,16 +1448,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1482,16 +1463,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1500,16 +1478,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1518,16 +1493,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1536,16 +1508,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1554,16 +1523,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot1": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot2"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -1580,10 +1546,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -1592,16 +1555,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1610,16 +1570,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1628,16 +1585,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1646,16 +1600,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1664,16 +1615,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1682,16 +1630,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1700,16 +1645,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1718,16 +1660,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1736,16 +1675,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1754,16 +1690,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1772,16 +1705,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1790,16 +1720,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot2": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot3"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -1816,10 +1743,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -1828,16 +1752,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1846,16 +1767,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1864,16 +1782,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1882,16 +1797,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1900,16 +1812,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1918,16 +1827,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1936,16 +1842,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1954,16 +1857,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1972,16 +1872,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -1990,16 +1887,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2008,16 +1902,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2026,16 +1917,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot3": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot4"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -2052,10 +1940,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -2064,16 +1949,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2082,16 +1964,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2100,16 +1979,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2118,16 +1994,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2136,16 +2009,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2154,16 +2024,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2172,16 +2039,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2190,16 +2054,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2208,16 +2069,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2226,16 +2084,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2244,16 +2099,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2262,16 +2114,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot4": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot5"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -2288,10 +2137,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -2300,16 +2146,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2318,16 +2161,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2336,16 +2176,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2354,16 +2191,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2372,16 +2206,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2390,16 +2221,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2408,16 +2236,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2426,16 +2251,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2444,16 +2266,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2462,16 +2281,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2480,16 +2296,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2498,16 +2311,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot5": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot6"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -2524,10 +2334,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -2536,16 +2343,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2554,16 +2358,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2572,16 +2373,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2590,16 +2388,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2608,16 +2403,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2626,16 +2418,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2644,16 +2433,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2662,16 +2448,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2680,16 +2463,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2698,16 +2478,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2716,16 +2493,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2734,16 +2508,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot6": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot7"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -2760,10 +2531,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -2772,16 +2540,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2790,16 +2555,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2808,16 +2570,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2826,16 +2585,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2844,16 +2600,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2862,16 +2615,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2880,16 +2630,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2898,16 +2645,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2916,16 +2660,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2934,16 +2675,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2952,16 +2690,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -2970,16 +2705,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot7": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot8"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -2996,10 +2728,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -3008,16 +2737,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3026,16 +2752,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3044,16 +2767,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3062,16 +2782,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3080,16 +2797,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3098,16 +2812,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3116,16 +2827,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3134,16 +2842,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3152,16 +2857,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3170,16 +2872,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3188,16 +2887,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3206,16 +2902,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot8": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot9"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -3232,10 +2925,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -3244,16 +2934,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3262,16 +2949,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3280,16 +2964,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3298,16 +2979,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3316,16 +2994,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3334,16 +3009,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3352,16 +3024,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3370,16 +3039,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3388,16 +3054,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3406,16 +3069,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3424,16 +3084,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3442,16 +3099,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot9": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot10"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -3468,10 +3122,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -3480,16 +3131,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3498,16 +3146,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3516,16 +3161,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3534,16 +3176,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3552,16 +3191,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3570,16 +3206,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3588,16 +3221,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3606,16 +3236,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3624,16 +3251,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3642,16 +3266,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3660,16 +3281,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3678,16 +3296,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot10": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot11"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -3704,10 +3319,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "action": "DoNothing",
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -3716,16 +3328,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3734,16 +3343,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3752,16 +3358,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3770,16 +3373,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3788,16 +3388,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3806,16 +3403,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3824,16 +3418,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3842,16 +3433,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3860,16 +3448,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3878,16 +3463,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3896,16 +3478,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3914,16 +3493,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot11": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "SelectSinnerSlot12"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
@@ -3940,10 +3516,7 @@
           "label": "（空置 / 不选）",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "action": "DoNothing",
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "action": "DoNothing"
             }
           }
         },
@@ -3952,16 +3525,13 @@
           "label": "李箱 (Yi Sang)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/YiSang_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -900,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3970,16 +3540,13 @@
           "label": "浮士德 (Faust)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Faust_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -765,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -3988,16 +3555,13 @@
           "label": "堂吉诃德 (Don Quixote)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/DonQuixote_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -630,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4006,16 +3570,13 @@
           "label": "良秀 (Ryoshu)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ryoshu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -495,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4024,16 +3585,13 @@
           "label": "默尔索 (Meursault)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Meursault_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -360,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4042,16 +3600,13 @@
           "label": "鸿璐 (Hong Lu)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/HongLu_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -225,
+                65,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4060,16 +3615,13 @@
           "label": "希斯克利夫 (Heathcliff)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Heathcliff_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -900,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4078,16 +3630,13 @@
           "label": "以实玛利 (Ishmael)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Ishmael_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -765,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4096,16 +3645,13 @@
           "label": "罗佳 (Rodion)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Rodion_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -630,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4114,16 +3660,13 @@
           "label": "辛克莱 (Sinclair)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Sinclair_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -495,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4132,16 +3675,13 @@
           "label": "奥提斯 (Outis)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Outis_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -360,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         },
@@ -4150,16 +3690,13 @@
           "label": "格里高尔 (Gregor)",
           "pipeline_override": {
             "SelectSinnerSlot12": {
-              "recognition": {
-                "type": "TemplateMatch",
-                "template": "teams/Gregor_assets.png",
-                "threshold": 0.8
-              },
-              "action": "Click",
-              "post_delay": 200,
-              "next": [
-                "TeamFormationConfirm"
-              ]
+              "target_offset": [
+                -225,
+                315,
+                0,
+                0
+              ],
+              "action": "Click"
             }
           }
         }
