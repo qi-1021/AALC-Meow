@@ -321,6 +321,15 @@ class MaaFrameworkRunnerPort(
             return if (mode == RunMode.FOREGROUND) uiTextOf(R.string.msg_reject_primary_capture) else uiTextOf(R.string.msg_reject_virtual_display)
         }
 
+        if (mode == RunMode.BACKGROUND) {
+            // 若后台模式下游戏或其容器（如 Kuyo org.kuyo.game、OurPlay 等）已在运行，启动前自动将其栈移至虚拟屏
+            listOf("com.ProjectMoon.LimbusCompany", "org.kuyo.game", "com.excean.gspace").forEach { candidate ->
+                runCatching {
+                    service.moveAppToVirtualDisplay(candidate)
+                }
+            }
+        }
+
         bindRunnerCallback(service)
 
         val payload = RunPlanPayload(

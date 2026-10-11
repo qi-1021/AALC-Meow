@@ -33,7 +33,7 @@ TOP_KEYS = {
     'reduce_recognition', 'focus', 'focus_recognition', 'focus_target',
     'interrupt',
     # 动作
-    'action', 'action_params', 'target', 'target_offset', 'contact', 'pressure',
+    'action', 'action_params', 'package', 'target', 'target_offset', 'contact', 'pressure',
     'custom_action', 'custom_action_param', 'input', 'input_type', 'input_extra',
     'preset', 'enabled', 'direction', 'distance', 'begin', 'end', 'while', 'body',
     # 流转
@@ -67,10 +67,15 @@ BANNED = {
 
 def collect():
     nodes = {}
-    for f in glob.glob('assets/resource/pipeline/**/*.json', recursive=True):
+    duplicates = []
+    # 基础管线节点（跨文件不能有重名 key，否则 MaaFramework PipelineResMgr 报 key already exists 并终止加载）
+    for f in sorted(glob.glob('assets/resource/pipeline/**/*.json', recursive=True)):
         name = os.path.basename(f)
         d = json.load(open(f, encoding='utf-8'))
         for node_name, node in d.items():
+            if node_name in nodes:
+                prev_name = nodes[node_name][0]
+                duplicates.append((node_name, prev_name, name))
             nodes[node_name] = (name, node, f)
 
     # 同时也收集 tasks/*.json 中的 pipeline_override，防止无效字段溜进任务配置
@@ -90,13 +95,15 @@ def collect():
                 for i, item in enumerate(obj):
                     walk(item, f'{p}[{i}]')
         walk(d)
-    return nodes
-
+    return nodes, duplicates
 
 
 def check():
     errs, warns = [], []
-    nodes = collect()
+    nodes, duplicates = collect()
+    for dup, f1, f2 in duplicates:
+        errs.append(f"重复节点名 '{dup}' 同时存在于 {f1} 和 {f2} (MaaFramework 禁止同名 key)")
+
     have = {os.path.relpath(p, IMG) for p in glob.glob(f'{IMG}/**/*.png', recursive=True)}
 
     for name, (fname, node, path) in nodes.items():
@@ -116,6 +123,16 @@ def check():
 
         if is_override and base_node not in nodes:
             errs.append(f"{where}: 覆盖了不存在的管线节点 '{base_node}'")
+
+        act = node.get('action')
+        if isinstance(act, dict):
+            errs.append(f"{where}: action 必须为字符串 (如 'Click')，不能是对象 (旧格式)")
+
+        for rect_field in ('target', 'roi', 'fast_roi'):
+            if rect_field in node:
+                val = node[rect_field]
+                if isinstance(val, list) and len(val) not in (0, 4):
+                    errs.append(f"{where}: {rect_field} 矩形必须是 4 元组 [x, y, w, h]，实际长度为 {len(val)}")
 
         if is_v2:
             for k in rec:

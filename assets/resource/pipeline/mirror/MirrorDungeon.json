@@ -792,13 +792,13 @@
   },
   "MirrorPickInitGiftsFirstThree": {
     "doc": "点击前3个初始藏品并确认",
-    "action": {
-      "type": "Click",
-      "target": [
-        400,
-        450
-      ]
-    },
+    "action": "Click",
+    "target": [
+      400,
+      450,
+      50,
+      50
+    ],
     "post_delay": 400,
     "next": [
       "MirrorConfirmInitGifts"
@@ -934,13 +934,13 @@
   },
   "MirrorPickEgoGiftFirst": {
     "doc": "无匹配体系时，直接点击第一个饰品（屏幕固定坐标，通用 fallback）",
-    "action": {
-      "type": "Click",
-      "target": [
-        650,
-        540
-      ]
-    },
+    "action": "Click",
+    "target": [
+      650,
+      540,
+      50,
+      50
+    ],
     "post_delay": 800,
     "next": [
       "MirrorRefuseOrConfirmGift"

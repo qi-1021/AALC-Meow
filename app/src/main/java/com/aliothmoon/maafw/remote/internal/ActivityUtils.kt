@@ -77,17 +77,10 @@ object ActivityUtils {
         }
     }
 
-    private val KNOWN_REVERSE1999_PACKAGES = listOf(
-        "com.shenlan.m.reverse1999",
-        "com.shenlan.m.reverse1999.bilibili",
-        "com.shenlan.m.reverse1999.mi",
-        "com.shenlan.m.reverse1999.huawei",
-        "com.shenlan.m.reverse1999.nearme.gamecenter",
-        "com.shenlan.m.reverse1999.vivo",
-        "com.bluepoch.m.en.reverse1999",
-        "com.bluepoch.m.jp.reverse1999",
-        "com.bluepoch.m.kr.reverse1999",
-        "com.bluepoch.m.tw.reverse1999"
+    private val KNOWN_GAME_PACKAGES = listOf(
+        "com.ProjectMoon.LimbusCompany",
+        "org.kuyo.game",
+        "com.excean.gspace"
     )
 
     private fun isPackageInstalled(packageName: String): Boolean {
@@ -98,9 +91,9 @@ object ActivityUtils {
     }
 
     /**
-     * PI 的 StartApp 允许把 package 写成 `包名/Activity` 的 component 全名（M9A 的 startup.json 即是），
+     * PI 的 StartApp 允许把 package 写成 `包名/Activity` 的 component 全名，
      * 官方 adb controller 原样塞进 am start 所以两种都能用；走 PackageManager 与包名比对的地方必须先拆。
-     * 若拆出的包名在设备上未安装，但检测到其他渠道版本的重返未来1999，自动重定向到已安装的渠道包名。
+     * 若拆出的包名在设备上未安装，但检测到已安装的容器（如 Kuyo org.kuyo.game），自动重定向到可用渠道。
      */
     @JvmStatic
     fun packageNameOf(spec: String): String {
@@ -108,8 +101,8 @@ object ActivityUtils {
         if (isPackageInstalled(base)) {
             return base
         }
-        if (base.contains("reverse1999")) {
-            for (candidate in KNOWN_REVERSE1999_PACKAGES) {
+        if (base.contains("LimbusCompany", ignoreCase = true) || base.contains("ProjectMoon", ignoreCase = true)) {
+            for (candidate in KNOWN_GAME_PACKAGES) {
                 if (isPackageInstalled(candidate)) {
                     Ln.i("packageNameOf: redirected $base to installed candidate $candidate")
                     return candidate
@@ -263,8 +256,9 @@ object ActivityUtils {
                 return true
             }
         }
+        val targetPackage = packageNameOf(packageName)
         val pm = FakeContext.get().packageManager
-        val intent = pm.getLaunchIntentForPackage(packageName)
+        val intent = pm.getLaunchIntentForPackage(targetPackage)
         if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
             if (startActivity(intent, displayId, forceFullscreen = true)) {
@@ -296,10 +290,27 @@ object ActivityUtils {
     private fun findRecentTask(packageName: String): ActivityManager.RunningTaskInfo? {
         val am = FakeContext.get().getSystemService(ActivityManager::class.java) ?: return null
         @Suppress("DEPRECATION")
-        return am.getRunningTasks(100).firstOrNull { task ->
-            task.topActivity?.packageName == packageName
-                    || task.baseActivity?.packageName == packageName
+        val tasks = am.getRunningTasks(100).filter { task ->
+            task.topActivity?.packageName == packageName ||
+                task.baseActivity?.packageName == packageName ||
+                (packageName.contains("LimbusCompany", ignoreCase = true) &&
+                    (task.topActivity?.packageName in KNOWN_GAME_PACKAGES ||
+                        task.baseActivity?.packageName in KNOWN_GAME_PACKAGES))
         }
+        if (tasks.isEmpty()) return null
+
+        // 针对 Kuyo / OurPlay 等游戏容器：优先选取包含游戏代理 Activity、非主屏/非 MainActivity 的 Task
+        return tasks.firstOrNull { task ->
+            val topCls = task.topActivity?.className.orEmpty()
+            val baseCls = task.baseActivity?.className.orEmpty()
+            topCls.contains("raybox", ignoreCase = true) ||
+                topCls.contains("proxy", ignoreCase = true) ||
+                topCls.contains("Limbus", ignoreCase = true) ||
+                baseCls.contains("raybox", ignoreCase = true) ||
+                baseCls.contains("proxy", ignoreCase = true) ||
+                baseCls.contains("Limbus", ignoreCase = true) ||
+                (!topCls.endsWith(".MainActivity") && !baseCls.endsWith(".MainActivity"))
+        } ?: tasks.first()
     }
 
     private fun moveAppTaskToDisplay(packageName: String, displayId: Int): Boolean {

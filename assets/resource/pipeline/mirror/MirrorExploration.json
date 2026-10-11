@@ -125,13 +125,13 @@
   },
   "MirrorPickThemePackConfirm": {
     "doc": "选中卡包并点击确认（默认点击中间偏左位置的主题卡包）",
-    "action": {
-      "type": "Click",
-      "target": [
-        500,
-        540
-      ]
-    },
+    "action": "Click",
+    "target": [
+      500,
+      540,
+      50,
+      50
+    ],
     "post_delay": 1500,
     "next": [
       "MirrorDungeonExploration"
@@ -246,13 +246,13 @@
   },
   "MirrorRewardCardSelectFirst": {
     "doc": "无匹配偏好时选择第一张奖励卡（最左侧固定位置）",
-    "action": {
-      "type": "Click",
-      "target": [
-        400,
-        540
-      ]
-    },
+    "action": "Click",
+    "target": [
+      400,
+      540,
+      50,
+      50
+    ],
     "post_delay": 500,
     "next": [
       "ClickRewardCardConfirm"
@@ -402,13 +402,13 @@
   },
   "MirrorEgoGiftPickFirst": {
     "doc": "无体系匹配时选第一个饰品",
-    "action": {
-      "type": "Click",
-      "target": [
-        400,
-        540
-      ]
-    },
+    "action": "Click",
+    "target": [
+      400,
+      540,
+      50,
+      50
+    ],
     "post_delay": 600,
     "next": [
       "MirrorHandleEgoGiftBox"
@@ -462,7 +462,7 @@
     "action": "DoNothing",
     "next": [
       "MirrorShopHealAll",
-      "MirrorLeaveShop"
+      "MirrorLeaveShopInExploration"
     ]
   },
   "MirrorShopHealAll": {
@@ -476,7 +476,7 @@
     "post_delay": 800,
     "next": [
       "MirrorShopHealReturn",
-      "MirrorLeaveShop"
+      "MirrorLeaveShopInExploration"
     ],
     "roi": [
       1054,
@@ -495,16 +495,16 @@
     "action": "Click",
     "post_delay": 600,
     "next": [
-      "MirrorLeaveShop"
+      "MirrorLeaveShopInExploration"
     ],
     "roi": [
       1028,
       591,
       750,
-      112
+      126
     ]
   },
-  "MirrorLeaveShop": {
+  "MirrorLeaveShopInExploration": {
     "doc": "点击离开商店按钮",
     "recognition": {
       "type": "TemplateMatch",

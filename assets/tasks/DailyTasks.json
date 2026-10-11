@@ -118,10 +118,8 @@
           "label": "Google Play 官方包 (com.ProjectMoon.LimbusCompany)",
           "pipeline_override": {
             "StartLimbusCompany": {
-              "action": {
-                "type": "StartApp",
-                "package": "com.ProjectMoon.LimbusCompany"
-              }
+              "action": "StartApp",
+              "package": "com.ProjectMoon.LimbusCompany"
             }
           }
         },
@@ -130,10 +128,8 @@
           "label": "OurPlay 环境版（游戏为本地包，与官方包名一致）",
           "pipeline_override": {
             "StartLimbusCompany": {
-              "action": {
-                "type": "StartApp",
-                "package": "com.ProjectMoon.LimbusCompany"
-              }
+              "action": "StartApp",
+              "package": "com.ProjectMoon.LimbusCompany"
             }
           }
         },
@@ -142,10 +138,8 @@
           "label": "Kuyo 游戏盒（org.kuyo.game，须先在盒内手动启动游戏）",
           "pipeline_override": {
             "StartLimbusCompany": {
-              "action": {
-                "type": "StartApp",
-                "package": "org.kuyo.game"
-              }
+              "action": "StartApp",
+              "package": "org.kuyo.game"
             }
           }
         },
@@ -1013,7 +1007,7 @@
             "MirrorHandleShop": {
               "next": [
                 "MirrorShopHealAll",
-                "MirrorLeaveShop"
+                "MirrorLeaveShopInExploration"
               ]
             }
           }
@@ -1024,7 +1018,7 @@
           "pipeline_override": {
             "MirrorHandleShop": {
               "next": [
-                "MirrorLeaveShop"
+                "MirrorLeaveShopInExploration"
               ]
             }
           }
