@@ -249,6 +249,10 @@ object ActivityUtils {
      */
     @JvmStatic
     fun repinAppToDisplay(packageName: String, displayId: Int): Boolean {
+        if (isAppOnDisplay(packageName, displayId)) {
+            Ln.i("repinAppToDisplay: $packageName is already on display $displayId")
+            return true
+        }
         if (moveAppTaskToDisplay(packageName, displayId)) {
             SystemClock.sleep(REPIN_SETTLE_MS)
             if (isAppOnDisplay(packageName, displayId)) {
@@ -256,20 +260,9 @@ object ActivityUtils {
                 return true
             }
         }
-        val targetPackage = packageNameOf(packageName)
-        val pm = FakeContext.get().packageManager
-        val intent = pm.getLaunchIntentForPackage(targetPackage)
-        if (intent != null) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
-            if (startActivity(intent, displayId, forceFullscreen = true)) {
-                SystemClock.sleep(REPIN_SETTLE_MS)
-                if (isAppOnDisplay(packageName, displayId)) {
-                    Ln.i("repinAppToDisplay: $packageName relaunched onto display $displayId")
-                    return true
-                }
-            }
-        }
-        Ln.e("repinAppToDisplay: failed to pin $packageName on display $displayId")
+        // 对于沙箱容器（如 Kuyo/OurPlay）或游戏，切勿直接启动 LaunchIntent，
+        // 否则会触发容器的首页覆盖游戏 Activity，导致游戏被退回上一层/游戏库
+        Ln.w("repinAppToDisplay: task migration failed or not found for $packageName, avoid launching container main intent")
         return false
     }
 

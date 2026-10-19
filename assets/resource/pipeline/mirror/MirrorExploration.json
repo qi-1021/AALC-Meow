@@ -10,6 +10,10 @@
     "next": [
       "MirrorFloor3ExitAction",
       "ClickEnterNode",
+      "MirrorClickMyBus",
+      "MirrorClickBusNextNode",
+      "MirrorClickBusLowerNode",
+      "MirrorClickBusUpperNode",
       "MirrorHandleThemePackFeature",
       "MirrorHandleRewardCard",
       "MirrorHandleEgoGiftCard",
@@ -23,7 +27,7 @@
     "roi": [
       1158,
       55,
-      750,
+      122,
       92
     ]
   },
@@ -42,7 +46,7 @@
     "roi": [
       1156,
       0,
-      750,
+      124,
       108
     ]
   },
@@ -94,13 +98,14 @@
     "action": "Click",
     "post_delay": 1500,
     "next": [
+      "TeamFormationConfirm",
       "BattleAutoCombat",
       "MirrorDungeonExploration"
     ],
     "roi": [
       1026,
       488,
-      750,
+      254,
       109
     ]
   },
@@ -119,7 +124,7 @@
     "roi": [
       1126,
       60,
-      750,
+      154,
       117
     ]
   },
@@ -152,7 +157,7 @@
     "roi": [
       948,
       0,
-      750,
+      332,
       100
     ]
   },
@@ -481,7 +486,7 @@
     "roi": [
       1054,
       283,
-      750,
+      226,
       126
     ]
   },
@@ -500,7 +505,7 @@
     "roi": [
       1028,
       591,
-      750,
+      252,
       126
     ]
   },
@@ -553,7 +558,7 @@
     "roi": [
       1005,
       553,
-      750,
+      275,
       89
     ]
   },
@@ -604,6 +609,87 @@
       427,
       324,
       88
+    ]
+  },
+  "MirrorClickMyBus": {
+    "doc": "点击镜牢当前停驻的巴士图标（若已在可直进节点上）",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "mirror/mybus_default_distance.png",
+      "threshold": 0.7
+    },
+    "action": "Click",
+    "post_delay": 800,
+    "next": [
+      "ClickEnterNode",
+      "TeamFormationConfirm",
+      "BattleAutoCombat",
+      "MirrorClickBusNextNode"
+    ]
+  },
+  "MirrorClickBusNextNode": {
+    "doc": "基于巴士相对偏移点击下一节点（中路偏右+250px）",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "mirror/mybus_default_distance.png",
+      "threshold": 0.68
+    },
+    "action": "Click",
+    "target_offset": [
+      250,
+      0,
+      0,
+      0
+    ],
+    "post_delay": 800,
+    "next": [
+      "ClickEnterNode",
+      "TeamFormationConfirm",
+      "BattleAutoCombat",
+      "MirrorClickBusLowerNode"
+    ]
+  },
+  "MirrorClickBusLowerNode": {
+    "doc": "基于巴士相对偏移点击下路节点（+250px, +150px）",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "mirror/mybus_default_distance.png",
+      "threshold": 0.68
+    },
+    "action": "Click",
+    "target_offset": [
+      250,
+      150,
+      0,
+      0
+    ],
+    "post_delay": 800,
+    "next": [
+      "ClickEnterNode",
+      "TeamFormationConfirm",
+      "BattleAutoCombat",
+      "MirrorClickBusUpperNode"
+    ]
+  },
+  "MirrorClickBusUpperNode": {
+    "doc": "基于巴士相对偏移点击上路节点（+250px, -150px）",
+    "recognition": {
+      "type": "TemplateMatch",
+      "template": "mirror/mybus_default_distance.png",
+      "threshold": 0.68
+    },
+    "action": "Click",
+    "target_offset": [
+      250,
+      -150,
+      0,
+      0
+    ],
+    "post_delay": 800,
+    "next": [
+      "ClickEnterNode",
+      "TeamFormationConfirm",
+      "BattleAutoCombat"
     ]
   }
 }

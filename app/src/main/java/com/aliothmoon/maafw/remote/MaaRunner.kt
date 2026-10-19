@@ -554,9 +554,13 @@ class MaaRunner(private val agentHost: AgentHost) {
      * screen_resolution 必须与帧缓冲、触摸坐标空间三者一致，不一致时 screencap 立即失败
      * library_path 用裸名：bridge 已在本进程加载，控制单元 dlopen 同名即命中同一份
      *
-     * 虚拟屏模式下 force_stop 必须为 true：目标应用若已在主屏上跑着，startActivity 会复用它在主屏的
-     * 既有 task，虚拟屏上拿不到画面。先杀掉再拉起，进程才会落到虚拟屏上
-     * 主屏模式反过来——目标就在主屏，杀掉只会把用户已经摆好的现场清空
+     * force_stop 改为始终 false：
+     * 绝大多数边狱巴士玩家通过酷游加速器（Kuyo / Raybox 沙箱）或 OurPlay 运行游戏，
+     * 游戏包名（com.ProjectMoon.LimbusCompany）并非原生安装在宿主系统中。
+     * 若 force_stop=true，MaaFramework 底层会执行 am force-stop 强杀该包名，
+     * 导致沙箱内已启动的游戏进程被终止；随后尝试 am start 重新拉起时，
+     * 因系统中不存在该包名的独立安装而直接失败——虚拟屏上退回到加速器首页。
+     * 设为 false 后，controller 直接接管虚拟显示器上已有的游戏画面，不做杀进程操作。
      */
     private fun buildControllerConfig(payload: RunPlanPayload, displayId: Int): String {
         val (width, height) = when (payload.displayMode) {
@@ -577,7 +581,7 @@ class MaaRunner(private val agentHost: AgentHost) {
                 put("height", height)
             })
             put("display_id", displayId)
-            put("force_stop", payload.displayMode != DisplayMode.PRIMARY)
+            put("force_stop", false)
             // 推理后端：cpu（默认）/ nnapi / vulkan；不支持时 MaaFramework 自动回退 cpu
             if (payload.inferenceDevice.isNotBlank() && payload.inferenceDevice != "cpu") {
                 put("inference_device", payload.inferenceDevice)

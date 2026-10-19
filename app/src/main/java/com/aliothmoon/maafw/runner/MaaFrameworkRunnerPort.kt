@@ -323,9 +323,10 @@ class MaaFrameworkRunnerPort(
 
         if (mode == RunMode.BACKGROUND) {
             // 若后台模式下游戏或其容器（如 Kuyo org.kuyo.game、OurPlay 等）已在运行，启动前自动将其栈移至虚拟屏
-            listOf("com.ProjectMoon.LimbusCompany", "org.kuyo.game", "com.excean.gspace").forEach { candidate ->
-                runCatching {
-                    service.moveAppToVirtualDisplay(candidate)
+            val candidates = listOf("com.ProjectMoon.LimbusCompany", "org.kuyo.game", "com.excean.gspace")
+            for (candidate in candidates) {
+                if (runCatching { service.moveAppToVirtualDisplay(candidate) }.getOrDefault(false)) {
+                    break
                 }
             }
         }
