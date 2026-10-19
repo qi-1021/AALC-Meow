@@ -91,12 +91,24 @@ python3 scripts/audit_templates.py           # 逐张列出可疑模板
 
 ## 五、发版
 
+> **出包必须在 GitHub。** 自建 Forgejo 镜像（`code.qiisme1021.space`，remote `forgejo`）
+> 没有 Actions（`has_actions: false`），推送它只能存档，不会产生 APK。
+> 因此 `origin` 指向 GitHub，`forgejo` 仅作镜像；两者都可推，但**发版只认 origin**。
+
 ```bash
-git tag -a v0.3.0-beta.1 -m "..." 
-git push origin master --tags
-gh run list -R qi-1021/AALC-Meow -L 2      # 等 Build AALC-Meow APK 变绿
+git remote -v                                # 确认 origin = github.com/qi-1021/AALC-Meow
+git tag -a v0.3.0-beta.1 -m "..."
+git push origin master --tags                # 推 GitHub 才会触发构建 + Release
+gh run list -R qi-1021/AALC-Meow -L 2        # 等 Build AALC-Meow APK 变绿
 gh release view v0.3.0-beta.1 -R qi-1021/AALC-Meow
 ```
+
+完整流程注意两点：
+
+1. **推送前先与远端对齐**：`git fetch origin && git rebase origin/master`。
+   cron 触发的 auto-sync 会往远端写提交，直接 push 会被拒。
+2. **本地 submodule 可能与仓库指针不一致**（尤其变基后）：
+   提交前先 `git submodule update --init upstream/aalc`，否则会把 submodule 指针降级提交上去。
 
 推 tag 前务必跑一次全量校验：
 
