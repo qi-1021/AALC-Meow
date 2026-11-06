@@ -7,8 +7,8 @@
       "name": "AALC (AhabAssistantLimbusCompany)",
       "repository": "https://github.com/KIYI671/AhabAssistantLimbusCompany",
       "path": "upstream/aalc",
-      "pinned_commit": "7438346bfa7fcdffd5de6d5a0349aa61dfaa5d6d",
-      "pinned_tag": "V1.6.1-beta.13",
+      "pinned_commit": "8ea9dd325b356c9e595325f038d9068fefaaf13d",
+      "pinned_tag": "V1.6.1-beta.14",
       "description": "上游业务资源仓库，提供 interface.json、tasks、resource、teams/mirror/event 等全量识别模板与流程逻辑（唯一权威参考）"
     },
     "maa_framework": {
